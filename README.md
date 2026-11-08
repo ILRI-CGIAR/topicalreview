@@ -7,7 +7,8 @@ Minimal starter for `ILRI-CGIAR/topicalreview`. **Proposed schema v1.1**; not ye
 - `config/article.schema.json`: JSON Schema for one article per JSONL line, including Lens-style bibliographic metadata.
 - `config/ontology_template.csv`: empty **template**, not an approved codebook. Never fabricate code-label pairs.
 - `examples/example.jsonl`: fictional format example. Its category numbering/labels are **illustrative**, not approved ontology values.
-- `R/build_tables.R`: offline reader, structural checks and dashboard table export.
+- `R/build_tables.R`: offline reader of already-approved canonical JSONL, structural checks and dashboard table export.
+- `R/legacy_preflight.R`: offline, **source-first** review of the `data` sheet. Emits a row-level conflict report and a lossless raw-row JSONL archive. **Does not produce canonical thematic codes**.
 - `tests/smoke_test.R`: basic self-test.
 - `.gitignore`: keeps original workbooks, licensed metadata, full texts, raw extracts and generated outputs out of Git.
 
@@ -36,6 +37,20 @@ Rscript tests/smoke_test.R
 
 Generated outputs include `canonical.jsonl` (unchanged records), `articles.csv`, `article_countries.csv`, `article_thematic_codes.csv`, `article_facets.csv`, `article_flags.csv`. All generated outputs are ignored by Git. The script rejects duplicate IDs, missing structural fields, incorrect types, blank codes/labels and broken numeric parent prefixes. It makes no automatic corrections or silent mappings. The JSON schema can be checked separately with any Draft 2020-12 validator; it is **not** fully enforced by the R script yet.
 
+## Legacy data: source-of-truth and conflict policy
+
+The latest `data` tab of the workbook is authoritative over the coding manual **where they disagree**. A column heading is never a coded cell value. Do not turn an option number or label into a fabricated hierarchical ID. Keep every exact source label and its column/Excel row; preserve the original value even when it cannot be mapped.
+
+In particular, the worksheet has `3.5 Climate Information System` with `CIEW` in 68 cells. The manual's option `(5) Other adaptations which do not fit above categories? (Specify)` is not automatically `3.5 Other`, and neither `3.5.1 CIEW` nor `3.99 Other` is approved. The worksheet's `5.2 Method time scale` uses option `5` for two different labels. A legacy crosswalk must be explicitly approved, with exact source column + value, three levels of complete code/label pairs, and human sign-off. Unknown values are unresolved, **not auto-normalised or discarded**. Where there is any unresolved conflict, canonical export is blocked.
+
+Run the preliminary local audit (install `readxl` and `jsonlite` once):
+
+```bash
+Rscript R/legacy_preflight.R --input /absolute/path/workbook.xlsx --out local_audit/preflight_01
+```
+
+The output directory must be empty. This creates review flags and an archive of unmodified source cell values, but no canonical dataset. The preflight is not a replacement for full ontology/ISO3 validation and the initial full audit must be reviewed before conversion. The original workbook stays offline and unchanged.
+
 ## Future updates
 
 Store raw model responses, PDFs and adjudications locally. Create **one current canonical record per stable article ID**; retain previous extraction versions in a separate local history, never append duplicate articles to a current snapshot. Validate and adjudicate before dashboard publication. Rebuild dashboard tables from a current-state JSONL snapshot on each update. Count distinct article IDs. Do not commit research data or generated tables. Do not add CI automation until a safe local workflow has been tested.
@@ -47,4 +62,4 @@ Store raw model responses, PDFs and adjudications locally. Create **one current 
 3. Add full schema, ontology, and genuine ISO-3 membership validation; add tests against representative real records.
 4. Confirm allowed adaptation, mitigation, methods and hazards vocabulary, plus missing/not-applicable semantics.
 
-The repository deliberately does **not** include the earlier legacy Excel importer: its flat code mapping would violate the approved hierarchical contract. Implement it after the crosswalk is signed off.
+The repository deliberately does **not** include a permissive legacy Excel-to-canonical converter: its prior flat code mapping violated the hierarchical contract. Implement an exact, fail-closed converter only after the crosswalk is signed off.
