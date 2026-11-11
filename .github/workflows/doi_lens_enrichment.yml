@@ -1,0 +1,54 @@
+name: DOI bibliographic lookup (Lens)
+on:
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: "Private release tag containing CGIAR_Lens_enrichment_input.csv"
+        required: true
+        default: "doi-lookup-input"
+      release_filename:
+        description: "CSV asset filename on that release"
+        required: true
+        default: "CGIAR_Lens_enrichment_input.csv"
+
+permissions:
+  contents: read
+
+jobs:
+  enrich:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: python -m pip install requests
+      - name: Download input CSV from private release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ inputs.release_tag }}
+          FILENAME: ${{ inputs.release_filename }}
+        run: |
+          mkdir -p doi_input
+          gh release download "$TAG" --repo "$GITHUB_REPOSITORY" --pattern "$FILENAME" --dir doi_input --clobber
+          test -s "doi_input/$FILENAME"
+      - name: Verify token is configured
+        env:
+          LENS_API_TOKEN: ${{ secrets.LENS_API_TOKEN }}
+        run: |
+          if [[ -z "$LENS_API_TOKEN" ]]; then echo "Missing LENS_API_TOKEN secret" >&2; exit 1; fi
+      - name: Enrich by exact DOI match
+        env:
+          LENS_API_TOKEN: ${{ secrets.LENS_API_TOKEN }}
+          FILENAME: ${{ inputs.release_filename }}
+        run: |
+          python DOI_bibl_lookup/enrich.py "doi_input/$FILENAME" enriched_lens.csv
+      - name: Upload enriched results
+        uses: actions/upload-artifact@v4
+        with:
+          name: cgiar-lens-enrichment
+          path: enriched_lens.csv
+          retention-days: 7
+          if-no-files-found: error
