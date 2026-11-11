@@ -61,7 +61,7 @@ def details(hit):
 
 def query(session, doi):
     body = {
-        "query": {"match": {"external_ids.value": doi}},
+        "query": {"match": {"ids.doi": doi}},
         "size": 30,
         "include": ["lens_id", "title", "authors", "year_published", "source",
                     "volume", "issue", "start_page", "end_page", "abstract",
