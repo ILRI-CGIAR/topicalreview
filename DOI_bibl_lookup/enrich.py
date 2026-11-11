@@ -101,6 +101,12 @@ def run(source, destination):
     for index, doi in enumerate(unique, 1):
         payload = query(session, doi)
         hits = {}
+        if os.environ.get("LENS_DEBUG") == "1" and index <= 3:
+            sample = (payload.get("data") or [{}])[0]
+            print("Lens diagnostic:", {"doi": doi, "total": payload.get("total"),
+                "response_keys": list(payload.keys()),
+                "sample_id_types": [x.get("type") for x in sample.get("external_ids",[]) if isinstance(x,dict)],
+                "sample_doi": [x.get("value") for x in sample.get("external_ids",[]) if isinstance(x,dict) and x.get("type")=="doi"]}, flush=True)
         for hit in payload.get("data", []):
             if doi in doi_set(hit):
                 lens_id = hit.get("lens_id")
@@ -110,6 +116,8 @@ def run(source, destination):
         if index % 50 == 0 or index == len(unique):
             print(f"Queried {index}/{len(unique)} unique DOIs", flush=True)
         time.sleep(0.15)
+    if not any(matches.values()):
+        print("WARNING: Zero exact DOI matches across all queried DOIs; inspect request fields before using output.", file=sys.stderr)
     for row in rows:
         row.update({field: "" for field in NEW})
         doi = doi_norm(row.get("DOI"))
