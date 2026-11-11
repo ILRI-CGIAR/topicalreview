@@ -1,5 +1,8 @@
 name: DOI bibliographic lookup (Lens)
 on:
+  push:
+    paths:
+      - 'DOI_bibl_lookup/doi_input.csv'
   workflow_dispatch:
     inputs:
       release_tag:
@@ -16,6 +19,7 @@ permissions:
 
 jobs:
   enrich:
+    if: github.event_name != 'push' || contains(github.event.head_commit.message, '[lens-run]')
     runs-on: ubuntu-latest
     timeout-minutes: 120
     steps:
@@ -26,6 +30,7 @@ jobs:
       - name: Install dependencies
         run: python -m pip install requests
       - name: Download input CSV from private release
+        if: github.event_name == 'workflow_dispatch'
         env:
           GH_TOKEN: ${{ github.token }}
           TAG: ${{ inputs.release_tag }}
@@ -34,6 +39,12 @@ jobs:
           mkdir -p doi_input
           gh release download "$TAG" --repo "$GITHUB_REPOSITORY" --pattern "$FILENAME" --dir doi_input --clobber
           test -s "doi_input/$FILENAME"
+      - name: Use DOI input on repository push
+        if: github.event_name == 'push'
+        run: |
+          test -s DOI_bibl_lookup/doi_input.csv
+          mkdir -p doi_input
+          cp DOI_bibl_lookup/doi_input.csv doi_input/doi_input.csv
       - name: Verify token is configured
         env:
           LENS_API_TOKEN: ${{ secrets.LENS_API_TOKEN }}
@@ -42,7 +53,7 @@ jobs:
       - name: Enrich by exact DOI match
         env:
           LENS_API_TOKEN: ${{ secrets.LENS_API_TOKEN }}
-          FILENAME: ${{ inputs.release_filename }}
+          FILENAME: ${{ github.event_name == 'push' && 'doi_input.csv' || inputs.release_filename }}
         run: |
           python DOI_bibl_lookup/enrich.py "doi_input/$FILENAME" enriched_lens.csv
       - name: Upload enriched results
