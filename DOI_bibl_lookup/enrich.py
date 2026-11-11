@@ -61,8 +61,8 @@ def details(hit):
 
 def query(session, dois):
     body = {
-        "query": {"bool": {"should": [{"match": {"ids.doi": d}} for d in dois]}},
-        "size": 1000,
+        "query": {"terms": {"ids.doi": dois}},
+        "size": 500,
         "include": ["lens_id", "title", "authors", "year_published", "source",
                     "volume", "issue", "start_page", "end_page", "abstract",
                     "external_ids"]
@@ -103,7 +103,7 @@ def run(source, destination):
     for offset in range(0, len(unique), 50):
         group = unique[offset:offset + 50]
         payload = query(session, group)
-        if payload.get("total", 0) > 1000:
+        if payload.get("total", 0) > 500:
             raise RuntimeError("Lens batch exceeded response limit; reduce batch size")
         if os.environ.get("LENS_DEBUG") == "1" and offset == 0:
             print("Lens batch diagnostic:", {"requested": len(group),
