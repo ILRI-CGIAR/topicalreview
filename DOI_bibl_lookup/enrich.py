@@ -59,10 +59,10 @@ def details(hit):
         pages, hit.get("abstract") or "", hit.get("lens_id") or ""
     ]))
 
-def query(session, doi):
+def query(session, dois):
     body = {
-        "query": {"match": {"ids.doi": doi}},
-        "size": 30,
+        "query": {"terms": {"ids.doi": dois}},
+        "size": 1000,
         "include": ["lens_id", "title", "authors", "year_published", "source",
                     "volume", "issue", "start_page", "end_page", "abstract",
                     "external_ids"]
@@ -95,26 +95,28 @@ def run(source, destination):
             sys.exit("Input already contains enrichment columns: refusing to overwrite")
         rows = list(reader)
     unique = sorted({doi_norm(row.get("DOI")) for row in rows if doi_norm(row.get("DOI"))})
-    matches = {}
+    matches = {doi: [] for doi in unique}
     session = requests.Session()
     session.headers.update({"Authorization": "Bearer " + token, "Content-Type": "application/json"})
-    for index, doi in enumerate(unique, 1):
-        payload = query(session, doi)
-        hits = {}
-        if os.environ.get("LENS_DEBUG") == "1" and index <= 3:
-            sample = (payload.get("data") or [{}])[0]
-            print("Lens diagnostic:", {"doi": doi, "total": payload.get("total"),
-                "response_keys": list(payload.keys()),
-                "sample_id_types": [x.get("type") for x in sample.get("external_ids",[]) if isinstance(x,dict)],
-                "sample_doi": [x.get("value") for x in sample.get("external_ids",[]) if isinstance(x,dict) and x.get("type")=="doi"]}, flush=True)
-        for hit in payload.get("data", []):
-            if doi in doi_set(hit):
-                lens_id = hit.get("lens_id")
-                if lens_id:
-                    hits[lens_id] = hit
-        matches[doi] = list(hits.values())
-        if index % 50 == 0 or index == len(unique):
-            print(f"Queried {index}/{len(unique)} unique DOIs", flush=True)
+    for offset in range(0, len(unique), 50):
+        group = unique[offset:offset + 50]
+        payload = query(session, group)
+        if payload.get("total", 0) > 1000:
+            raise RuntimeError("Lens batch exceeded response limit; reduce batch size")
+        if os.environ.get("LENS_DEBUG") == "1" and offset == 0:
+            print("Lens batch diagnostic:", {"requested": len(group),
+                "total": payload.get("total"),
+                "returned": len(payload.get("data") or [])}, flush=True)
+        for hit in payload.get("data") or []:
+            lens_id = hit.get("lens_id")
+            if not lens_id:
+                continue
+            for d in doi_set(hit).intersection(group):
+                if not any(h.get("lens_id") == lens_id for h in matches.get(d, [])):
+                    matches.setdefault(d, []).append(hit)
+        if offset == 0 and not any(matches.get(d) for d in group):
+            raise RuntimeError("First Lens terms batch returned no exact DOI matches")
+        print(f"Queried {min(offset+len(group),len(unique))}/{len(unique)} unique DOIs (batched)", flush=True)
         time.sleep(0.15)
     if not any(matches.values()):
         raise RuntimeError("All DOI lookups returned zero matches; refusing an empty enrichment output")
