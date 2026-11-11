@@ -61,7 +61,7 @@ def details(hit):
 
 def query(session, dois):
     body = {
-        "query": {"terms": {"ids.doi": dois}},
+        "query": {"bool": {"should": [{"match": {"ids.doi": d}} for d in dois]}},
         "size": 1000,
         "include": ["lens_id", "title", "authors", "year_published", "source",
                     "volume", "issue", "start_page", "end_page", "abstract",
@@ -74,6 +74,8 @@ def query(session, dois):
                 retry = int(response.headers.get("x-rate-limit-retry-after-seconds", "5"))
                 time.sleep(min(90, max(retry, 3 * (attempt + 1))))
                 continue
+            if response.status_code == 400:
+                raise RuntimeError("Lens query rejected (400): " + response.text[:400])
             response.raise_for_status()
             return response.json()
         except requests.RequestException:
