@@ -5,7 +5,7 @@ from pathlib import Path
 import requests
 
 def normalize_doi(value):
-    return re.sub(r"^https?://(?:dx\\.)?doi\\.org/", "", str(value or "").strip(), flags=re.I).lower().rstrip(".,;")
+    return re.sub(r"^https?://(?:dx\.)?doi\.org/", "", str(value or "").strip(), flags=re.I).lower().rstrip(".,;")
 
 def abstract_from_index(idx):
     if not isinstance(idx, dict) or not idx:
