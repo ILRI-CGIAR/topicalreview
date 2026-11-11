@@ -117,7 +117,7 @@ def run(source, destination):
             print(f"Queried {index}/{len(unique)} unique DOIs", flush=True)
         time.sleep(0.15)
     if not any(matches.values()):
-        print("WARNING: Zero exact DOI matches across all queried DOIs; inspect request fields before using output.", file=sys.stderr)
+        raise RuntimeError("All DOI lookups returned zero matches; refusing an empty enrichment output")
     for row in rows:
         row.update({field: "" for field in NEW})
         doi = doi_norm(row.get("DOI"))
