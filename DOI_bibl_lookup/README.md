@@ -3,7 +3,7 @@
 This folder contains only reusable code, not research data or credentials.
 
 ## Purpose
-Append Lens bibliographic metadata to the CGIAR topical review's source-faithful CSV using its DOI column. Existing data columns remain unchanged. Each lookup is verified against the DOI in the returned Lens `external_ids` array; ambiguous or absent matches are flagged. The output has the same rows and nine additional metadata fields plus a match-status field.
+Append Lens bibliographic metadata to the CGIAR topical review's source-faithful CSV using its DOI column. Existing data columns remain unchanged. DOIs are queried in validated batches of 50 using the current Lens `ids.doi` field. Every returned record is verified against its DOI in the Lens `external_ids` array; ambiguous or absent matches are flagged. The output has the same rows and nine bibliographic metadata fields plus a match-status field.
 
 ## Run
 Install `requests` and make the token available to the **process running this code** as `LENS_API_TOKEN`.
@@ -16,7 +16,7 @@ python DOI_bibl_lookup/enrich.py /path/input.csv /path/output_enriched.csv
 Do not upload the token, the actual input CSV, or enriched output to GitHub. Keep them on your local computer or in a restricted workflow artifact. The script refuses to overwrite existing enrichment columns.
 
 ## Access boundary
-The `LENS_API_TOKEN` held as a GitHub Actions secret in `thesalmonandthetomato/LivingEvidenceMap` is usable by that repository's workflows, but cannot be read via the GitHub connector or used directly by workflows in `ILRI-CGIAR/topicalreview`. It cannot be transferred between organisations automatically. Running this script requires a token in the executing environment or an existing authorised credential-bearing workflow. Do not add temporary validation workflows to the salmon project.
+This repository has its own `LENS_API_TOKEN` GitHub Actions secret. Secrets are accessed by the workflow at runtime and must never be included in source files or exported artifacts. The salmon farming repository is not required for this workflow.
 
 ## Match statuses
 `EXACT_DOI_MATCH`, `NO_EXACT_DOI_MATCH`, `MISSING_DOI`, `MULTIPLE_EXACT_MATCHES_REVIEW`. No fallback matching on title is attempted.
