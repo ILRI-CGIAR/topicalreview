@@ -258,6 +258,13 @@ main > section.panel, main > section.characteristics, main > section.theme-explo
 #productFrequencyTable th{position:sticky;top:0;background:#f7f9fb;z-index:1;}
 #productFrequencyTable th:last-child,#productFrequencyTable td:last-child{text-align:right;}
 #productFrequencyTable td:first-child{width:75px;color:var(--muted,#56657b);}
+</style><style id="dbActiveFilterStyles">
+#database .db-active-filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;max-width:100%;}
+#database .db-active-filter-chip{border:1px solid #d9d3e5;border-radius:8px;background:#f5f0f8;color:#54366a;font:inherit;font-size:12px;line-height:1.35;padding:8px 10px;max-width:min(100%,390px);white-space:normal;text-align:left;overflow-wrap:anywhere;cursor:pointer;}
+#database .db-active-filter-chip:hover{background:#ebe3f1;}
+#database .db-active-filter-chip:focus-visible{outline:2px solid #8053a0;outline-offset:2px;}
+#database .bar:has(.db-active-filters){flex-wrap:wrap;align-items:flex-start;}
+#database .bar .records-title{margin-right:auto;}
 </style></head><body><main>
 <header><div><div class="eyebrow">EVIDENCE DASHBOARD</div><h1>CGIAR Climate-related Journal Articles in Low- and Middle-Income Countries</h1></div></header>
 
@@ -327,7 +334,7 @@ main > section.panel, main > section.characteristics, main > section.theme-explo
   <p class="characteristics-note">Counts are numbers of articles. A record may have multiple nature codes. Nature bar denominators include articles coded to the relevant nature variable within Theme 3 or Theme 4. Yes/No bars use only coded Yes and No responses; blank values are excluded from those bars.</p>
 </section>
 __WORDCLOUD_SECTION__
-<section id="database" class="panel database" tabindex="-1"><div class="bar"><div class="records-title"><strong>Article database</strong><small id="dbStatus">All articles</small></div><div id="traitChips" class="characteristics-active-filters" aria-label="Selected adaptation and mitigation filters"></div><div id="themeChip" class="country-chip hidden"><span id="themeName"></span><button id="clearTheme" type="button" title="Remove theme filter">Clear theme ×</button></div><div id="countryChip" class="country-chip hidden"><span id="countryName"></span><button id="clearCountry" type="button" title="Remove country filter">Clear country ×</button></div></div><div class="dbfilters"><label for="search">Boolean search</label><input id="search" type="search" aria-describedby="searchHelp searchError" placeholder='e.g. (drought OR flood*) AND NOT "climate model"'><button type="button" id="clearSearch">Clear search</button><span id="listCount"></span></div><div class="db-dropdowns" aria-label="Filter article database"><label for="dbTheme">High-level theme <select id="dbTheme"><option value="all">All high-level themes</option></select></label><label for="dbYear">Year <select id="dbYear"><option value="all">All years</option></select></label><label for="dbCrop">Product <select id="dbCrop"><option value="all">All products</option></select></label><label for="dbCountry">Country <select id="dbCountry" class="country-select"><option value="all">All countries</option></select></label><button id="clearDbFilters" type="button">Clear filters</button></div><div class="searchhelp" id="searchHelp">Supports <code>AND</code>, <code>OR</code>, <code>NOT</code>, parentheses, <code>"exact phrases"</code>, wildcards <code>*</code> and <code>?</code>, and fields such as <code>TITLE:</code>, <code>CROP:</code>, <code>COUNTRY:</code>, <code>YEAR:</code>. Search covers available bibliographic metadata, crop and country codes. Full abstracts and available bibliographic fields are searchable where Lens returned exact DOI matches; missing metadata are left blank. Invalid queries show an error and do not update the results.</div><div id="searchError" class="searcherror" role="alert"></div><div class="tablewrap"><table><thead><tr><th>Title &amp; summary</th><th>Year</th><th>Authors</th><th>Source / Vol / PP</th><th>Product</th><th>Country</th><th>Coded themes</th></tr></thead><tbody id="recordRows"></tbody></table></div><div class="pager"><button type="button" id="prev">Previous</button><span id="pageInfo"></span><button type="button" id="next">Next</button></div></section>
+<section id="database" class="panel database" tabindex="-1"><div class="bar"><div class="records-title"><strong>Article database</strong><small id="dbStatus">All articles</small></div><div id="traitChips" class="characteristics-active-filters" aria-label="Selected adaptation and mitigation filters"></div><div id="dbActiveFilters" class="db-active-filters" aria-label="Other active database filters"></div><div id="themeChip" class="country-chip hidden"><span id="themeName"></span><button id="clearTheme" type="button" title="Remove theme filter">Clear theme ×</button></div><div id="countryChip" class="country-chip hidden"><span id="countryName"></span><button id="clearCountry" type="button" title="Remove country filter">Clear country ×</button></div></div><div class="dbfilters"><label for="search">Boolean search</label><input id="search" type="search" aria-describedby="searchHelp searchError" placeholder='e.g. (drought OR flood*) AND NOT "climate model"'><button type="button" id="clearSearch">Clear search</button><span id="listCount"></span></div><div class="db-dropdowns" aria-label="Filter article database"><label for="dbTheme">High-level theme <select id="dbTheme"><option value="all">All high-level themes</option></select></label><label for="dbYear">Year <select id="dbYear"><option value="all">All years</option></select></label><label for="dbCrop">Product <select id="dbCrop"><option value="all">All products</option></select></label><label for="dbCountry">Country <select id="dbCountry" class="country-select"><option value="all">All countries</option></select></label><button id="clearDbFilters" type="button">Clear filters</button></div><div class="searchhelp" id="searchHelp">Supports <code>AND</code>, <code>OR</code>, <code>NOT</code>, parentheses, <code>"exact phrases"</code>, wildcards <code>*</code> and <code>?</code>, and fields such as <code>TITLE:</code>, <code>CROP:</code>, <code>COUNTRY:</code>, <code>YEAR:</code>. Search covers available bibliographic metadata, crop and country codes. Full abstracts and available bibliographic fields are searchable where Lens returned exact DOI matches; missing metadata are left blank. Invalid queries show an error and do not update the results.</div><div id="searchError" class="searcherror" role="alert"></div><div class="tablewrap"><table><thead><tr><th>Title &amp; summary</th><th>Year</th><th>Authors</th><th>Source / Vol / PP</th><th>Product</th><th>Country</th><th>Coded themes</th></tr></thead><tbody id="recordRows"></tbody></table></div><div class="pager"><button type="button" id="prev">Previous</button><span id="pageInfo"></span><button type="button" id="next">Next</button></div></section>
 <div id="methodFoot" class="footnote"></div></main>
 <script>
 const records=__DASHBOARD_RECORDS_JSON__;
@@ -599,7 +606,17 @@ function renderDatabase(){
  rows.sort((a,b)=>(b.year||0)-(a.year||0)||String(a.title||'').localeCompare(String(b.title||'')));
  renderTraitChips();el('themeChip').classList.toggle('hidden',!selectedThemeNode);if(selectedThemeNode)el('themeName').textContent='Coded theme: '+selectedThemeNode.label;el('countryChip').classList.toggle('hidden',!selectedCountry);
  if(selectedCountry)el('countryName').textContent=countryName(selectedCountry)+' ('+selectedCountry+')';
- el('dbStatus').textContent=[selectedHighLevelTheme==='all'?null:'High-level theme: '+(highLevelThemeLabels.find(([id])=>id===selectedHighLevelTheme)||[])[1],selectedCountry?'Country: '+countryName(selectedCountry):null,selectedThemeNode?'Theme: '+selectedThemeNode.label:null,Object.keys(traitFilters).length?'Adaptation/mitigation filters applied':null].filter(Boolean).join(' · ')||'Showing all countries and themes';
+ const filterDescriptions=[
+  selectedHighLevelTheme==='all'?null:'High-level theme: '+(highLevelThemeLabels.find(([id])=>id===selectedHighLevelTheme)||[])[1],
+  yr.value==='all'?null:'Year: '+yr.value,
+  crop.value==='all'?null:'Product: '+crop.value,
+  selectedCountry?'Country: '+countryName(selectedCountry):null,
+  search.value.trim()?'Boolean search: '+search.value.trim():null,
+  selectedThemeNode?'Coded theme: '+selectedThemeNode.label:null,
+  ...Object.entries(traitFilters).map(([key,val])=>TRAIT_LABELS[key]+': '+(key.endsWith('_nature')?shortNatureLabel(TRAIT_NATURE_DEFS[key][val]):val==='1'?'Yes':'No'))
+ ];
+ el('dbStatus').textContent=filterDescriptions.filter(Boolean).join(' · ')||'All articles · No filters applied';
+ renderDatabaseFilterChips();
  el('listCount').textContent=nfmt(rows.length)+' article(s)';
  const pages=Math.max(1,Math.ceil(rows.length/pageSize));currentPage=Math.min(currentPage,pages);
  const slice=rows.slice((currentPage-1)*pageSize,currentPage*pageSize);const body=el('recordRows');body.replaceChildren();
@@ -655,6 +672,18 @@ const TRAIT_LABELS = {
  mitigation_quantitative:'Quantitative estimate of GHG mitigated',
  mitigation_cobenefits:'Mitigation with adaptation benefits'};
 function shortNatureLabel(s){return String(s||'').split(' (')[0];}
+function renderDatabaseFilterChips(){
+ const host=el('dbActiveFilters');host.replaceChildren();
+ function add(label,clear){
+  const chip=document.createElement('button');chip.type='button';chip.className='db-active-filter-chip';
+  chip.textContent=label+' ×';chip.title='Clear '+label;chip.setAttribute('aria-label','Clear '+label);
+  chip.addEventListener('click',clear);host.appendChild(chip);
+ }
+ if(selectedHighLevelTheme!=='all')add('High-level theme: '+(highLevelThemeLabels.find(([id])=>id===selectedHighLevelTheme)||[])[1],()=>{selectedHighLevelTheme='all';currentPage=1;updateMap();});
+ if(yr.value!=='all')add('Year: '+yr.value,()=>{yr.value='all';currentPage=1;updateMap();});
+ if(crop.value!=='all')add('Product: '+crop.value,()=>{crop.value='all';currentPage=1;updateMap();});
+ if(search.value.trim())add('Boolean search: '+search.value.trim(),()=>{search.value='';compileSearch();currentPage=1;updateMap();});
+}
 function renderTraitChips(){
  const host=el('traitChips');host.replaceChildren();
  for(const [key,val] of Object.entries(traitFilters)){
