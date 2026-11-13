@@ -247,7 +247,9 @@ def make_wordcloud(rows):
     else:
         installed=Path('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf')
         if installed.is_file():kwargs['font_path']=str(installed)
-    cloud=WordCloud(**kwargs).generate_from_frequencies(counts)
+    # Resolve equal-frequency ties by name: stable layout across Python hash seeds.
+    cloud_input=dict(sorted(counts.items(),key=lambda pair:(-pair[1],pair[0].casefold())))
+    cloud=WordCloud(**kwargs).generate_from_frequencies(cloud_input)
     placed={item[0][0] for item in cloud.layout_}
     if placed != set(counts):
         raise ValueError(f'Word cloud cannot fit all terms: {len(placed)}/{len(counts)}; adjust dimensions deliberately')
