@@ -2,6 +2,15 @@
 
 Minimal starter for `ILRI-CGIAR/topicalreview`. **Proposed schema v1.1**; not yet a frozen controlled-vocabulary ontology. The codebook/manual must be reconciled before production model extraction.
 
+
+## Frozen interactive evidence dashboard (v3.6)
+
+The approved CGIAR Evidence Dashboard is reproducible from an updated, source-faithful CSV using the locked code and visual template in [`dashboard/`](dashboard/README.md). This includes the approved ontology crosswalk, Lens/OpenAlex enrichment precedence, high-income country exclusion *for the map only*, the merged adaptation category, all-product word cloud, interactive charts, theme explorer, and database. The current visual design is frozen for data-only updates.
+
+Run `python dashboard/build.py --csv /path/updated.csv --bibliography /path/previous_enriched.csv --out ./local_output/dashboard` after installing `dashboard/requirements.txt`. Use `--bibliography` only if the uploaded CSV does not already contain its enrichment fields. Run `python -m unittest discover -s dashboard/tests -v` and review the manifest before releasing. See [the locked release notes](dashboard/RELEASE_NOTES_v3.6.md).
+
+The research CSV, provider-enriched metadata, and generated 8 MB HTML are **not stored in Git**; keep them as local/restricted release artifacts. The deterministic build pipeline and data-free template are version controlled.
+
 ## Organisation
 
 - `config/article.schema.json`: JSON Schema for one article per JSONL line, including Lens-style bibliographic metadata.
