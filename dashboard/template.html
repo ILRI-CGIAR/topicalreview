@@ -1,0 +1,899 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CGIAR Climate-related Journal Articles in Low- and Middle-Income Countries</title><script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<style>
+:root{--ink:#233040;--muted:#607083;--border:#dbe1e9;--bg:#f7f8fb;--accent:#713e80}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Arial,sans-serif}main{max-width:1360px;margin:auto;padding:26px 28px 35px}header{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:21px}.eyebrow{font-size:11px;font-weight:750;letter-spacing:.14em;color:#795289}h1{font-size:27px;letter-spacing:-.04em;margin:7px 0}p{font-size:13px;color:var(--muted);line-height:1.55;margin:0}.stamp{font-size:12px;padding:9px 12px;border:1px solid var(--border);border-radius:8px;background:#fff;color:var(--muted)}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:15px}.stat,.panel{border:1px solid var(--border);background:#fff;border-radius:11px}.stat{padding:14px 17px}.stat .n{font-size:24px;font-weight:700}.stat .lab{font-size:11px;color:var(--muted);margin-top:4px}.bar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 18px;border-bottom:1px solid var(--border);flex-wrap:wrap}.bar strong{font-size:14px}.bar small{font-size:11px;color:var(--muted)}.filters{display:flex;align-items:center;flex-wrap:wrap;gap:10px}.filters label{font-size:12px;color:var(--ink)}select,input,button{font:inherit;font-size:12px;border:1px solid #cdd5e0;background:#fff;border-radius:7px;color:var(--ink);padding:8px 10px}select{max-width:320px}button{cursor:pointer}button:hover{background:#f4f1f8}button:focus-visible,select:focus-visible,input:focus-visible{outline:2px solid #875696;outline-offset:2px}#map{height:565px;width:100%}.mapfooter,.footnote{padding:11px 17px;color:var(--muted);font-size:11px;line-height:1.6}.mapfooter{border-top:1px solid var(--border)}.database{margin-top:18px;scroll-margin-top:16px}.database .bar{padding:17px 18px}.dbfilters{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:12px 18px;border-bottom:1px solid var(--border)}#search{flex:1;min-width:250px;max-width:750px}.db-dropdowns{display:grid;grid-template-columns:repeat(4,minmax(0,1fr)) max-content;gap:16px;align-items:end;padding:15px 18px;border-bottom:1px solid var(--border)}.db-dropdowns #clearDbFilters{height:39px;white-space:nowrap;align-self:end;border:1px solid var(--border);border-radius:8px;background:#fff;color:var(--ink);font-weight:600;padding:0 15px;cursor:pointer}.db-dropdowns #clearDbFilters:hover{background:#f6f7fb}.db-dropdowns #clearDbFilters:focus-visible{outline:2px solid #63477a;outline-offset:2px}.db-dropdowns label{display:flex;flex-direction:column;align-items:stretch;gap:7px;color:var(--ink);font-size:12px;min-width:0}.db-dropdowns select,.db-dropdowns .country-select{width:100%;min-width:0;max-width:100%}@media(max-width:680px){.db-dropdowns{grid-template-columns:1fr;gap:12px}.db-dropdowns #clearDbFilters{width:100%}}.searchhelp{font-size:11px;color:var(--muted);padding:12px 18px 14px;line-height:1.6}.searchhelp code{background:#f3f1f6;border-radius:4px;padding:2px 4px}.searcherror{font-size:12px;color:#a21f3b;padding:0 18px 10px}.searcherror:empty{display:none}#dbStatus{font-size:12px;color:var(--muted)}.tablewrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:12px;text-align:left}th{background:#f4f6fa;color:#4f5c6f;font-size:11px;font-weight:700;white-space:nowrap}th,td{border-bottom:1px solid #e9edf3;padding:11px 13px;vertical-align:top}td.title{min-width:340px;max-width:570px;line-height:1.45;font-weight:550}td.title a{color:#674480;text-decoration:none}td.title a:hover{text-decoration:underline}td.small{white-space:nowrap;color:#5d6e83}tbody tr:hover{background:#faf8fc}.pager{padding:11px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px}.pager button:disabled{opacity:.4;cursor:not-allowed}.pager span{font-size:12px;color:var(--muted)}.footnote{padding-left:0}.country-chip{display:inline-flex;align-items:center;gap:8px;padding:7px 10px;background:#f6f1f9;border-radius:7px;font-size:12px;color:#54366a}.hidden{display:none}.records-title{display:flex;flex-direction:column;gap:4px}@media(max-width:820px){main{padding:16px}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}header{flex-direction:column}#map{height:410px}.filters select{max-width:240px}td.title{min-width:260px}}
+
+/* Database record layout aligned with the salmon evidence map */
+.tablewrap table{min-width:1080px;}
+.tablewrap th{position:sticky;top:0;background:#eef3f2;text-align:left;text-transform:uppercase;letter-spacing:.025em;font-size:11px;}
+.tablewrap td{font-size:12px;line-height:1.55;padding:11px 13px;vertical-align:top;}
+.tablewrap td.title{min-width:345px;max-width:510px;font-weight:500;}
+.db-citation>a{font-weight:700;color:var(--ink)!important;line-height:1.35;text-decoration:none;}
+.db-citation>a:hover{text-decoration:underline;}
+.db-author-cell{min-width:145px;max-width:235px;}
+.db-source-cell{min-width:160px;max-width:250px;}
+.db-muted{font-size:11px;color:var(--muted);}
+.db-abstract{margin-top:7px;color:#64748b;font-size:11.5px;line-height:1.48;font-weight:400;}
+.db-abstract summary{cursor:pointer;list-style:none;}
+.db-abstract summary::-webkit-details-marker{display:none;}
+.db-abstract-action{color:#674480;font-weight:650;white-space:nowrap;margin-left:4px;}
+.db-abstract-action-hide{display:none;}
+.db-abstract[open] .db-abstract-preview,
+.db-abstract[open] .db-abstract-action-read{display:none;}
+.db-abstract[open] .db-abstract-action-hide{display:inline;}
+.db-abstract[open] summary{padding-top:2px;}
+.db-abstract-full{margin-top:8px;color:#435469;white-space:pre-line;}
+.db-abstract-short{margin-top:7px;color:#64748b;font-size:11.5px;font-weight:400;white-space:pre-line;}
+.db-doi{margin-top:7px;font-size:11px;word-break:break-all;color:#64748b;font-weight:400;}
+.db-doi a{color:#674480!important;}
+.db-source-citation{margin-top:8px;color:#64748b;font-size:11px;line-height:1.45;font-weight:400;}
+.db-pill{display:inline-block;padding:3px 8px;margin:1px 4px 3px 0;border-radius:99px;background:#eaf0ef;color:#385763;font-size:11px;white-space:normal;}
+
+
+.db-coded-themes{min-width:310px;max-width:530px;font-size:12px;line-height:1.5;color:#38475b;overflow-wrap:anywhere;}
+.db-theme-pill{--theme-base:#8D909B;display:inline-block;vertical-align:top;width:fit-content;max-width:100%;margin:2px 4px 5px 0;padding:5px 10px;border-radius:11px;background:color-mix(in srgb,var(--theme-base) 24%,white);border:1px solid color-mix(in srgb,var(--theme-base) 42%,white);color:#263247;font-size:11.5px;font-weight:550;line-height:1.5;white-space:normal;overflow-wrap:anywhere;}
+#themeChip{max-width:min(100%,780px);background:#eef2f8;color:#34465e;}
+#themeName{overflow-wrap:anywhere;}
+#themeExplorer .count-pill{cursor:pointer;font:inherit;font-weight:800;line-height:1;flex:0 0 auto;}
+#themeExplorer .count-pill:focus-visible{outline:3px solid #253246;outline-offset:3px;}
+#themeExplorer .count-pill[aria-pressed="true"]{outline:3px solid #253246;outline-offset:2px;}
+#themeExplorer .card.static .count-pill{cursor:pointer;}
+
+/* Theme explorer CSS: isolated from the atlas controls and database */
+#themeExplorer{ --bg:#f5f7fb; --panel:#ffffff; --panel-soft:#fafbfd; --border:#d8e0eb; --border-soft:#e6ebf2; --text:#253246; --muted:#5d6d84; }#themeExplorer,#themeExplorer *{ box-sizing:border-box; }#themeExplorer .page{ max-width:1540px; margin:0 auto; padding:20px 24px 28px; }#themeExplorer .kicker{ font-size:.92rem; letter-spacing:.16em; text-transform:uppercase; color:#7b5c99; font-weight:800; margin-bottom:6px; }#themeExplorer .topbar{ display:flex; justify-content:space-between; align-items:flex-start; gap:18px; margin-bottom:16px; }#themeExplorer .title-wrap h1{ margin:0; font-size:clamp(2.15rem,3.2vw,3.35rem); line-height:1.03; letter-spacing:-.05em; }#themeExplorer .title-wrap p{ margin:10px 0 0; color:var(--muted); font-size:1.05rem; line-height:1.45; max-width:1000px; }#themeExplorer .status-chip{ align-self:flex-start; background:#fff; border:1px solid var(--border); border-radius:12px; color:var(--muted); padding:10px 16px; font-size:.95rem; white-space:nowrap; }#themeExplorer .metrics{ display:grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap:14px; margin-bottom:18px; }#themeExplorer .metric{ background:var(--panel); border:1px solid var(--border); border-radius:16px; padding:18px 22px 16px; }#themeExplorer .metric .num{ font-size:2.2rem; font-weight:800; letter-spacing:-.04em; line-height:1; margin-bottom:6px; }#themeExplorer .metric .lab{ color:var(--muted); font-size:1rem; }#themeExplorer .board{ background:var(--panel); border:1px solid var(--border); border-radius:18px; overflow:hidden; }#themeExplorer .board-head{ display:flex; justify-content:space-between; gap:16px; align-items:flex-start; padding:18px 24px 16px; border-bottom:1px solid var(--border); }#themeExplorer .board-head h2{ margin:0; font-size:1.1rem; line-height:1.2; }#themeExplorer .board-head p{ margin:6px 0 0; color:var(--muted); font-size:.98rem; line-height:1.45; max-width:900px; }#themeExplorer .controls{ display:flex; gap:10px; flex-wrap:wrap; }#themeExplorer button.control{ appearance:none; border:1px solid var(--border); background:#fff; color:var(--text); border-radius:12px; padding:10px 14px; font-weight:700; font-size:.94rem; cursor:pointer; }#themeExplorer button.control:hover{ background:#fafbff; }#themeExplorer .columns{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; padding:16px; }#themeExplorer .col{ background:var(--panel-soft); border:1px solid var(--border-soft); border-radius:18px; min-height:700px; padding:16px; }#themeExplorer .col-head{ font-size:.9rem; letter-spacing:.14em; text-transform:uppercase; color:#64748b; font-weight:800; margin:0 0 12px; }#themeExplorer .node-list{ display:flex; flex-direction:column; gap:10px; }#themeExplorer .hint{ padding:14px 16px; border:1px dashed var(--border); border-radius:14px; color:var(--muted); background:#fff; line-height:1.5; font-size:.96rem; }#themeExplorer .card{ position:relative; display:flex; justify-content:space-between; align-items:center; gap:18px; border-radius:18px; padding:13px 16px; text-align:left; border:1px solid rgba(255,255,255,.28); box-shadow: inset 0 1px 0 rgba(255,255,255,.18), 0 8px 18px rgba(35,51,77,0.08); cursor:pointer; transition:transform .16s ease, box-shadow .16s ease; }#themeExplorer .card:hover{ transform:translateY(-1px); box-shadow: inset 0 1px 0 rgba(255,255,255,.18), 0 10px 22px rgba(35,51,77,0.11); }#themeExplorer .card.selected{ outline:3px solid rgba(255,255,255,.4); }#themeExplorer .card.static{ cursor:default; }#themeExplorer .card-main{ min-width:0; flex:1; text-align:left; }#themeExplorer .theme-chip{ display:inline-flex; align-items:center; justify-content:center; min-width:34px; height:34px; padding:0 12px; border-radius:999px; border:1px solid rgba(255,255,255,.25); background:rgba(255,255,255,.10); font-size:.94rem; font-weight:800; line-height:1; margin-bottom:10px; }#themeExplorer .node-label{ text-align:left; font-size:1.06rem; font-weight:800; line-height:1.18; letter-spacing:-.02em; }#themeExplorer .count-pill{ min-width:72px; text-align:center; padding:12px 14px; border-radius:999px; font-size:1.05rem; font-weight:800; line-height:1; border:1px solid rgba(255,255,255,.28); box-shadow: inset 0 1px 0 rgba(255,255,255,.12); }#themeExplorer .breadcrumbs{ display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }#themeExplorer .crumb{ display:inline-flex; align-items:center; gap:8px; padding:7px 11px; border:1px solid var(--border); background:#fff; border-radius:999px; color:var(--muted); font-size:.92rem; }#themeExplorer .legend-row{ display:flex; flex-wrap:wrap; gap:9px; margin-top:8px; }#themeExplorer .legend-chip{ display:inline-flex; align-items:center; gap:8px; padding:7px 10px; border-radius:999px; border:1px solid var(--border); background:#fff; color:var(--muted); font-size:.88rem; }#themeExplorer .legend-swatch{ width:10px; height:10px; border-radius:999px; }#themeExplorer .note{ padding:0 24px 20px; color:var(--muted); font-size:.9rem; line-height:1.55; }@media  (max-width:1180px) {#themeExplorer .metrics{ grid-template-columns:repeat(2,minmax(0,1fr)); }#themeExplorer .columns{ grid-template-columns:1fr; }#themeExplorer .col{ min-height:auto; }#themeExplorer .topbar{ flex-direction:column; }}@media  (max-width:720px) {#themeExplorer .metrics{ grid-template-columns:1fr; }}
+#themeExplorer { margin-top:18px; margin-bottom:18px; }
+#themeExplorer .page { max-width:none; padding:0; }
+#themeExplorer .topbar { margin: 0 0 12px; }
+#themeExplorer .title-wrap h1 { margin:0; font-size:27px; letter-spacing:-.04em; line-height:1.2; color:var(--ink); }
+#themeExplorer .board { border-radius:11px; }
+#themeExplorer .board-head { padding:8px 12px; min-height:43px; border-bottom:1px solid #e6ebf2; }
+#themeExplorer .board-head .controls { margin-left:auto; }
+#themeExplorer .col { min-width:0; min-height:350px; }
+#themeExplorer .card { width:100%; font-size:12px; font-family:inherit; }
+#themeExplorer .note { font-size:12px; }
+@media (max-width:1180px) { #themeExplorer .columns {grid-template-columns:repeat(3,minmax(0,1fr));} }
+@media (max-width:850px) { #themeExplorer .columns {grid-template-columns:1fr;} #themeExplorer .col {min-height:0;} }
+
+
+#themeExplorer .tree-dropdowns{border-bottom:1px solid var(--border);padding:15px 18px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr)) auto;gap:16px;align-items:end;background:#fff;}
+#themeExplorer .tree-dropdowns label{display:flex;flex-direction:column;align-items:stretch;gap:7px;color:var(--ink);font-size:12px;min-width:0;}
+#themeExplorer .tree-dropdowns select{font:inherit;font-size:12px;width:100%;max-width:100%;height:39px;min-width:0;padding:8px 10px;border:1px solid #cdd5e0;border-radius:7px;background:#fff;color:var(--ink);}
+#themeExplorer .tree-dropdowns #clearTreeFilters{height:39px;white-space:nowrap;align-self:end;border:1px solid var(--border);border-radius:8px;background:#fff;color:var(--ink);font-size:12px;font-weight:600;padding:0 15px;cursor:pointer;}
+#themeExplorer .tree-dropdowns #clearTreeFilters:hover{background:#f6f7fb;}
+#themeExplorer .tree-dropdowns #clearTreeFilters:focus-visible{outline:2px solid #63477a;outline-offset:2px;}
+@media(max-width:680px){#themeExplorer .tree-dropdowns{grid-template-columns:1fr;gap:12px;}#themeExplorer .tree-dropdowns #clearTreeFilters{width:100%;}}
+
+/* Adaptation and mitigation panels */
+.characteristics{margin-top:20px;scroll-margin-top:16px;}
+.characteristics h2{font-size:27px;letter-spacing:-.04em;margin:0 0 8px;color:#253246;}
+.characteristics-intro{font-size:13px;margin:0 0 15px;max-width:980px;}
+.characteristics-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;align-items:start;}
+.characteristics-card{background:#fff;border:1px solid #dbe1e9;border-radius:13px;overflow:hidden;min-width:0;}
+.characteristics-card-heading{padding:15px 20px;border-bottom:1px solid #e4e9f0;display:flex;gap:12px;align-items:center;justify-content:space-between;background:#fbfcfe;}
+.characteristics-eyebrow{text-transform:uppercase;color:var(--trait-color);font-size:10px;font-weight:800;letter-spacing:.13em;}
+.characteristics-card-heading h3{margin:5px 0 0;font-size:19px;letter-spacing:-.025em;}
+.characteristics-count{font-size:11px;color:#627085;white-space:nowrap;}
+.characteristics-card-content{padding:16px 18px 20px;}
+.characteristics-label{font-size:11px;text-transform:uppercase;letter-spacing:.09em;font-weight:800;color:#66758a;margin-bottom:12px;}
+.characteristics-divider{height:1px;background:#e8ebf0;margin:19px 0 17px;}
+.nature-options,.binary-options{display:flex;flex-direction:column;gap:8px;}
+.nature-option{display:flex;width:100%;text-align:left;align-items:center;gap:10px;background:#fafbfd;border:1px solid #e4e8ef;border-radius:10px;padding:10px 12px;color:#253246;min-height:43px;}
+.nature-option:hover{background:#f3f4f8;}
+.nature-option[aria-pressed="true"]{outline:2px solid var(--trait-color);outline-offset:0;background:#f2f2f6;}
+.nature-option-label{flex:1;font-size:12px;font-weight:600;line-height:1.35;}
+.nature-option-count{font-size:12px;font-weight:800;min-width:42px;text-align:right;}
+.nature-option-track{width:75px;height:6px;flex:0 0 75px;background:#e8ebf0;border-radius:5px;overflow:hidden;}
+.nature-option-fill{height:100%;background:var(--trait-color);border-radius:5px;}
+.binary-group{padding:10px 0;border-bottom:1px solid #edf0f4;}
+.binary-group:last-child{border-bottom:none;}
+.binary-header{display:flex;justify-content:space-between;gap:12px;align-items:baseline;margin-bottom:8px;font-size:12px;font-weight:650;}
+.binary-scope{font-size:11px;font-weight:400;color:#66758a;white-space:nowrap;}
+.binary-track{display:flex;overflow:hidden;border-radius:6px;gap:2px;min-height:33px;}
+.binary-segment{display:flex;align-items:center;justify-content:center;gap:7px;color:#253246;min-width:0;border:0;border-radius:0;font-weight:700;padding:6px 4px;font-size:11px;}
+.binary-segment.missing{background:#e8ebf0;color:#59677c;cursor:default;min-width:0;}
+.binary-track{background:#e8ebf0;}
+.binary-segment.true{background:#6A7062;color:#fff;}
+.binary-segment.false{background:#AAADC4;color:#253246;}
+.binary-segment[aria-pressed="true"]{outline:3px solid #253246;outline-offset:-3px;}
+.binary-segment:hover{filter:brightness(.94);}
+.binary-none{font-size:11px;color:#748196;padding:7px 0;}
+.characteristics-note{font-size:11px;color:#607083;margin-top:11px;line-height:1.55;}
+.characteristics-active-filters{display:flex;flex-wrap:wrap;gap:5px;}
+.characteristics-active-filters:empty{display:none;}
+.characteristics-active-filters button{border-radius:8px;background:#eef2ef;color:#35443c;padding:7px 9px;font-size:11px;border-color:#d2ded6;max-width:340px;white-space:normal;text-align:left;}
+@media(max-width:900px){.characteristics-grid{grid-template-columns:1fr;}}
+@media(max-width:480px){.nature-option-track{width:48px;flex-basis:48px}.characteristics-card-content{padding:13px}}
+
+/* Keep four database filters and Clear filters in the same row on wide screens. */
+@media (min-width:681px) and (max-width:1090px){
+ .db-dropdowns:not(.tree-dropdowns){grid-template-columns:repeat(2,minmax(0,1fr)) max-content;}
+ .db-dropdowns:not(.tree-dropdowns) #clearDbFilters{grid-column:3;grid-row:2;}
+}
+</style>
+<style>
+.atlas-chart-heading{font-size:clamp(2.15rem,3.2vw,3.35rem);line-height:1.03;letter-spacing:-.05em;font-weight:800;margin:0;}
+.atlas-chart-header{padding:23px 23px 14px;display:flex;align-items:end;justify-content:space-between;gap:18px;flex-wrap:wrap;}
+.atlas-region-heading{padding:23px 23px 10px;font-size:clamp(1.7rem,2.6vw,2.5rem);}
+.atlas-chart-filter{display:flex;flex-direction:column;gap:6px;max-width:100%;}
+.atlas-chart-filter label{font-size:12px;font-weight:700;color:#4c5767;}
+.atlas-chart-filter select{padding:9px 12px;border:1px solid #ccd4df;border-radius:7px;background:#fff;max-width:100%;min-width:230px;}
+#yearChart,#regionChart{width:100%;}
+@media(max-width:560px){.atlas-chart-header{align-items:start}.atlas-chart-filter{width:100%}.atlas-chart-filter select{width:100%}}
+.panel + .panel{margin-top:24px;}
+.atlas-journal-panel .atlas-chart-header{gap:20px;}
+.atlas-journal-panel #journalChart{width:100%;}
+@media(max-width:700px){.atlas-journal-panel .atlas-chart-header{flex-wrap:wrap;}}
+</style>
+<style>
+.atlas-clear-filters{background:#fff;color:var(--ink,#263446);border:1px solid var(--border,#cbd4df);border-radius:8px;padding:9px 15px;font:600 12px Inter,system-ui,Arial,sans-serif;cursor:pointer;white-space:nowrap;flex-shrink:0;align-self:center}
+.atlas-clear-filters:hover{background:#f6f7fb}
+.atlas-clear-filters:focus-visible{outline:2px solid #63477a;outline-offset:2px}
+#regionalPanel .atlas-chart-header{justify-content:space-between;gap:16px}
+#characteristics .atlas-chart-header{justify-content:space-between;gap:16px;align-items:center;margin-bottom:10px}
+#characteristics .atlas-chart-header h2{margin:0}
+</style><style>
+.atlas-theme-filter select{min-width:200px;max-width:340px}
+.atlas-theme-filter label{white-space:nowrap}
+#characteristics .atlas-chart-header{flex-wrap:wrap;align-items:center}
+#characteristics .atlas-chart-header .atlas-theme-filter{margin-left:auto}
+@media(max-width:700px){#characteristics .atlas-chart-header .atlas-theme-filter{margin-left:0}}
+</style><style>
+/* v3.1: titles occupy a dedicated first line, with all controls on the next line. */
+#regionalPanel .atlas-chart-header,
+#publicationYearPanel .atlas-chart-header,
+#journalPanel .atlas-chart-header,
+#characteristics .atlas-chart-header {
+  display:flex;
+  flex-wrap:wrap;
+  align-items:flex-end;
+  justify-content:flex-start;
+  column-gap:18px;
+  row-gap:16px;
+}
+#regionalPanel .atlas-chart-header > h2,
+#publicationYearPanel .atlas-chart-header > h2,
+#journalPanel .atlas-chart-header > h2,
+#characteristics .atlas-chart-header > h2 {
+  flex:0 0 100%;
+  width:100%;
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+#regionalPanel .atlas-chart-header .atlas-theme-filter,
+#publicationYearPanel .atlas-chart-header .atlas-theme-filter,
+#journalPanel .atlas-chart-header .atlas-theme-filter,
+#characteristics .atlas-chart-header .atlas-theme-filter {
+  margin-left:0;
+}
+#regionalPanel .atlas-chart-header .atlas-clear-filters,
+#publicationYearPanel .atlas-chart-header .atlas-clear-filters,
+#journalPanel .atlas-chart-header .atlas-clear-filters,
+#characteristics .atlas-chart-header .atlas-clear-filters {
+  margin-left:auto;
+  align-self:flex-end;
+}
+/* Keep the map's heading and filter controls on separate lines, too. */
+main > section.panel:first-of-type > .bar {
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+  gap:14px;
+}
+main > section.panel:first-of-type > .bar > .filters {
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:flex-start;
+  gap:10px;
+}
+main > section.panel:first-of-type > .bar > .filters > #reset {
+  margin-left:auto;
+}
+@media (max-width:680px) {
+  #regionalPanel .atlas-chart-header .atlas-chart-filter,
+  #publicationYearPanel .atlas-chart-header .atlas-chart-filter,
+  #journalPanel .atlas-chart-header .atlas-chart-filter,
+  #characteristics .atlas-chart-header .atlas-chart-filter {
+    flex:1 1 210px;
+  }
+}
+</style><style>
+/* v3.4 – coherent hierarchy, geographic grouping, SVG word cloud */
+main > header { margin-bottom:24px; }
+main > header h1 { font-size:clamp(2.5rem,4.1vw,3.9rem); line-height:1.08; letter-spacing:-.045em; font-weight:800; max-width:1160px; }
+main > header p { font-size:14px; max-width:1050px; }
+main > section.panel, main > section.characteristics, main > section.theme-explorer { margin-top:24px; }
+.atlas-chart-heading,
+#themeExplorer .title-wrap h2,
+#characteristics .atlas-chart-header h2,
+#database .records-title strong {font-size:clamp(1.7rem,2.6vw,2.45rem);line-height:1.12;letter-spacing:-.045em;font-weight:800;margin:0;}
+#themeExplorer .title-wrap h2 {color:var(--ink);}
+.geography-panel {overflow:hidden;}
+.geography-title {padding:26px 25px 16px;}
+.geo-map-section > .bar {display:flex;flex-direction:column;align-items:stretch;gap:14px;padding:16px 24px;border-top:1px solid var(--border);}
+.geo-map-section > .bar > .filters {display:flex;flex-wrap:wrap;align-items:end;gap:12px;}
+.geo-map-section > .bar > .filters > #reset {margin-left:auto;}
+.geo-map-section > .bar strong {font-size:20px;}
+.geo-region-section {border-top:2px solid var(--border);padding-top:6px;}
+#regionalPanel .atlas-chart-header {display:flex;flex-wrap:wrap;align-items:flex-end;gap:14px;padding:22px 24px 16px;}
+#regionalPanel .atlas-chart-header > h3 {flex:0 0 100%;width:100%;box-sizing:border-box;margin:0;padding:0;font-size:clamp(1.25rem,2vw,1.65rem);font-weight:750;letter-spacing:-.035em;line-height:1.2;}
+#regionalPanel .atlas-chart-header .atlas-clear-filters {margin-left:auto;}
+#themeExplorer .page {padding:0;}
+#themeExplorer .topbar {margin:0;padding:25px 24px 17px;border-bottom:1px solid var(--border);background:#fff;}
+#themeExplorer .board {overflow:hidden;}
+#characteristics {background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden;padding-bottom:19px;}
+#characteristics .atlas-chart-header {padding:25px 24px 15px;margin-bottom:0;}
+#characteristics .characteristics-intro {margin:0 24px 16px;max-width:unset;}
+#characteristics .characteristics-grid {padding:0 24px;}
+#characteristics .characteristics-note {margin:17px 24px 0;}
+#database .records-title strong {display:block;}
+.product-wordcloud-panel {padding:25px 24px 22px;}
+.product-wordcloud-figure {display:flex;align-items:center;justify-content:center;max-width:100%;padding:15px 10px 7px;}
+.product-wordcloud-figure svg {display:block;width:96%;height:auto;max-height:560px;background:#fff;}
+.product-wordcloud-caption {font-size:12px;line-height:1.55;color:var(--muted);max-width:1100px;margin-top:10px;}
+@media(max-width:700px){
+ .geography-title,.product-wordcloud-panel{padding:19px 16px;}
+ .geo-map-section > .bar,#regionalPanel .atlas-chart-header{padding:16px;}
+ #themeExplorer .topbar{padding:20px 16px;}
+ #characteristics .atlas-chart-header{padding:20px 16px 14px;}
+ #characteristics .characteristics-intro{margin:0 16px 16px;}
+ #characteristics .characteristics-grid{padding:0 16px;}
+ #characteristics .characteristics-note{margin:16px;}
+}
+</style><style id="productCloudV36Styles">
+.product-wordcloud-figure{padding:12px 18px;overflow:visible;max-width:100%;display:flex;justify-content:center;align-items:center;}
+.product-wordcloud-figure svg{display:block;width:100%;height:auto;max-width:1800px;max-height:none;overflow:visible;}
+.product-frequency-details{margin-top:18px;border:1px solid var(--border,#dbe1e9);border-radius:10px;overflow:hidden;}
+.product-frequency-details summary{padding:15px 18px;font-weight:650;cursor:pointer;background:#f7f9fb;}
+.product-frequency-controls{display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding:13px 18px;}
+.product-frequency-controls input{padding:9px 12px;min-width:230px;flex:1;border:1px solid #ccd5e1;border-radius:8px;font:inherit;}
+.product-frequency-controls button{background:#fff;border:1px solid #ccd5e1;border-radius:8px;padding:9px 13px;cursor:pointer;font:inherit;}
+.product-frequency-controls #productFrequencyShown{margin-left:auto;color:var(--muted,#56657b);font-size:13px;}
+.product-frequency-scroll{max-height:480px;overflow:auto;}
+#productFrequencyTable{width:100%;border-collapse:collapse;font-size:14px;}
+#productFrequencyTable th,#productFrequencyTable td{padding:9px 15px;border-bottom:1px solid #e8edf2;text-align:left;}
+#productFrequencyTable th{position:sticky;top:0;background:#f7f9fb;z-index:1;}
+#productFrequencyTable th:last-child,#productFrequencyTable td:last-child{text-align:right;}
+#productFrequencyTable td:first-child{width:75px;color:var(--muted,#56657b);}
+</style></head><body><main>
+<header><div><div class="eyebrow">EVIDENCE DASHBOARD</div><h1>CGIAR Climate-related Journal Articles in Low- and Middle-Income Countries</h1><p>Geographic coverage of included articles, displaying only countries classified as low- or middle-income. Filter by year, product, theme or Boolean query; click a shaded country to view its articles.</p></div></header>
+
+<section class="panel geography-panel" id="geographyPanel" aria-label="Geographical distribution">
+<h2 class="atlas-chart-heading geography-title">Geographical distribution</h2>
+<div class="geo-map-section"><div class="bar"><div><strong>Countries</strong><br><small id="periodLabel">All publication years · All products</small></div><div class="filters"><div class="atlas-chart-filter atlas-theme-filter"><label for="mapTheme">High-level theme</label><select id="mapTheme" aria-label="Filter by high-level theme"><option value="all">All high-level themes</option></select></div><label for="yr">Year</label><select id="yr"><option value="all">All years</option></select><label for="crop">Product</label><select id="crop"><option value="all">All products</option></select><button id="reset" type="button">Clear filters</button></div></div><div id="map"></div><div class="mapfooter">Each eligible low- or middle-income country is shaded by the number of distinct articles matching the selected filters. High-income country assignments are omitted from the map only; the corresponding articles remain in the database. Multi-country articles are counted once per mapped country; records without ISO-3 countries are not mapped. Crop filters use the broader source coding from the “Crop/livestock/tree/fish” field.</div></div>
+
+<div class="geo-region-section" id="regionalPanel" aria-label="Regional or non-geographically specific articles">
+<div class="atlas-chart-header"><h3 class="atlas-region-heading">Regional or non-geographically specific articles</h3><div class="atlas-chart-filter atlas-theme-filter"><label for="regionTheme">High-level theme</label><select id="regionTheme" aria-label="Filter by high-level theme"><option value="all">All high-level themes</option></select></div><div class="atlas-chart-filter"><label for="regionChartCrop">Product</label><select id="regionChartCrop"><option value="all">All categories</option></select></div><button id="clearRegionFilters" type="button" class="atlas-clear-filters">Clear filters</button></div>
+<div id="regionChart" style="height:420px"></div>
+<div class="mapfooter" id="regionChartNote">Articles without country codes are grouped by the Region field. Multi-region articles may appear in more than one category; Global denotes records without a country-specific geography.</div>
+</div></section>
+
+<section class="panel" id="publicationYearPanel" aria-label="Articles by publication year">
+<div class="atlas-chart-header"><h2 class="atlas-chart-heading">Articles by publication year</h2>
+<div class="atlas-chart-filter atlas-theme-filter"><label for="yearTheme">High-level theme</label><select id="yearTheme" aria-label="Filter by high-level theme"><option value="all">All high-level themes</option></select></div><div class="atlas-chart-filter"><label for="yearChartCrop">Product</label><select id="yearChartCrop"><option value="all">All categories</option></select></div><button id="clearYearChartFilters" class="atlas-clear-filters" type="button">Clear filters</button></div>
+<div id="yearChart" style="height:340px"></div>
+<div class="mapfooter">Note: Articles first published online in 2011 but assigned to a 2012 journal issue were coded as 2012. Similarly, articles assigned to a 2024 journal issue but first published online in 2023 were coded as 2023.</div>
+</section>
+
+<section class="panel atlas-journal-panel" id="journalPanel" aria-label="Article publications in journals">
+<div class="atlas-chart-header"><h2 class="atlas-chart-heading">Article publications</h2>
+<div class="atlas-chart-filter atlas-theme-filter"><label for="journalTheme">High-level theme</label><select id="journalTheme" aria-label="Filter by high-level theme"><option value="all">All high-level themes</option></select></div><div class="atlas-chart-filter"><label for="journalChartCrop">Product</label><select id="journalChartCrop"><option value="all">All categories</option></select></div>
+<div class="atlas-chart-filter"><label for="journalChartYear">Publication year</label><select id="journalChartYear"><option value="all">All years</option></select></div><button id="clearJournalChartFilters" class="atlas-clear-filters" type="button">Clear filters</button></div>
+<div id="journalChart" style="height:600px"></div>
+<div class="mapfooter">Top 15 journals ranked by the number of matching articles. Journal names are taken from the available Lens, OpenAlex and manually recovered bibliographic records. Records without a source journal are omitted from this chart, not from the database.</div>
+</section>
+
+<!-- Component 02: theme hierarchy explorer (approved standalone v0.9) -->
+<section id="themeExplorer" aria-label="Explore the articles themes" class="theme-explorer"><div class="page">
+<div class="board">
+<div class="topbar">
+<div class="title-wrap"><h2>Article thematic content</h2></div>
+</div>
+<div class="board-head">
+<div>
+</div>
+<div class="controls">
+<button class="control" id="resetView">Reset view</button>
+</div>
+</div>
+<div class="db-dropdowns tree-dropdowns" aria-label="Filter theme hierarchy"><label for="treeYear">Year <select id="treeYear"><option value="all">All years</option></select></label><label for="treeCrop">Product <select id="treeCrop"><option value="all">All products</option></select></label><label for="treeCountry">Country <select id="treeCountry" class="country-select"><option value="all">All countries</option></select></label><button id="clearTreeFilters" type="button">Clear filters</button></div>
+<div class="columns">
+<section class="col"><div class="col-head">Level 1</div><div class="node-list" id="level1"></div></section>
+<section class="col"><div class="col-head">Level 2</div><div id="level2"></div></section>
+<section class="col"><div class="col-head">Level 3</div><div id="level3"></div></section>
+</div>
+<div class="note">The totals shown within a column are overlapping rather than mutually exclusive, since an article can receive multiple codes.</div>
+</div>
+</div></section>
+
+<section id="characteristics" class="characteristics" aria-label="Adaptation and mitigation characteristics">
+  <div class="atlas-chart-header"><h2>The nature of adaptation and mitigation</h2><div class="atlas-chart-filter atlas-theme-filter"><label for="characteristicsTheme">High-level theme</label><select id="characteristicsTheme" aria-label="Filter by high-level theme"><option value="all">All high-level themes</option></select></div><button id="clearCharacteristicsFilters" class="atlas-clear-filters" type="button">Clear filters</button></div>
+  <p class="characteristics-intro">Select a nature category or a Yes/No segment to view its articles. Selections combine with the year, crop, country, Boolean and theme filters already applied.</p>
+  <div class="characteristics-grid">
+    <article class="characteristics-card" id="adaptationPanel" style="--trait-color:#6A7062">
+      <header class="characteristics-card-heading"><div><h3>Adaptation nature</h3></div><span class="characteristics-count" id="adaptationPanelCount"></span></header>
+      <div class="characteristics-card-content"><div class="characteristics-label">Nature categories</div><div id="adaptationNature" class="nature-options"></div>
+      <div class="characteristics-divider"></div><div class="characteristics-label">Associated characteristics</div><div id="adaptationBinary" class="binary-options"></div></div>
+    </article>
+    <article class="characteristics-card" id="mitigationPanel" style="--trait-color:#8D909B">
+      <header class="characteristics-card-heading"><div><h3>Mitigation nature</h3></div><span class="characteristics-count" id="mitigationPanelCount"></span></header>
+      <div class="characteristics-card-content"><div class="characteristics-label">Nature categories</div><div id="mitigationNature" class="nature-options"></div>
+      <div class="characteristics-divider"></div><div class="characteristics-label">Associated characteristics</div><div id="mitigationBinary" class="binary-options"></div></div>
+    </article>
+  </div>
+  <p class="characteristics-note">Counts are numbers of articles. A record may have multiple nature codes. Nature bar denominators include articles coded to the relevant nature variable within Theme 3 or Theme 4. Yes/No bars use only coded Yes and No responses; blank values are excluded from those bars.</p>
+</section>
+__WORDCLOUD_SECTION__
+<section id="database" class="panel database" tabindex="-1"><div class="bar"><div class="records-title"><strong>Article database</strong><small id="dbStatus">All articles</small></div><div id="traitChips" class="characteristics-active-filters" aria-label="Selected adaptation and mitigation filters"></div><div id="themeChip" class="country-chip hidden"><span id="themeName"></span><button id="clearTheme" type="button" title="Remove theme filter">Clear theme ×</button></div><div id="countryChip" class="country-chip hidden"><span id="countryName"></span><button id="clearCountry" type="button" title="Remove country filter">Clear country ×</button></div></div><div class="dbfilters"><label for="search">Boolean search</label><input id="search" type="search" aria-describedby="searchHelp searchError" placeholder='e.g. (drought OR flood*) AND NOT "climate model"'><button type="button" id="clearSearch">Clear search</button><span id="listCount"></span></div><div class="db-dropdowns" aria-label="Filter article database"><label for="dbTheme">High-level theme <select id="dbTheme"><option value="all">All high-level themes</option></select></label><label for="dbYear">Year <select id="dbYear"><option value="all">All years</option></select></label><label for="dbCrop">Product <select id="dbCrop"><option value="all">All products</option></select></label><label for="dbCountry">Country <select id="dbCountry" class="country-select"><option value="all">All countries</option></select></label><button id="clearDbFilters" type="button">Clear filters</button></div><div class="searchhelp" id="searchHelp">Supports <code>AND</code>, <code>OR</code>, <code>NOT</code>, parentheses, <code>"exact phrases"</code>, wildcards <code>*</code> and <code>?</code>, and fields such as <code>TITLE:</code>, <code>CROP:</code>, <code>COUNTRY:</code>, <code>YEAR:</code>. Search covers available bibliographic metadata, crop and country codes. Full abstracts and available bibliographic fields are searchable where Lens returned exact DOI matches; missing metadata are left blank. Invalid queries show an error and do not update the results.</div><div id="searchError" class="searcherror" role="alert"></div><div class="tablewrap"><table><thead><tr><th>Title &amp; summary</th><th>Year</th><th>Authors</th><th>Source / Vol / PP</th><th>Product</th><th>Country</th><th>Coded themes</th></tr></thead><tbody id="recordRows"></tbody></table></div><div class="pager"><button type="button" id="prev">Previous</button><span id="pageInfo"></span><button type="button" id="next">Next</button></div></section>
+<div id="methodFoot" class="footnote"></div></main>
+<script>
+const records=__DASHBOARD_RECORDS_JSON__;
+const metadata=__DASHBOARD_METADATA_JSON__;
+// Standalone, deterministic Boolean parser. No network/API dependence.
+// Supported: AND, OR, NOT; grouping; phrases; * and ?; field scopes; implicit AND.
+const SEARCH_FIELDS = ['TITLE','CITATION','DOI','FILE','COUNTRY','CROP','YEAR','ABSTRACT','AUTHORS','SOURCE','KEYWORDS'];
+function tokenizeBoolean(input) {
+  const tokens=[]; let i=0;
+  while(i<input.length) {
+    const c=input[i];
+    if(/\s/.test(c)){i++;continue;}
+    if(c==='('||c===')'){tokens.push({type:c});i++;continue;}
+    if(c==='"') {
+      let value='',closed=false;i++;
+      while(i<input.length) {if(input[i]==='"'){i++;closed=true;break;} value+=input[i++];}
+      if(!closed)throw new Error('Unclosed quotation mark');
+      if(!value)throw new Error('Empty quoted phrase');
+      tokens.push({type:'TERM',value,phrase:true});continue;
+    }
+    let value='';
+    while(i<input.length&&!/[\s()"]/.test(input[i]))value+=input[i++];
+    const field=value.match(/^([A-Za-z_]+):(.*)$/);
+    if(field && SEARCH_FIELDS.includes(field[1].toUpperCase())) {
+      tokens.push({type:'FIELD',value:field[1].toUpperCase()});
+      if(field[2])tokens.push({type:'TERM',value:field[2],phrase:false});
+    }else if(/^(AND|OR|NOT)$/i.test(value))tokens.push({type:value.toUpperCase()});
+    else tokens.push({type:'TERM',value,phrase:false});
+  }
+  return tokens;
+}
+function parseBoolean(query){
+  const ts=tokenizeBoolean(query), pos={i:0};
+  if(!ts.length)return null;
+  const peek=()=>ts[pos.i]?.type;
+  const eat=t=>{if(peek()!==t)throw new Error('Expected '+t);return ts[pos.i++];};
+  const primary=()=>{
+    if(peek()==='FIELD'){
+      const field=eat('FIELD').value;
+      if(!peek())throw new Error('Missing term after '+field+':');
+      return {kind:'FIELD',field,expr:primary()};
+    }
+    if(peek()==='('){eat('('); const n=orExpr();eat(')');return n;}
+    if(peek()==='TERM')return {kind:'TERM',...eat('TERM')};
+    throw new Error('Expected search term or opening parenthesis');
+  };
+  const unary=()=>peek()==='NOT'?(eat('NOT'),{kind:'NOT',arg:unary()}):primary();
+  const andExpr=()=>{
+    let n=unary();
+    while(peek()==='AND'||peek()==='NOT'||peek()==='TERM'||peek()==='('||peek()==='FIELD') {
+      if(peek()==='AND')eat('AND');
+      n={kind:'AND',left:n,right:unary()};
+    }
+    return n;
+  };
+  const orExpr=()=>{let n=andExpr();while(peek()==='OR'){eat('OR');n={kind:'OR',left:n,right:andExpr()};}return n;};
+  const tree=orExpr();if(pos.i!==ts.length)throw new Error('Unexpected token near '+(ts[pos.i].value||ts[pos.i].type));return tree;
+}
+function regexpTerm(t){
+  // Wildcards are supported both in phrases and unquoted terms; case-insensitive.
+  const escaped=t.replace(/[.+^${}()|[\]\\]/g,'\\$&').replace(/\*/g,'.*').replace(/\?/g,'.');
+  return new RegExp(escaped,'i');
+}
+function recordFields(r,field){
+ const m={TITLE:[r.title],CITATION:[r.citation],DOI:[r.doi],FILE:[r.id,r.file_name],
+ COUNTRY:r.countries||[],CROP:r.crops||[],YEAR:[r.year],ABSTRACT:[r.abstract],AUTHORS:[r.authors],SOURCE:[r.source,r.volume,r.issue,r.pages],
+ KEYWORDS:r.keywords||[]};
+ if(field)return m[field]||[];
+ return Object.values(m).flat();
+}
+function matchBoolean(tree,r,field=null){
+ if(!tree)return true;
+ switch(tree.kind){
+ case 'TERM':{const re=regexpTerm(tree.value);return recordFields(r,field).some(v=>v!=null&&re.test(String(v)));}
+ case 'FIELD':return matchBoolean(tree.expr,r,tree.field);
+ case 'NOT':return !matchBoolean(tree.arg,r,field);
+ case 'AND':return matchBoolean(tree.left,r,field)&&matchBoolean(tree.right,r,field);
+ case 'OR':return matchBoolean(tree.left,r,field)||matchBoolean(tree.right,r,field);
+ default:throw new Error('Unknown search expression');
+ }
+}
+
+const yr=document.getElementById('yr'),crop=document.getElementById('crop'),search=document.getElementById('search');
+const years=[...new Set(records.map(r=>r.year).filter(Number.isInteger))].sort((a,b)=>a-b);
+years.forEach(y=>{const o=document.createElement('option');o.value=y;o.textContent=y;yr.appendChild(o)});
+const cropLabels=[...new Set(records.flatMap(r=>r.filter_crops||[]).filter(v=>!['not reported','not applicable'].includes(String(v).toLowerCase())))].sort((a,b)=>a.localeCompare(b));
+cropLabels.forEach(v=>{const o=document.createElement('option');o.value=v;o.textContent=v;crop.appendChild(o)});
+const dbYear=document.getElementById('dbYear'),dbCrop=document.getElementById('dbCrop'),dbCountry=document.getElementById('dbCountry');
+for(const y of years){dbYear.add(new Option(String(y),String(y)));}
+for(const v of cropLabels){dbCrop.add(new Option(v,v));}
+const regionChartCrop=document.getElementById('regionChartCrop');
+for(const v of cropLabels){regionChartCrop.add(new Option(v,v));}
+const yearChartCrop=elYearCropDropdown();
+function elYearCropDropdown(){return document.getElementById('yearChartCrop');}
+for(const v of cropLabels){yearChartCrop.add(new Option(v,v));}
+const journalChartCrop=document.getElementById('journalChartCrop');
+const journalChartYear=document.getElementById('journalChartYear');
+for(const v of cropLabels){journalChartCrop.add(new Option(v,v));}
+for(const y of years){journalChartYear.add(new Option(String(y),String(y)));}
+const countriesInData=[...new Set(records.flatMap(r=>r.countries||[]))].sort((a,b)=>{
+ const an=metadata.country_names?.[a]||a, bn=metadata.country_names?.[b]||b;
+ return an.localeCompare(bn);
+});
+for(const cc of countriesInData){dbCountry.add(new Option((metadata.country_names?.[cc]||cc)+' ('+cc+')',cc));}
+
+let selectedCountry=null, selectedThemeNode=null, currentPage=1;let traitFilters={};const pageSize=30;const nfmt=n=>n.toLocaleString('en-GB');
+const countryName=cc=>metadata.country_names?.[cc]||cc;
+// Level 1 theme filter uses coded theme_node_ids, never free-text title matching.
+const highLevelThemeLabels=[["theme1", "Climate change impacts on agrifood systems"], ["theme2", "Agrifood systems impacts on climate"], ["theme3", "Adaptation options in agrifood systems"], ["theme4", "Mitigation options in agrifood systems"], ["theme5", "Methods and metrics"]];
+const highLevelThemeSelects=['mapTheme','regionTheme','yearTheme','journalTheme','characteristicsTheme','dbTheme'];
+let selectedHighLevelTheme='all';
+for(const id of highLevelThemeSelects){
+ const menu=document.getElementById(id);
+ for(const [themeId,label] of highLevelThemeLabels)menu.add(new Option(label,themeId));
+ menu.addEventListener('change',()=>{
+   selectedHighLevelTheme=menu.value;
+   currentPage=1;
+   updateMap();
+ });
+}
+function recordHasSelectedHighLevelTheme(r){
+ return selectedHighLevelTheme==='all'||(r.theme_node_ids||[]).includes(selectedHighLevelTheme);
+}
+function syncHighLevelThemeControls(){
+ for(const id of highLevelThemeSelects)document.getElementById(id).value=selectedHighLevelTheme;
+}
+
+const el=id=>document.getElementById(id);
+function validDOI(s){let d=String(s||'').trim();if(/^https?:\/\/doi\.org\/10\./i.test(d))return d;if(/^10\.[^\s]+$/i.test(d))return 'https://doi.org/'+d;return null}
+let compiledQuery=null, lastValidQuery='';
+function compileSearch(){
+ const q=search.value.trim();
+ try {compiledQuery=parseBoolean(q);lastValidQuery=q;el('searchError').textContent='';search.setAttribute('aria-invalid','false');return true;}
+ catch(e){el('searchError').textContent='Invalid Boolean search: '+e.message+'. Previous results are retained until corrected.';search.setAttribute('aria-invalid','true');return false;}
+}
+function filteredBase(includeHighLevelTheme=true){return records.filter(r=>(yr.value==='all'||r.year===Number(yr.value))&&(crop.value==='all'||(r.filter_crops||[]).includes(crop.value))&&matchBoolean(compiledQuery,r)&&(!includeHighLevelTheme||recordHasSelectedHighLevelTheme(r)))}
+function renderYearChart(){
+ // Year chart deliberately spans all publication years so selected years can be compared.
+ // Crop and Boolean search remain synchronized with the other dashboard components.
+ yearChartCrop.value=crop.value;
+ const data=records.filter(r=>(crop.value==='all'||(r.filter_crops||[]).includes(crop.value))&&matchBoolean(compiledQuery,r)&&recordHasSelectedHighLevelTheme(r));
+ const yearCounts=new Map(years.map(y=>[y,0]));
+ for(const r of data){if(Number.isInteger(r.year)&&yearCounts.has(r.year))yearCounts.set(r.year,yearCounts.get(r.year)+1);}
+ const xs=[...yearCounts.keys()].sort((a,b)=>a-b), ys=xs.map(x=>yearCounts.get(x));
+ if(typeof Plotly==='undefined'){el('yearChart').innerHTML='<p style="padding:24px">The interactive chart needs an internet connection to load Plotly.</p>';return;}
+ const colors=xs.map(y=>yr.value!=='all'&&Number(yr.value)===y?'#502e76':'#8D909B');
+ const trace={type:'bar',x:xs,y:ys,hovertemplate:'<b>%{x}</b><br>%{y} article(s)<extra></extra>',marker:{color:colors},cliponaxis:false};
+ const layout={autosize:true,margin:{l:58,r:18,t:12,b:51},paper_bgcolor:'#fff',plot_bgcolor:'#fff',xaxis:{title:{text:'Publication year'},tickmode:'linear',dtick:1,tickangle:-45},yaxis:{title:{text:'Number of articles'},rangemode:'tozero',gridcolor:'#e6ebf2',zerolinecolor:'#cfd7e3'},font:{family:'Inter,system-ui,Arial,sans-serif'}};
+ Plotly.react('yearChart',[trace],layout,{responsive:true,displaylogo:false,modeBarButtonsToRemove:['lasso2d','select2d','autoScale2d']}).then(()=>{
+   const chart=el('yearChart');
+   chart.removeAllListeners?.('plotly_click');
+   chart.on('plotly_click',ev=>{
+     const chosen=ev.points?.[0]?.x;
+     if(chosen===undefined||chosen===null)return;
+     yr.value=String(chosen);
+     currentPage=1;
+     updateMap();
+     el('database').scrollIntoView({behavior:'smooth',block:'start'});
+   });
+ });
+}
+
+function renderRegionChart(){
+ regionChartCrop.value=crop.value;
+ // A record is unmapped only when it has no valid ISO-3 country assignment.
+ // Split semicolon-delimited region codes, retaining verbatim coded labels.
+ // Counts are article counts within each region, not unique article totals across regions.
+ const data=filteredBase().filter(r=>!(r.countries||[]).length);
+ const counts=new Map();
+ for(const r of data){
+   const regions=[...new Set(String(r.region||'').split(';').map(v=>v.trim()).filter(Boolean))];
+   if(!regions.length)regions.push('Not applicable');
+   for(const region of regions)counts.set(region,(counts.get(region)||0)+1);
+ }
+ const entries=[...counts.entries()].sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0]));
+ const names=entries.map(e=>e[0]), values=entries.map(e=>e[1]);
+ const note=el('regionChartNote');
+ note.textContent=data.length.toLocaleString('en-GB')+' articles without country data match the current year, product, theme and Boolean filters. Regions follow the source Region field; articles coded to multiple regions contribute to each region, so bar totals may exceed the number of articles. “Not applicable” indicates a blank region; “Global” retains the original source coding.';
+ if(typeof Plotly==='undefined'){el('regionChart').innerHTML='<p style="padding:24px">The interactive chart needs an internet connection to load Plotly.</p>';return;}
+ const height=Math.max(330,entries.length*29+110);
+ el('regionChart').style.height=height+'px';
+ const trace={type:'bar',orientation:'h',x:values,y:names,hovertemplate:'<b>%{y}</b><br>%{x} article(s)<extra></extra>',marker:{color:'#6A7062'},cliponaxis:false};
+ const layout={height,autosize:true,margin:{l:Math.min(350,Math.max(150,...names.map(n=>n.length*8+36))),r:45,t:15,b:54},paper_bgcolor:'#fff',plot_bgcolor:'#fff',xaxis:{title:{text:'Number of articles'},rangemode:'tozero',gridcolor:'#e6ebf2',zerolinecolor:'#cfd7e3'},yaxis:{autorange:'reversed',automargin:true,ticklabelstandoff:14},font:{family:'Inter,system-ui,Arial,sans-serif'}};
+ Plotly.react('regionChart',[trace],layout,{responsive:true,displaylogo:false,modeBarButtonsToRemove:['lasso2d','select2d','autoScale2d']});
+}
+
+// World Bank FY2027 high-income economies, restricted to ISO3 codes in this source.
+// French overseas territories are suppressed to avoid mapping metropolitan HIC territories.
+const HIGH_INCOME_COUNTRY_CODES=new Set(["ARE", "ATF", "AUS", "BEL", "BRN", "CAN", "CHE", "CHL", "CRI", "DEU", "DNK", "ESP", "FIN", "FRA", "GBR", "GUY", "HKG", "IRL", "ISL", "ITA", "JPN", "KOR", "MYT", "NLD", "NZL", "PAN", "PLW", "PRT", "REU", "RUS", "SGP", "SWE", "SYC", "TTO", "TWN", "URY", "USA"]);
+function renderJournalChart(){
+ journalChartCrop.value=crop.value;
+ journalChartYear.value=yr.value;
+ const filtered=filteredBase();
+ const counts=new Map();
+ for(const r of filtered){
+   const name=String(r.source||'').trim();
+   if(name) counts.set(name,(counts.get(name)||0)+1);
+ }
+ const ranked=[...counts.entries()].sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0])).slice(0,15);
+ const labels=ranked.map(([name])=>name);
+ // Wrap display labels after at most three whitespace-separated words per line.
+ // The original journal names remain the axis values and hover labels.
+ const wrappedLabels=labels.map(name=>{
+   const escaped=String(name).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+   return (escaped.match(/\S+/g)||[]).reduce((lines,word,i)=>{
+     if(i%3===0)lines.push(word);else lines[lines.length-1]+=' '+word;
+     return lines;
+   },[]).join('<br>');
+ });
+ const amounts=ranked.map(([,value])=>value);
+ const host=el('journalChart');
+ host.style.height=Math.max(460,ranked.length*37+110)+'px';
+ if(typeof Plotly==='undefined'){
+  host.innerHTML='<p style="padding:24px">The interactive chart needs an internet connection to load Plotly.</p>';return;
+ }
+ const trace={type:'bar',orientation:'h',x:amounts,y:labels,
+  hovertemplate:'<b>%{y}</b><br>%{x} article(s)<extra></extra>',
+  marker:{color:'#6A7062'},cliponaxis:false};
+ const layout={autosize:true,margin:{l:Math.min(360,Math.max(195,...wrappedLabels.map(v=>Math.max(...v.split('<br>').map(line=>line.length))*6.6+55))),r:55,t:15,b:55},
+  paper_bgcolor:'#fff',plot_bgcolor:'#fff',font:{family:'Inter,system-ui,Arial,sans-serif'},
+  xaxis:{title:{text:'Number of articles',standoff:20},rangemode:'tozero',gridcolor:'#e6ebf2',zerolinecolor:'#cfd7e3'},
+  yaxis:{autorange:'reversed',automargin:true,tickmode:'array',tickvals:labels,ticktext:wrappedLabels,ticklabelstandoff:18,tickfont:{size:12}}};
+ Plotly.react('journalChart',[trace],layout,{responsive:true,displaylogo:false,
+  modeBarButtonsToRemove:['lasso2d','select2d','autoScale2d']});
+}
+
+function updateMap(){
+ syncHighLevelThemeControls();
+ const data=filteredBase(),count=new Map();data.forEach(r=>new Set(r.countries||[]).forEach(cc=>{if(!HIGH_INCOME_COUNTRY_CODES.has(cc))count.set(cc,(count.get(cc)||0)+1)}));
+ const loc=[...count.keys()].sort(),values=loc.map(cc=>count.get(cc));
+ el('periodLabel').textContent=(yr.value==='all'?'All publication years':'Published in '+yr.value)+' · '+(crop.value==='all'?'All products':crop.value)+(search.value.trim()?' · Boolean search applied':'')+(selectedHighLevelTheme==='all'?'':' · '+(highLevelThemeLabels.find(([id])=>id===selectedHighLevelTheme)||[])[1]);
+ const trace={type:'choropleth',locations:loc,locationmode:'ISO-3',z:values,text:loc.map(countryName),customdata:values.map(nfmt),hovertemplate:'<b>%{text}</b> (%{location})<br>%{customdata} article(s)<extra></extra>',colorscale:[[0,'#f7e7c4'],[.23,'#eebc82'],[.48,'#cc835e'],[.73,'#96557c'],[1,'#502e76']],zmin:1,zmax:Math.max(2,...values),marker:{line:{color:'#fff',width:.55}},colorbar:{title:{text:'Number of articles',side:'right'},len:.7,thickness:12,outlinewidth:0,tickfont:{size:10}},showscale:true};
+ const layout={autosize:true,margin:{l:2,r:3,t:2,b:2},paper_bgcolor:'#fff',geo:{scope:'world',projection:{type:'natural earth'},showframe:false,showcoastlines:false,showcountries:true,countrycolor:'#fff',countrywidth:.4,showland:true,landcolor:'#eaedf2',showocean:true,oceancolor:'#fff',showlakes:false,bgcolor:'#fff'},font:{family:'Inter,system-ui,Arial,sans-serif'}};
+ if(typeof Plotly==='undefined'){el('map').innerHTML='<p style="padding:24px">The interactive map needs an internet connection to load Plotly.</p>'}else{
+ Plotly.react('map',[trace],layout,{responsive:true,displaylogo:false,modeBarButtonsToRemove:['lasso2d','select2d','autoScale2d']}).then(()=>{
+ el('map').removeAllListeners?.('plotly_click');
+ el('map').on('plotly_click',event=>{const cc=event.points?.[0]?.location;if(cc){selectedCountry=cc;currentPage=1;renderDatabase();el('database').scrollIntoView({behavior:'smooth',block:'start'});}});
+ });
+ }
+ renderRegionChart();
+ renderYearChart();
+ renderJournalChart();
+ renderDatabase();
+}
+function appendText(tag, parent, text, className='') {
+ const node=document.createElement(tag);if(className)node.className=className;node.textContent=String(text==null?'':text);parent.appendChild(node);return node;
+}
+function formatAuthors(raw){
+ const names=String(raw||'').split(/\s*;\s*/).filter(Boolean);
+ if(names.length>3)return names[0]+' et al.';
+ if(names.length===2)return names.join(' and ');
+ return names.join(', ');
+}
+function publicationText(r){
+ let vol=String(r.volume||''); if(r.issue)vol += '('+r.issue+')';
+ return [r.source,vol,r.pages].filter(Boolean).join(', ');
+}
+function snippet(x,n=220){const s=String(x||'').trim();if(s.length<=n)return s;return s.slice(0,n+1).replace(/\s+\S*$/,'').trim()+'…';}
+function appendTagList(parent, values){
+ for(const value of values||[]){appendText('span',parent,value,'db-pill');}
+ if(!values?.length)appendText('span',parent,'–','db-muted');
+}
+function renderDatabase(){
+ dbYear.value=yr.value;dbCrop.value=crop.value;dbCountry.value=selectedCountry||'all';dbTheme.value=selectedHighLevelTheme;
+ window.dispatchEvent(new Event('cgiar-filters-changed'));
+ let rows=filteredBase();if(selectedCountry)rows=rows.filter(r=>r.countries.includes(selectedCountry));if(selectedThemeNode)rows=rows.filter(r=>(r.theme_node_ids||[]).includes(selectedThemeNode.id));for(const [key,val] of Object.entries(traitFilters))rows=rows.filter(r=>{
+  const coded=r.traits?.[key];return Array.isArray(coded)?coded.includes(val):coded===val;
+ });
+ rows.sort((a,b)=>(b.year||0)-(a.year||0)||String(a.title||'').localeCompare(String(b.title||'')));
+ renderTraitChips();el('themeChip').classList.toggle('hidden',!selectedThemeNode);if(selectedThemeNode)el('themeName').textContent='Coded theme: '+selectedThemeNode.label;el('countryChip').classList.toggle('hidden',!selectedCountry);
+ if(selectedCountry)el('countryName').textContent=countryName(selectedCountry)+' ('+selectedCountry+')';
+ el('dbStatus').textContent=[selectedHighLevelTheme==='all'?null:'High-level theme: '+(highLevelThemeLabels.find(([id])=>id===selectedHighLevelTheme)||[])[1],selectedCountry?'Country: '+countryName(selectedCountry):null,selectedThemeNode?'Theme: '+selectedThemeNode.label:null,Object.keys(traitFilters).length?'Adaptation/mitigation filters applied':null].filter(Boolean).join(' · ')||'Showing all countries and themes';
+ el('listCount').textContent=nfmt(rows.length)+' article(s)';
+ const pages=Math.max(1,Math.ceil(rows.length/pageSize));currentPage=Math.min(currentPage,pages);
+ const slice=rows.slice((currentPage-1)*pageSize,currentPage*pageSize);const body=el('recordRows');body.replaceChildren();
+ for(const r of slice){
+  const tr=document.createElement('tr');
+  const title=document.createElement('td');title.className='title db-citation';
+  const link=validDOI(r.doi);
+  if(link){const a=document.createElement('a');a.href=link;a.target='_blank';a.rel='noopener noreferrer';a.textContent=r.title||r.id;title.appendChild(a);}
+  else appendText('b',title,r.title||r.id);
+  const abstract=String(r.abstract||'').trim();
+  if(abstract){
+   if(abstract.length>260){
+    const det=document.createElement('details');det.className='db-abstract';
+    const sum=document.createElement('summary');
+    appendText('span',sum,snippet(abstract),'db-abstract-preview');
+    appendText('span',sum,' Read abstract','db-abstract-action db-abstract-action-read');
+    appendText('span',sum,'Hide abstract','db-abstract-action db-abstract-action-hide');
+    det.appendChild(sum);
+    appendText('div',det,abstract,'db-abstract-full');title.appendChild(det);
+   }else appendText('div',title,abstract,'db-abstract-short');
+  }
+  const doiEl=document.createElement('div');doiEl.className='db-doi';
+  if(link){const a=document.createElement('a');a.href=link;a.target='_blank';a.rel='noopener noreferrer';a.textContent='DOI: '+String(r.doi).replace(/^https?:\/\/(?:dx\.)?doi\.org\//i,'');doiEl.appendChild(a);}
+  else doiEl.textContent=r.doi?'DOI: '+r.doi:'';
+  if(r.doi)title.appendChild(doiEl);
+  if(r.lens_status!=='EXACT_DOI_MATCH' && r.citation){appendText('div',title,'Source citation (Lens match unavailable): '+r.citation,'db-source-citation');}
+  const year=appendText('td',tr,r.year||'–','small');
+  const authors=appendText('td',tr,formatAuthors(r.authors)||'–','db-author-cell');
+  if(r.authors && r.authors.includes(';'))authors.title=r.authors;
+  const pub=appendText('td',tr,publicationText(r)||'–','db-source-cell');
+  const crops=document.createElement('td');crops.className='db-tags';appendTagList(crops,r.crops);
+  const countries=document.createElement('td');countries.className='db-tags';appendTagList(countries,(r.countries||[]).map(countryName));
+  const codedThemes=document.createElement('td');codedThemes.className='db-coded-themes';
+  const themeColors={'Climate change impacts on agrifood systems':'#3E442B','Agrifood systems impacts on climate':'#6A7062','Adaptation options in agrifood systems':'#8D909B','Mitigation options in agrifood systems':'#AAADC4','Methods and metrics':'#D6EEFF'};
+  for(const path of r.theme_paths||[]){
+    const root=path.split(' > ')[0];
+    const themePill=appendText('span',codedThemes,path,'db-theme-pill');
+    if(themeColors[root])themePill.style.setProperty('--theme-base',themeColors[root]);
+  }
+  if(!(r.theme_paths||[]).length)appendText('span',codedThemes,'–','db-muted');
+  tr.prepend(title);tr.append(crops,countries,codedThemes);body.appendChild(tr);
+ }
+ if(!slice.length){const tr=document.createElement('tr');const td=document.createElement('td');td.colSpan=7;td.textContent='No articles match the selected filters.';tr.appendChild(td);body.appendChild(tr);}
+ el('pageInfo').textContent='Page '+currentPage+' of '+pages;el('prev').disabled=currentPage<=1;el('next').disabled=currentPage>=pages;
+}
+
+const TRAIT_NATURE_DEFS = {"adaptation_nature": {"1": "Planned adaptation (Deliberate policy or programmatic actions. often supported by institutions or governments)", "5": "Unclear / Not specified", "2": "Autonomous/unplanned adaptation (Spontaneous responses by individuals. communities. or systems without formal planning)", "4": "Both planned and autonomous"}, "mitigation_nature": {"4": "Not specified / unclear", "2": "Planned for the future (Proposed. modeled. or suggested actions not yet implemented)", "3": "Both observed and planned (Some actions implemented; others proposed)", "1": "Already undertaken (Observed implementation in practice)"}};
+const TRAIT_BINARY_DEFS = {"adaptation_effectiveness": "Adaptation effectiveness", "adaptation_finance": "Adaptation finance", "adaptation_cobenefits": "Adaptation with mitigation benefits", "mitigation_quantitative": "Quantitative estimate of GHG mitigated", "mitigation_cobenefits": "Mitigation with adaptation benefits"};
+const TRAIT_LABELS = {
+ adaptation_nature:'Adaptation nature', mitigation_nature:'Mitigation nature',
+ adaptation_effectiveness:'Adaptation effectiveness',adaptation_finance:'Adaptation finance',
+ adaptation_cobenefits:'Adaptation with mitigation benefits',
+ mitigation_quantitative:'Quantitative estimate of GHG mitigated',
+ mitigation_cobenefits:'Mitigation with adaptation benefits'};
+function shortNatureLabel(s){return String(s||'').split(' (')[0];}
+function renderTraitChips(){
+ const host=el('traitChips');host.replaceChildren();
+ for(const [key,val] of Object.entries(traitFilters)){
+  const label=key.endsWith('_nature')?shortNatureLabel(TRAIT_NATURE_DEFS[key][val]):(val==='1'?'True':'False');
+  const chip=document.createElement('button');chip.type='button';
+  chip.textContent=TRAIT_LABELS[key]+': '+label+' ×';
+  chip.title='Remove this characteristic filter';
+  chip.addEventListener('click',()=>{delete traitFilters[key];currentPage=1;renderDatabase();window.dispatchEvent(new Event('cgiar-characteristics-changed'));});
+  host.append(chip);
+ }
+}
+function characteristicSourceRecords(){
+ return filteredBase().filter(r=>(!selectedCountry||(r.countries||[]).includes(selectedCountry))&&
+ (!selectedThemeNode||(r.theme_node_ids||[]).includes(selectedThemeNode.id)));
+}
+function setTraitFilter(key,val){
+ if(traitFilters[key]===val) delete traitFilters[key];else traitFilters[key]=val;
+ currentPage=1;renderDatabase();window.dispatchEvent(new Event('cgiar-characteristics-changed'));
+ document.getElementById('database').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function renderCharacteristics(){
+ const data=characteristicSourceRecords();
+ for(const panel of [
+ {prefix:'adaptation',themeId:'theme3',nature:'adaptation_nature',
+  binary:['adaptation_effectiveness','adaptation_finance','adaptation_cobenefits']},
+ {prefix:'mitigation',themeId:'theme4',nature:'mitigation_nature',
+  binary:['mitigation_quantitative','mitigation_cobenefits']}]){
+  const options=TRAIT_NATURE_DEFS[panel.nature],
+   nHost=el(panel.prefix+'Nature'),bHost=el(panel.prefix+'Binary');
+  // Only records coded to this overarching theme form the denominator.
+  // A nonempty nature field alone must not expand the thematic denominator.
+  const scoped=data.filter(r=>(r.theme_node_ids||[]).includes(panel.themeId));
+  const natureCodedRecords=scoped.filter(r=>(r.traits?.[panel.nature]||[]).length>0);
+  const denominator=natureCodedRecords.length;
+  el(panel.prefix+'PanelCount').textContent=
+   denominator.toLocaleString('en-GB')+' articles with nature coding (of '+
+   scoped.length.toLocaleString('en-GB')+' Theme '+panel.themeId.slice(-1)+
+   ' articles) · nature bars show share of those '+denominator.toLocaleString('en-GB')+' articles';
+  nHost.replaceChildren();bHost.replaceChildren();
+  const counts=Object.keys(options).map(k=>[k,natureCodedRecords.filter(r=>(r.traits?.[panel.nature]||[]).includes(k)).length]);
+  for(const [key,count] of counts){
+   const button=document.createElement('button');button.type='button';button.className='nature-option';
+   button.setAttribute('aria-pressed',traitFilters[panel.nature]===key?'true':'false');
+   button.title=options[key];
+   const label=document.createElement('span');label.className='nature-option-label';label.textContent=shortNatureLabel(options[key]);
+   const track=document.createElement('span');track.className='nature-option-track';
+   const fill=document.createElement('span');fill.className='nature-option-fill';
+   fill.style.display='block';fill.style.width=(denominator?count/denominator*100:0)+'%';
+   track.title=count.toLocaleString('en-GB')+' of '+denominator.toLocaleString('en-GB')+
+    ' articles with nature coding ('+
+    (denominator?(100*count/denominator).toFixed(1):'0.0')+'%)';
+   track.appendChild(fill);
+   const number=document.createElement('span');number.className='nature-option-count';number.textContent=count.toLocaleString('en-GB');
+   button.append(label,track,number);
+   button.addEventListener('click',()=>setTraitFilter(panel.nature,key));
+   nHost.appendChild(button);
+  }
+  for(const key of panel.binary){
+   const trueCount=scoped.filter(r=>r.traits?.[key]==='1').length;
+   const falseCount=scoped.filter(r=>r.traits?.[key]==='0').length;
+   const assessed=trueCount+falseCount;
+   const group=document.createElement('div');group.className='binary-group';
+   const head=document.createElement('div');head.className='binary-header';
+   const title=document.createElement('span');title.textContent=TRAIT_LABELS[key];
+   const detail=document.createElement('span');detail.className='binary-scope';
+   detail.textContent=assessed.toLocaleString('en-GB')+' Yes/No responses';
+   head.append(title,detail);group.append(head);
+   if(assessed){
+    const track=document.createElement('div');track.className='binary-track';
+    for(const [value,count,label,klass] of [['1',trueCount,'Yes','true'],['0',falseCount,'No','false']]){
+     if(!count)continue;
+     const b=document.createElement('button');b.type='button';b.className='binary-segment '+klass;
+     b.style.flex=String(count);b.setAttribute('aria-pressed',traitFilters[key]===value?'true':'false');
+     b.textContent=count/assessed>=.12?label+' '+count.toLocaleString('en-GB'):'';
+     b.title=label+': '+count.toLocaleString('en-GB')+' of '+assessed.toLocaleString('en-GB')+
+      ' Yes/No responses ('+(100*count/assessed).toFixed(1)+'%)';
+     b.setAttribute('aria-label',b.title);
+     b.addEventListener('click',()=>setTraitFilter(key,value));track.appendChild(b);
+    }
+    group.appendChild(track);
+   } else {
+    const note=document.createElement('div');note.className='binary-none';
+    note.textContent='No Yes/No responses match these filters';
+    group.appendChild(note);
+   }
+   bHost.appendChild(group);
+  }
+ }
+}
+window.addEventListener('cgiar-characteristics-changed',renderCharacteristics);
+window.addEventListener('cgiar-filters-changed',renderCharacteristics);
+
+yr.addEventListener('change',()=>{currentPage=1;updateMap()});crop.addEventListener('change',()=>{currentPage=1;updateMap()});
+regionChartCrop.addEventListener('change',()=>{crop.value=regionChartCrop.value;currentPage=1;updateMap()});
+yearChartCrop.addEventListener('change',()=>{crop.value=yearChartCrop.value;currentPage=1;updateMap()});
+journalChartCrop.addEventListener('change',()=>{crop.value=journalChartCrop.value;currentPage=1;updateMap()});
+journalChartYear.addEventListener('change',()=>{yr.value=journalChartYear.value;currentPage=1;updateMap()});
+dbYear.addEventListener('change',()=>{yr.value=dbYear.value;currentPage=1;updateMap()});
+dbCrop.addEventListener('change',()=>{crop.value=dbCrop.value;currentPage=1;updateMap()});
+dbCountry.addEventListener('change',()=>{selectedCountry=dbCountry.value==='all'?null:dbCountry.value;currentPage=1;renderDatabase()});
+search.addEventListener('input',()=>{if(compileSearch()){currentPage=1;updateMap()}});
+el('prev').addEventListener('click',()=>{currentPage--;renderDatabase()});el('next').addEventListener('click',()=>{currentPage++;renderDatabase()});
+el('clearSearch').addEventListener('click',()=>{search.value='';compileSearch();currentPage=1;updateMap()});
+el('clearCountry').addEventListener('click',()=>{selectedCountry=null;currentPage=1;renderDatabase()});
+el('clearDbFilters').addEventListener('click',()=>{el('reset').click();});
+el('clearTheme').addEventListener('click',()=>{selectedThemeNode=null;currentPage=1;renderDatabase();window.dispatchEvent(new Event('cgiar-theme-filter-changed'));});
+window.cgiarSelectThemeNode=function(id,label){
+ selectedThemeNode=(selectedThemeNode&&selectedThemeNode.id===id)?null:{id,label};
+ currentPage=1;renderDatabase();
+ window.dispatchEvent(new Event('cgiar-theme-filter-changed'));
+ document.getElementById('database').scrollIntoView({behavior:'smooth',block:'start'});
+};
+window.cgiarActiveThemeNode=function(){return selectedThemeNode?.id||null;};
+window.cgiarThemeFilterData=function(){
+ return {years,crops:cropLabels,countries:countriesInData,
+  countryNames:metadata.country_names, year:yr.value,crop:crop.value,country:selectedCountry||'all',
+  records:filteredBase(false).filter(r=>!selectedCountry||(r.countries||[]).includes(selectedCountry))};
+};
+window.cgiarSetTreeFilters=function({year,crop:chosenCrop,country}={}){
+ if(year!==undefined)yr.value=year;
+ if(chosenCrop!==undefined)crop.value=chosenCrop;
+ if(country!==undefined)selectedCountry=country==='all'?null:country;
+ currentPage=1;
+ // All views are driven by the same live filter state.
+ updateMap();
+};
+el('reset').addEventListener('click',()=>{selectedHighLevelTheme='all';yr.value='all';crop.value='all';search.value='';compileSearch();selectedCountry=null;selectedThemeNode=null;traitFilters={};currentPage=1;updateMap();window.dispatchEvent(new Event('cgiar-characteristics-changed'));window.dispatchEvent(new Event('cgiar-theme-filter-changed'));});
+el('methodFoot').textContent='Lens enrichment: 2641 exact DOI matches; missing fields not inferred. Source: data worksheet, Country and Crop/livestock/tree/fish. '+nfmt(metadata.articles)+' articles; '+nfmt(metadata.unmapped_articles)+' without a valid country code. Broad crop filter categories follow the uploaded Crop/livestock/tree/fish field. Records are preserved even when no crop is reported. Plotly map requires an internet connection.';
+compileSearch();updateMap();
+</script><script>
+(function(){
+
+const DATA = __THEME_TREE_JSON__;
+let selectedTheme = null;
+let selectedL2 = null;
+let themeCounts = new Map();
+function getNodeCount(n){return themeCounts.get(n.id)||0;}
+function refreshTreeCounts(){
+ const state=window.cgiarThemeFilterData();
+ const y=document.getElementById('treeYear'),c=document.getElementById('treeCrop'),co=document.getElementById('treeCountry');
+ y.value=state.year;c.value=state.crop;co.value=state.country;
+ themeCounts=new Map();
+ for(const record of state.records){
+   for(const id of new Set(record.theme_node_ids||[])){
+     themeCounts.set(id,(themeCounts.get(id)||0)+1);
+   }
+ }
+}
+function setupTreeFilters(){
+ const state=window.cgiarThemeFilterData();
+ const y=document.getElementById('treeYear'),c=document.getElementById('treeCrop'),co=document.getElementById('treeCountry');
+ for(const v of state.years)y.add(new Option(String(v),String(v)));
+ for(const v of state.crops)c.add(new Option(v,v));
+ for(const v of state.countries)co.add(new Option((state.countryNames?.[v]||v)+' ('+v+')',v));
+ y.addEventListener('change',()=>window.cgiarSetTreeFilters({year:y.value}));
+ c.addEventListener('change',()=>window.cgiarSetTreeFilters({crop:c.value}));
+ co.addEventListener('change',()=>window.cgiarSetTreeFilters({country:co.value}));
+ document.getElementById('clearTreeFilters').addEventListener('click',()=>document.getElementById('clearDbFilters').click());
+}
+
+function hexToRgb(hex) { const c=hex.replace('#',''); const n=parseInt(c,16); return {r:(n>>16)&255,g:(n>>8)&255,b:n&255}; }
+function rgbToCss(rgb) { return `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`; }
+function mix(a,b,amount) { const x=typeof a==='string'?hexToRgb(a):a; const y=typeof b==='string'?hexToRgb(b):b; return {r:Math.round(x.r+(y.r-x.r)*amount), g:Math.round(x.g+(y.g-x.g)*amount), b:Math.round(x.b+(y.b-x.b)*amount)}; }
+function luminance(hex) { const c=hexToRgb(hex); const vals=[c.r,c.g,c.b].map(v=>{v/=255; return v<=0.03928 ? v/12.92 : Math.pow((v+0.055)/1.055,2.4);}); return 0.2126*vals[0]+0.7152*vals[1]+0.0722*vals[2]; }
+function textColorFor(bgHex) { return luminance(bgHex) > 0.56 ? '#253246' : '#ffffff'; }
+function cardBg(color, depth) { const top=rgbToCss(mix(color,'#ffffff', depth===1?0.10:depth===2?0.08:0.12)); const end=rgbToCss(mix(color,'#5b6473', depth===1?0.06:depth===2?0.03:0.07)); return `linear-gradient(135deg, ${top} 0%, ${end} 100%)`; }
+function pillColor(color, ratio) {
+  const low = mix(color, '#384354', 0.22);     // darker for lower values
+  const high = mix('#ffffff', color, 0.24);    // lighter for higher values
+  return rgbToCss(mix(low, high, Math.max(0, Math.min(1, ratio))));
+}
+function readableOnCss(cssColor, fallbackLight='#ffffff', fallbackDark='#253246') { const m=cssColor.match(/rgb\((\d+),\s*(\d+),\s*(\d+)\)/); if(!m) return fallbackDark; const [r,g,b]=m.slice(1).map(Number); const brightness=(r*299+g*587+b*114)/1000; return brightness>165 ? fallbackDark : fallbackLight; }
+function stripLeadingCode(label) { return String(label).trim().replace(/^\d+(?:\.\d+)?\.\s*/, ''); }
+function el(tag, attrs={}, html='') { const x=document.createElement(tag); Object.entries(attrs).forEach(([k,v])=>{ if(k==='class') x.className=v; else if(v!==''&&v!==null) x.setAttribute(k,v); }); if(html) x.innerHTML=html; return x; }
+function makeCard(node, themeColor, depth, ratio, options={}) {
+ const {selected=false, staticCard=false, stripLabelCode=false}=options;
+ const label=stripLabelCode?stripLeadingCode(node.label):node.label;
+ const cardText=textColorFor(themeColor);
+ const pillBg=pillColor(themeColor,ratio);
+ const pillText=readableOnCss(pillBg);
+ // Outer surface expands the hierarchy. The count is an independent filter button.
+ const card=el('div',{class:`card${selected?' selected':''}${staticCard?' static':''}`,
+   style:`background:${cardBg(themeColor,depth)}; color:${cardText};`});
+ if(!staticCard){card.tabIndex=0;card.setAttribute('role','button');card.setAttribute('aria-label','Expand '+label);}
+ const main=el('div',{class:'card-main'});
+ const labelEl=el('div',{class:'node-label'});labelEl.textContent=label;main.appendChild(labelEl);
+ const count=el('button',{class:'count-pill',type:'button',style:`background:${pillBg};color:${pillText};`});
+ count.textContent=getNodeCount(node).toLocaleString();
+ const desc=depth===1?label:(depth===2?selectedTheme.label+' > '+label:selectedTheme.label+' > '+selectedL2.label+' > '+label);
+ count.setAttribute('aria-label',`Filter database by ${desc}: ${getNodeCount(node).toLocaleString()} records`);
+ count.setAttribute('title','Filter database and jump to matching records');
+ const active=window.cgiarActiveThemeNode?.()===node.id;
+ count.setAttribute('aria-pressed',active?'true':'false');
+ count.addEventListener('click',(e)=>{e.preventDefault();e.stopPropagation();window.cgiarSelectThemeNode(node.id,desc);});
+ card.append(main,count);
+ return card;
+}
+function makeExpandable(card,action){
+ card.addEventListener('click',action);
+ card.addEventListener('keydown',event=>{if((event.key==='Enter'||event.key===' ')&&event.target===card){event.preventDefault();action();}});
+}
+window.addEventListener('cgiar-theme-filter-changed',()=>renderAll());
+window.addEventListener('cgiar-filters-changed',()=>{refreshTreeCounts();renderAll();});
+function renderL1() { const host=document.getElementById('level1'); host.innerHTML=''; const max=Math.max(1,...DATA.themes.map(t=>getNodeCount(t))); const wrap=el('div', {class:'node-list'}); DATA.themes.forEach(t=>{ const card=makeCard(t,t.color,1,getNodeCount(t)/max,{selected:selectedTheme&&selectedTheme.id===t.id, showThemeChip:false}); makeExpandable(card,()=>{selectedTheme=t; selectedL2=null; renderAll();}); wrap.appendChild(card); }); host.appendChild(wrap); }
+function renderL2() { const host=document.getElementById('level2'); host.innerHTML=''; if(!selectedTheme) { host.appendChild(el('div', {class:'hint'}, 'Select a Level 1 theme to reveal its Level 2 branches.')); return; } const max=Math.max(1,...selectedTheme.children.map(x=>getNodeCount(x))); const wrap=el('div', {class:'node-list'}); selectedTheme.children.forEach(n=>{ const card=makeCard(n,selectedTheme.color,2,getNodeCount(n)/max,{selected:selectedL2&&selectedL2.id===n.id, stripLabelCode:true}); makeExpandable(card,()=>{selectedL2=n; renderAll();}); wrap.appendChild(card); }); host.appendChild(wrap); }
+function renderL3() { const host=document.getElementById('level3'); host.innerHTML=''; if(!selectedTheme) { host.appendChild(el('div', {class:'hint'}, 'Level 3 detail appears here after a Level 2 branch has been selected.')); return; } if(!selectedL2) { host.appendChild(el('div', {class:'hint'}, `Now choose one of the Level 2 branches in <strong>${selectedTheme.label}</strong> to see its Level 3 distribution.`)); return; } if(!selectedL2.children.length) { host.appendChild(el('div', {class:'hint'}, 'No Level 3 breakdown is available for this selected branch in the current source data.')); return; } const max=Math.max(1,...selectedL2.children.map(x=>getNodeCount(x))); const wrap=el('div', {class:'node-list'}); selectedL2.children.forEach(n=>wrap.appendChild(makeCard(n,selectedTheme.color,3,getNodeCount(n)/max,{staticCard:true, stripLabelCode:true}))); host.appendChild(wrap); }
+function renderAll() { renderL1(); renderL2(); renderL3(); }
+document.getElementById('resetView').addEventListener('click',()=>{ selectedTheme=null; selectedL2=null; renderAll(); });
+setupTreeFilters();
+refreshTreeCounts();
+renderAll();
+
+})();
+</script>
+<script>
+// Every chart shares the same global filter state; use one canonical reset
+// to avoid mismatched dropdown values and stale database selections.
+for(const buttonId of ['clearRegionFilters','clearYearChartFilters','clearJournalChartFilters','clearCharacteristicsFilters']){
+  const button=document.getElementById(buttonId);
+  if(button) button.addEventListener('click',()=>document.getElementById('reset').click());
+}
+</script><script id="productFrequencyV36Script">
+(function(){
+ const input=document.getElementById('productFrequencySearch');
+ const clear=document.getElementById('productFrequencyClear');
+ const status=document.getElementById('productFrequencyShown');
+ const rows=[...document.querySelectorAll('#productFrequencyTable tbody tr')];
+ if(!input||!clear||!status)return;
+ function update(){
+   const term=input.value.trim().toLocaleLowerCase();
+   let shown=0;
+   for(const row of rows){
+     const match=row.cells[1].textContent.toLocaleLowerCase().includes(term);
+     row.hidden=!match;
+     if(match)shown++;
+   }
+   status.textContent=shown.toLocaleString('en-GB')+' of '+rows.length.toLocaleString('en-GB')+' products';
+ }
+ input.addEventListener('input',update);
+ clear.addEventListener('click',()=>{input.value='';update();});
+})();
+</script></body></html>

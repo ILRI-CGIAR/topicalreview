@@ -1,0 +1,7 @@
+__pycache__/
+outputs/
+local_output/
+*.csv
+*.xlsx
+*.zip
+*.html.generated
