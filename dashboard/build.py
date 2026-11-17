@@ -193,6 +193,7 @@ def make_records(rows, contract):
           'doi':row['DOI'].strip(), 'citation':(contract.get('manual_citation_overrides',{}).get(row['DOI'].strip()) if row.get('openalex_match_status','').strip()=='MANUAL_PUBLISHER_RECOVERY' else None) or row['Citation'].strip(),
           'countries':countries, 'crops':parse_names(row['Crop/livestock/tree/fish name (CLEAN)'],exclude_missing=False,preserve_parentheses=True),
           'authors':pick_bibliography(row,'authors'),'source':pick_bibliography(row,'source_journal'),
+          'journal':row['Journal'].strip(),
           'volume':pick_bibliography(row,'volume'),'issue':pick_bibliography(row,'issue'),
           'pages':pick_bibliography(row,'pages'),'abstract':pick_bibliography(row,'abstract'),
           'lens_id':row.get('lens_id','').strip() if lens_status=='EXACT_DOI_MATCH' else '',
