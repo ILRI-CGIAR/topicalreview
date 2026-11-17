@@ -64,3 +64,12 @@ For the closest visual reproduction of the original word cloud, select a locally
 The currently approved dashboard is **v3.6**. The HTML/CSS/JS template and approved codebook are frozen for routine data-only updates. A new design revision requires a new release version and documented review; do not silently change previous thematic mappings. Repository branches are not protected by this script: branch protection/tagging requires repository maintainers to configure GitHub's rulesets.
 
 For a ChatGPT-assisted update, upload the new CSV in the chat and ask for a dashboard rebuild using this repository's `dashboard/build.py` and the retained enriched CSV; this is the same script used locally. The output HTML is delivered as a file, not committed to Git history.
+## Journal publication chart: approved source field (November 2026)
+
+**The top-15 “Article publications” chart must count the source spreadsheet's `Journal` column, not the Lens/OpenAlex-derived bibliographic journal/source field.** The input CSV must therefore contain the `Journal` column (exact case) with one journal value per article. This is a required source field, validated by the dashboard contract.
+
+- Each article contributes once to its `Journal` value (when nonblank). Sort journals by descending article count, breaking ties alphabetically; show the top 15 within the current product, publication-year, high-level theme and Boolean filters.
+- Preserve `source` for bibliographic citation details in the article database; do **not** overwrite it with `Journal`.
+- For future updates, export the Excel `data` worksheet as UTF-8 CSV retaining the `Filenames` and `Journal` column names. Use `--bibliography` to carry forward Lens/OpenAlex metadata if absent. No manual journal mapping is necessary.
+- The revised `A_FileFor_BerenguerJose1(8).xlsx` contains 2,652 unique filenames, 2,652 populated Journal entries and 652 distinct journal names. These are observations, not fixed constraints.
+- CSVs predating this change must gain the `Journal` field before rebuilding. Do not silently substitute bibliographic source data.
