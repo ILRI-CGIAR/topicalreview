@@ -4385,7 +4385,8 @@
     "openalex_pages",
     "openalex_abstract",
     "openalex_id",
-    "openalex_match_status"
+    "openalex_match_status",
+    "Journal"
   ],
   "reference": {
     "records": 2652,
