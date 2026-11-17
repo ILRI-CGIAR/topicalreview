@@ -543,7 +543,7 @@ function renderJournalChart(){
  const filtered=filteredBase();
  const counts=new Map();
  for(const r of filtered){
-   const name=String(r.source||'').trim();
+   const name=String(r.journal||'').trim();
    if(name) counts.set(name,(counts.get(name)||0)+1);
  }
  const ranked=[...counts.entries()].sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0])).slice(0,15);
