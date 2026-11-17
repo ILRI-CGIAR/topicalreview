@@ -32,13 +32,15 @@ class DashboardTests(unittest.TestCase):
         row={k:'' for k in self.contract['expected_columns']}
         row.update({'Filenames':'synthetic_test.pdf','Title':'Synthetic test article','Year':'2021',
                     'Country':'IND','Crop/livestock/tree/fish':'Crop',
-                    'Crop/livestock/tree/fish name (CLEAN)':'Rice; Wheat'})
+                    'Crop/livestock/tree/fish name (CLEAN)':'Rice; Wheat','Journal':'Synthetic Journal'})
         leafcol='1.2 Agricultural System'
         value=next((key for key,ids in self.contract['leaf_columns'][leafcol]['values'].items() if len(ids)==1),None)
         self.assertIsNotNone(value)
         row[leafcol]=value
         records=app.make_records([row],self.contract)
         self.assertEqual(records[0]['crops'],['Rice','Wheat'])
+        self.assertEqual(records[0]['journal'],'Synthetic Journal')
+        self.assertEqual(records[0]['source'],'')  # Journal is not bibliographic source
         self.assertIn('theme1',records[0]['theme_node_ids'])
         self.assertTrue(records[0]['theme_paths'])
         row[leafcol]='999. Invented category'
