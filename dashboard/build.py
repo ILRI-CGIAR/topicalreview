@@ -168,9 +168,13 @@ def make_records(rows, contract):
                 raw=(row.get(col) or '').strip()
                 if not raw:continue
                 mapping=definition['values']
-                if raw not in mapping:
+                # Theme 5 purpose branches use independently coded method types from
+                # AS:AV. Source cells can contain several approved codes separated
+                # by |||, and combinations need not be pre-enumerated in the contract.
+                pieces=([v.strip() for v in raw.split('|||') if v.strip()] if root=='theme5' else [raw])
+                if any(piece not in mapping for piece in pieces):
                     raise ValueError(f'Unapproved thematic code at CSV row {index} ({file_id}) column {col!r}: {raw!r}. Update reviewed crosswalk first.')
-                children=mapping[raw]
+                children=list(dict.fromkeys(node for piece in pieces for node in mapping[piece]))
                 if children:child_groups.append((definition['parent'],children))
             if master_value or child_groups:
                 themes.add(root);nodes_in_order.append(root)
@@ -180,8 +184,12 @@ def make_records(rows, contract):
                 for node in children:
                     if node not in themes:
                         themes.add(node);nodes_in_order.append(node)
-                for path in leaf_columns[next(col for col,d in leaf_columns.items() if d['parent']==parent)]['paths'].get(next((row[col].strip() for col,d in leaf_columns.items() if d['parent']==parent),''),[]):
-                    if path not in paths:paths.append(path)
+                definition=next(d for col,d in leaf_columns.items() if d['parent']==parent)
+                raw_value=next((row[col].strip() for col,d in leaf_columns.items() if d['parent']==parent),'')
+                pieces=([v.strip() for v in raw_value.split('|||') if v.strip()] if root=='theme5' else [raw_value])
+                for piece in pieces:
+                    for path in definition['paths'].get(piece,[]):
+                        if path not in paths:paths.append(path)
         node_ids=nodes_in_order
         region=(row.get('Region') or '').strip()
         trait={
