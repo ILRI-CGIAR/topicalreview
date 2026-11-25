@@ -29,6 +29,29 @@ class DashboardTests(unittest.TestCase):
         names=app.parse_names('Rice, rice; RICE')
         self.assertEqual({app.sentence_case_product(n) for n in names}, {'Rice'})
 
+    def test_new_theme5_purpose_classification(self):
+        # AS and AU replace AO:AR. Multiple method types must yield distinct leaves.
+        row={k:'' for k in self.contract['expected_columns']}
+        row.update({'Filenames':'new_theme5_test.pdf','Title':'New methods test','Year':'2022',
+                    'Country':'IND','Journal':'Test journal',
+                    '5 Which theme purpose the method is used':
+                        '1. To measure impact of climate change on agri-food systems|||3. To measure or investigate adapatation options',
+                    '5.1 To measure impact of climate change on agri-food systems':
+                        '2. Statistical Approaches & Trend Analysis|||5. Geo-spatial and mapping based analysis',
+                    '5.3 To measure or investigate adapatation options':
+                        '6. Frameworks, metrics, evaluation designs'})
+        row['5.1 Novel Methods types']='1. Experimental and measurement- based methods'
+        result=app.make_records([row],self.contract)[0]
+        nodes=set(result['theme_node_ids'])
+        self.assertIn('theme5-5.1-2',nodes)
+        self.assertIn('theme5-5.1-5',nodes)
+        self.assertIn('theme5-5.3-6',nodes)
+        self.assertNotIn('theme5-5.2',nodes)
+        self.assertEqual(len([p for p in result['theme_paths'] if p.startswith('Novel methods >')]),3)
+        self.assertTrue(all('Method time scale' not in p for p in result['theme_paths']))
+        self.assertEqual(len(self.contract['expected_columns'] & {'5.1 Novel Methods types'}) if isinstance(self.contract['expected_columns'],set) else
+                         len(set(self.contract['expected_columns']) & {'5.1 Novel Methods types'}),0)
+
     def test_adaptation_merge_is_frozen(self):
         merged='2. Autonomous/unplanned adaptation (Spontaneous responses by individuals. communities. or systems without formal planning)'
         self.assertEqual(app.extract_code_values(merged,{'1','2','4','5'},'Adaptation nature'),['2'])
