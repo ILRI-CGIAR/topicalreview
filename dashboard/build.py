@@ -312,7 +312,7 @@ def build_frequency_centered_svg(counts):
         else:
             svg.append(f'<text x="{x+3}" y="{y+1}" font-family="DejaVu Sans, Arial, sans-serif" font-size="{points}" dominant-baseline="text-before-edge" fill="{colour(f)}"><title>{tooltip}</title>{label}</text>')
     svg.append('</svg>')
-    return '\\n'.join(svg)
+    return '\n'.join(svg)
 
 
 def make_wordcloud(rows):
@@ -327,19 +327,6 @@ def make_wordcloud(rows):
             articles+=1;counts.update(names)
     if not counts:
         raise ValueError('No usable names in cleaned product-name column')
-    # Reference-inspired five-colour word cloud. Main high-frequency words are
-    # deliberately assigned the reference colours; remaining colours are stable
-    # by name. The source frequencies and article counts are not modified.
-    palette={'grey':'#666666','yellow':'#e2b100','purple':'#756daf',
-             'red':'#cb5f0b','green':'#189673'}
-    dominant={'Maize':'grey','Rice':'grey','Wheat':'yellow','Sorghum':'purple',
-              'Potato':'red','Soybean':'purple','Cassava':'red','Millet':'red',
-              'Beans':'purple','Crops':'purple','Coffee':'red','Barley':'red',
-              'Banana':'red','Pearl millet':'red','Nut':'red'}
-    def cloud_color_func(word,font_size,position,orientation,random_state=None,**kwargs):
-        if word in dominant:return palette[dominant[word]]
-        checksum=sum((i+1)*ord(ch) for i,ch in enumerate(word.casefold()))
-        return palette[(['green']*8+['purple','red','yellow'])[checksum%11]]
     svg=build_frequency_centered_svg(counts)
     ordered=sorted(counts.items(),key=lambda pair:(-pair[1],pair[0].casefold()))
     trs='\n'.join(f'<tr><td>{i}</td><td>{escape(name)}</td><td>{count}</td></tr>' for i,(name,count) in enumerate(ordered,1))
