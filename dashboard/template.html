@@ -280,7 +280,14 @@ main > section.panel, main > section.characteristics, main > section.theme-explo
 </style>
 <style id="themeNavigationInstructionStyle">
 #themeExplorer .theme-navigation-guide{margin:9px 0 0;color:#607083;font-size:14px;line-height:1.55;max-width:1020px;}
-</style></head><body><main>
+</style><style id="downloadFilteredCsvStyle">
+#downloadFilteredCsv { margin-left:auto; flex:0 0 auto; padding:9px 13px; border:1px solid #80599a; color:#54366a; border-radius:8px; background:#f5effa; font:inherit; font-weight:600; font-size:13px; cursor:pointer; }
+#downloadFilteredCsv:hover:not(:disabled) {background:#ebe1f3;}
+#downloadFilteredCsv:focus-visible {outline:2px solid #8053a0;outline-offset:2px;}
+#downloadFilteredCsv:disabled {opacity:.52;cursor:not-allowed;}
+@media(max-width:850px) {#downloadFilteredCsv {margin-left:0;}}
+</style>
+</head><body><main>
 <header><div><div class="eyebrow">EVIDENCE DASHBOARD</div><h1>Climate-related journal articles published by CGIAR scientists and partners in low- and middle-income countries</h1></div></header>
 
 <section class="panel geography-panel" id="geographyPanel" aria-label="Geographical distribution">
@@ -350,7 +357,7 @@ main > section.panel, main > section.characteristics, main > section.theme-explo
   <p class="characteristics-note">Counts are numbers of articles. A record may have multiple nature codes. Nature bar denominators include articles coded to the relevant nature variable within Theme 3 or Theme 4. Yes/No bars use only coded Yes and No responses; blank values are excluded from those bars.</p>
 </section>
 __WORDCLOUD_SECTION__
-<section id="database" class="panel database" tabindex="-1"><div class="bar"><div class="records-title"><strong>Article database</strong><small id="dbStatus">All articles</small></div><div id="dbFilterStrip" class="db-filter-strip" aria-label="Active database filters"><div id="traitChips" class="characteristics-active-filters" aria-label="Selected adaptation and mitigation filters"></div><div id="dbActiveFilters" class="db-active-filters" aria-label="Other active database filters"></div></div><div id="themeChip" class="country-chip hidden"><span id="themeName"></span><button id="clearTheme" type="button" title="Remove theme filter">Clear theme ×</button></div><div id="countryChip" class="country-chip hidden"><span id="countryName"></span><button id="clearCountry" type="button" title="Remove country filter">Clear country ×</button></div></div><div class="dbfilters"><label for="search">Boolean search</label><input id="search" type="search" aria-describedby="searchHelp searchError" placeholder='e.g. (drought OR flood*) AND NOT "climate model"'><button type="button" id="clearSearch">Clear search</button><span id="listCount"></span></div><div class="db-dropdowns" aria-label="Filter article database"><label for="dbTheme">Level 1 classification <select id="dbTheme"><option value="all">All Level 1 classifications</option></select></label><label for="dbYear">Year <select id="dbYear"><option value="all">All years</option></select></label><label for="dbCrop">Product <select id="dbCrop"><option value="all">All categories</option></select></label><label for="dbCountry">Country <select id="dbCountry" class="country-select"><option value="all">All countries</option></select></label><button id="clearDbFilters" type="button">Clear filters</button></div><div class="searchhelp" id="searchHelp">Supports <code>AND</code>, <code>OR</code>, <code>NOT</code>, parentheses, <code>"exact phrases"</code>, wildcards <code>*</code> and <code>?</code>, and fields such as <code>TITLE:</code>, <code>CROP:</code>, <code>COUNTRY:</code>, <code>YEAR:</code>. Search covers available bibliographic metadata, crop and country codes. Full abstracts and available bibliographic fields are searchable where Lens returned exact DOI matches; missing metadata are left blank. Invalid queries show an error and do not update the results.</div><div id="searchError" class="searcherror" role="alert"></div><div class="tablewrap"><table><thead><tr><th>Title &amp; summary</th><th>Year</th><th>Authors</th><th>Source / Vol / PP</th><th>Product</th><th>Country</th><th>Coded themes</th></tr></thead><tbody id="recordRows"></tbody></table></div><div class="pager"><button type="button" id="prev">Previous</button><span id="pageInfo"></span><button type="button" id="next">Next</button></div></section>
+<section id="database" class="panel database" tabindex="-1"><div class="bar"><div class="records-title"><strong>Article database</strong><small id="dbStatus">All articles</small></div><div id="dbFilterStrip" class="db-filter-strip" aria-label="Active database filters"><div id="traitChips" class="characteristics-active-filters" aria-label="Selected adaptation and mitigation filters"></div><div id="dbActiveFilters" class="db-active-filters" aria-label="Other active database filters"></div></div><div id="themeChip" class="country-chip hidden"><span id="themeName"></span><button id="clearTheme" type="button" title="Remove theme filter">Clear theme ×</button></div><div id="countryChip" class="country-chip hidden"><span id="countryName"></span><button id="clearCountry" type="button" title="Remove country filter">Clear country ×</button></div></div><div class="dbfilters"><label for="search">Boolean search</label><input id="search" type="search" aria-describedby="searchHelp searchError" placeholder='e.g. (drought OR flood*) AND NOT "climate model"'><button type="button" id="clearSearch">Clear search</button><span id="listCount"></span><button type="button" id="downloadFilteredCsv" title="Download all matching articles as CSV, excluding abstracts">Download filtered subset (CSV)</button></div><div class="db-dropdowns" aria-label="Filter article database"><label for="dbTheme">Level 1 classification <select id="dbTheme"><option value="all">All Level 1 classifications</option></select></label><label for="dbYear">Year <select id="dbYear"><option value="all">All years</option></select></label><label for="dbCrop">Product <select id="dbCrop"><option value="all">All categories</option></select></label><label for="dbCountry">Country <select id="dbCountry" class="country-select"><option value="all">All countries</option></select></label><button id="clearDbFilters" type="button">Clear filters</button></div><div class="searchhelp" id="searchHelp">Supports <code>AND</code>, <code>OR</code>, <code>NOT</code>, parentheses, <code>"exact phrases"</code>, wildcards <code>*</code> and <code>?</code>, and fields such as <code>TITLE:</code>, <code>CROP:</code>, <code>COUNTRY:</code>, <code>YEAR:</code>. Search covers available bibliographic metadata, crop and country codes. Full abstracts and available bibliographic fields are searchable where Lens returned exact DOI matches; missing metadata are left blank. Invalid queries show an error and do not update the results.</div><div id="searchError" class="searcherror" role="alert"></div><div class="tablewrap"><table><thead><tr><th>Title &amp; summary</th><th>Year</th><th>Authors</th><th>Source / Vol / PP</th><th>Product</th><th>Country</th><th>Coded themes</th></tr></thead><tbody id="recordRows"></tbody></table></div><div class="pager"><button type="button" id="prev">Previous</button><span id="pageInfo"></span><button type="button" id="next">Next</button></div></section>
 <div id="methodFoot" class="footnote"></div></main>
 <script>
 const records=__DASHBOARD_RECORDS_JSON__;
@@ -613,13 +620,54 @@ function appendTagList(parent, values){
  for(const value of values||[]){appendText('span',parent,value,'db-pill');}
  if(!values?.length)appendText('span',parent,'–','db-muted');
 }
+// Shared selection for the database table and filtered CSV export.
+// Always uses the entire matching subset, never just the visible page.
+function selectedDatabaseRecords(){
+ let rows=filteredBase();
+ if(selectedCountry)rows=rows.filter(r=>(r.countries||[]).includes(selectedCountry));
+ if(selectedThemeNode)rows=rows.filter(r=>(r.theme_node_ids||[]).includes(selectedThemeNode.id));
+ for(const [key,val] of Object.entries(traitFilters))rows=rows.filter(r=>{
+  const coded=r.traits?.[key];return Array.isArray(coded)?coded.includes(val):coded===val;
+ });
+ return rows.sort((a,b)=>(b.year||0)-(a.year||0)||String(a.title||'').localeCompare(String(b.title||'')));
+}
+function csvCell(value){
+ let v=String(value??'');
+ if(/^[\s\uFEFF]*[=+@-]/.test(v))v="'"+v;
+ return '"'+v.replace(/"/g,'""')+'"';
+}
+function filteredSubsetCsv(rows){
+ const columns=['Filename','Title','Year','Authors','Journal','Source / Vol / PP','DOI','Product','Country','Coded themes'];
+ const lines=[columns.map(csvCell).join(',')];
+ const alias={
+   'Climate change impacts on agrifood systems':'Climate change impacts on agri-food systems',
+   'Agrifood systems impacts on climate':'Agri-food system impacts on climate change',
+   'Adaptation options in agrifood systems':'Adaptation options in agri-food systems',
+   'Mitigation options in agrifood systems':'Mitigation options in agri-food systems',
+   'Methods and metrics':'Novel methods'
+ };
+ for(const r of rows){
+  const fields=[r.id||'',r.title||'',r.year??'',r.authors||'',r.journal||'',publicationText(r),r.doi||'',(r.crops||[]).join('; '),(r.countries||[]).map(countryName).join('; '),(r.theme_paths||[]).map(path=>path.replace(/^([^>]+)(?= > )/,name=>alias[name]||name)).join(' | ')];
+  lines.push(fields.map(csvCell).join(','));
+ }
+ return '\uFEFF'+lines.join('\r\n')+'\r\n';
+}
+function downloadFilteredSubset(){
+ if(search.getAttribute('aria-invalid')==='true')return;
+ const rows=selectedDatabaseRecords();
+ if(!rows.length)return;
+ const file=new Blob([filteredSubsetCsv(rows)],{type:'text/csv;charset=utf-8'});
+ const url=URL.createObjectURL(file);
+ const a=document.createElement('a');a.href=url;
+ a.download='CGIAR_filtered_articles_'+rows.length+'_records.csv';
+ document.body.appendChild(a);a.click();a.remove();
+ setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
+el('downloadFilteredCsv').addEventListener('click',downloadFilteredSubset);
 function renderDatabase(){
  dbYear.value=yr.value;dbCrop.value=crop.value;dbCountry.value=selectedCountry||'all';dbTheme.value=selectedHighLevelTheme;
  window.dispatchEvent(new Event('cgiar-filters-changed'));
- let rows=filteredBase();if(selectedCountry)rows=rows.filter(r=>r.countries.includes(selectedCountry));if(selectedThemeNode)rows=rows.filter(r=>(r.theme_node_ids||[]).includes(selectedThemeNode.id));for(const [key,val] of Object.entries(traitFilters))rows=rows.filter(r=>{
-  const coded=r.traits?.[key];return Array.isArray(coded)?coded.includes(val):coded===val;
- });
- rows.sort((a,b)=>(b.year||0)-(a.year||0)||String(a.title||'').localeCompare(String(b.title||'')));
+ let rows=selectedDatabaseRecords();
  renderTraitChips();el('themeChip').classList.toggle('hidden',!selectedThemeNode);if(selectedThemeNode)el('themeName').textContent='Coded theme: '+selectedThemeNode.label;el('countryChip').classList.toggle('hidden',!selectedCountry);
  if(selectedCountry)el('countryName').textContent=countryName(selectedCountry)+' ('+selectedCountry+')';
  const filterDescriptions=[
@@ -634,6 +682,7 @@ function renderDatabase(){
  el('dbStatus').textContent=filterDescriptions.filter(Boolean).join(' · ')||'All articles · No filters applied';
  renderDatabaseFilterChips();
  el('listCount').textContent=nfmt(rows.length)+' article(s)';
+ const exportButton=el('downloadFilteredCsv');exportButton.disabled=!rows.length||search.getAttribute('aria-invalid')==='true';exportButton.title=rows.length?('Download all '+nfmt(rows.length)+' matching articles, without abstracts'):'No matching articles to download';
  const pages=Math.max(1,Math.ceil(rows.length/pageSize));currentPage=Math.min(currentPage,pages);
  const slice=rows.slice((currentPage-1)*pageSize,currentPage*pageSize);const body=el('recordRows');body.replaceChildren();
  for(const r of slice){
