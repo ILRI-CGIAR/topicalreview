@@ -636,18 +636,27 @@ function csvCell(value){
  if(/^[\s\uFEFF]*[=+@-]/.test(v))v="'"+v;
  return '"'+v.replace(/"/g,'""')+'"';
 }
+// Every Level 1, Level 2 and Level 3 category has its own 1/0 column.
+// Build from the current hierarchy so future coding updates are reflected.
+function wideThemeColumns(){
+ const out=[];
+ function tidy(label){return String(label||'').replace(/^\s*\d+(?:\.\d+)*\.\s*/,'').trim();}
+ function walk(node,level,path){
+  const label=tidy(node.label);
+  const full=[...path,label];
+  out.push({id:node.id,header:'L'+level+' | '+full.join(' > ')});
+  for(const child of node.children||[])walk(child,level+1,full);
+ }
+ for(const root of DATA.themes)walk(root,1,[]);
+ return out;
+}
 function filteredSubsetCsv(rows){
- const columns=['Filename','Title','Year','Authors','Journal','Source / Vol / PP','DOI','Product','Country','Coded themes'];
+ const themeColumns=wideThemeColumns();
+ const columns=['Title','Year','Authors','Journal','Source / Vol / PP','DOI','Product','Country',...themeColumns.map(col=>col.header)];
  const lines=[columns.map(csvCell).join(',')];
- const alias={
-   'Climate change impacts on agrifood systems':'Climate change impacts on agri-food systems',
-   'Agrifood systems impacts on climate':'Agri-food system impacts on climate change',
-   'Adaptation options in agrifood systems':'Adaptation options in agri-food systems',
-   'Mitigation options in agrifood systems':'Mitigation options in agri-food systems',
-   'Methods and metrics':'Novel methods'
- };
  for(const r of rows){
-  const fields=[r.id||'',r.title||'',r.year??'',r.authors||'',r.journal||'',publicationText(r),r.doi||'',(r.crops||[]).join('; '),(r.countries||[]).map(countryName).join('; '),(r.theme_paths||[]).map(path=>path.replace(/^([^>]+)(?= > )/,name=>alias[name]||name)).join(' | ')];
+  const coded=new Set(r.theme_node_ids||[]);
+  const fields=[r.title||'',r.year??'',r.authors||'',r.journal||'',publicationText(r),r.doi||'',(r.crops||[]).join('; '),(r.countries||[]).map(countryName).join('; '),...themeColumns.map(col=>coded.has(col.id)?1:0)];
   lines.push(fields.map(csvCell).join(','));
  }
  return '\uFEFF'+lines.join('\r\n')+'\r\n';
