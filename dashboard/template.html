@@ -647,7 +647,7 @@ function wideThemeColumns(){
   out.push({id:node.id,header:'L'+level+' | '+full.join(' > ')});
   for(const child of node.children||[])walk(child,level+1,full);
  }
- for(const root of DATA.themes)walk(root,1,[]);
+ for(const root of window.cgiarThemeHierarchy.themes)walk(root,1,[]);
  return out;
 }
 function filteredSubsetCsv(rows){
@@ -894,6 +894,7 @@ compileSearch();updateMap();
 (function(){
 
 const DATA = __THEME_TREE_JSON__;
+window.cgiarThemeHierarchy=DATA;
 const displayThemeRoots={
  theme1:'Climate change impacts on agri-food systems',
  theme2:'Agri-food system impacts on climate change',
