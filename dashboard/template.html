@@ -459,7 +459,7 @@ for(const cc of countriesInData){dbCountry.add(new Option((metadata.country_name
 let selectedCountry=null, selectedThemeNode=null, currentPage=1;let traitFilters={};const pageSize=30;const nfmt=n=>n.toLocaleString('en-GB');
 const countryName=cc=>metadata.country_names?.[cc]||cc;
 // Level 1 theme filter uses coded theme_node_ids, never free-text title matching.
-const highLevelThemeLabels=[["theme1", "Climate change impacts on agrifood systems"], ["theme2", "Agrifood systems impacts on climate"], ["theme3", "Adaptation options in agrifood systems"], ["theme4", "Mitigation options in agrifood systems"], ["theme5", "Methods and metrics"]];
+const highLevelThemeLabels=[["theme1", "Theme 1: Climate change impacts on agri-food systems"], ["theme2", "Theme 2: Agri-food system impacts on climate change"], ["theme3", "Theme 3: Adaptation options in agri-food systems"], ["theme4", "Theme 4: Mitigation options in agri-food systems"], ["theme5", "Theme 5: Novel methods"]];
 const highLevelThemeSelects=['mapTheme','regionTheme','yearTheme','journalTheme','characteristicsTheme','dbTheme'];
 let selectedHighLevelTheme='all';
 for(const id of highLevelThemeSelects){
@@ -521,14 +521,14 @@ function renderRegionChart(){
  const data=filteredBase().filter(r=>!(r.countries||[]).length);
  const counts=new Map();
  for(const r of data){
-   const regions=[...new Set(String(r.region||'').split(';').map(v=>v.trim()).filter(Boolean))];
+   const regions=[...new Set(String(r.region||'').split(';').map(v=>v.trim()).filter(Boolean).map(region=>region==='South America'||region==='Central America'?'Central and South America':region))];
    if(!regions.length)regions.push('Not applicable');
    for(const region of regions)counts.set(region,(counts.get(region)||0)+1);
  }
  const entries=[...counts.entries()].sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0]));
  const names=entries.map(e=>e[0]), values=entries.map(e=>e[1]);
  const note=el('regionChartNote');
- note.textContent=data.length.toLocaleString('en-GB')+' articles without country data match the current year, product, theme and Boolean filters. Regions follow the source Region field; articles coded to multiple regions contribute to each region, so bar totals may exceed the number of articles. “Not applicable” indicates a blank region; “Global” retains the original source coding.';
+ note.textContent=data.length.toLocaleString('en-GB')+' articles without country data match the current year, product, theme and Boolean filters. Regions follow the source Region field; Central America and South America are displayed together as Central and South America (each article counted once within that combined category). Articles coded to multiple distinct regions contribute to each region, so bar totals may exceed the number of articles. “Not applicable” indicates a blank region; “Global” retains the original source coding.';
  if(typeof Plotly==='undefined'){el('regionChart').innerHTML='<p style="padding:24px">The interactive chart needs an internet connection to load Plotly.</p>';return;}
  const height=Math.max(330,entries.length*29+110);
  el('regionChart').style.height=height+'px';
@@ -667,9 +667,10 @@ function renderDatabase(){
   const countries=document.createElement('td');countries.className='db-tags';appendTagList(countries,(r.countries||[]).map(countryName));
   const codedThemes=document.createElement('td');codedThemes.className='db-coded-themes';
   const themeColors={'Climate change impacts on agrifood systems':'#3E442B','Agrifood systems impacts on climate':'#6A7062','Adaptation options in agrifood systems':'#8D909B','Mitigation options in agrifood systems':'#AAADC4','Methods and metrics':'#D6EEFF'};
+ const displayRootName={'Climate change impacts on agrifood systems':'Climate change impacts on agri-food systems','Agrifood systems impacts on climate':'Agri-food system impacts on climate change','Adaptation options in agrifood systems':'Adaptation options in agri-food systems','Mitigation options in agrifood systems':'Mitigation options in agri-food systems','Methods and metrics':'Novel methods'};
   for(const path of r.theme_paths||[]){
     const root=path.split(' > ')[0];
-    const themePill=appendText('span',codedThemes,path,'db-theme-pill');
+    const themePill=appendText('span',codedThemes,path.replace(/^([^>]+)(?= > )/,name=>displayRootName[name]||name),'db-theme-pill');
     if(themeColors[root])themePill.style.setProperty('--theme-base',themeColors[root]);
   }
   if(!(r.theme_paths||[]).length)appendText('span',codedThemes,'–','db-muted');
@@ -835,6 +836,15 @@ compileSearch();updateMap();
 (function(){
 
 const DATA = __THEME_TREE_JSON__;
+const displayThemeRoots={
+ theme1:'Climate change impacts on agri-food systems',
+ theme2:'Agri-food system impacts on climate change',
+ theme3:'Adaptation options in agri-food systems',
+ theme4:'Mitigation options in agri-food systems',
+ theme5:'Novel methods'
+};
+// Display-only labels: ontology code/IDs stay unchanged.
+for(const theme of DATA.themes){if(displayThemeRoots[theme.id])theme.label=displayThemeRoots[theme.id];}
 let selectedTheme = null;
 let selectedL2 = null;
 let themeCounts = new Map();
