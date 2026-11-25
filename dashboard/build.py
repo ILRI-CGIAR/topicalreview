@@ -235,6 +235,86 @@ def make_tree(records, contract):
     return tree
 
 
+def build_frequency_centered_svg(counts):
+    """Frequency-driven SVG: 5 ordered tiers and 3 fixed central leaders.
+
+    The input is counts of DISTINCT articles after sentence-case normalisation.
+    The original source cells and all counts are preserved.
+    """
+    import math
+    import numpy as np
+    from PIL import ImageFont
+    W,H=2400,1350
+    palette=('#666666','#e2b100','#756daf','#cb5f0b','#189673')
+    def colour(n):
+        return (palette[0] if n>=140 else palette[1] if n>=100 else
+                palette[2] if n>=40 else palette[3] if n>=15 else palette[4])
+    font_path='/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'
+    if not Path(font_path).is_file():
+        font_path='/usr/share/fonts/truetype/liberation2/LiberationSans-Regular.ttf'
+    if not Path(font_path).is_file():
+        raise RuntimeError('DejaVu Sans or Liberation Sans is required for centred word cloud')
+    occupancy=np.zeros((H//2,W//2),dtype=np.uint8)
+    ordered=sorted(counts.items(),key=lambda p:(-p[1],p[0].casefold()))
+    placed=[]
+    def size(word,points,rotated):
+        bb=ImageFont.truetype(font_path,points).getbbox(word)
+        a,b=bb[2]-bb[0]+10,bb[3]-bb[1]+13
+        return (b,a) if rotated else (a,b)
+    def available(x,y,w,h):
+        if x<9 or y<8 or x+w>W-9 or y+h>H-8:return False
+        return not occupancy[max(0,y//2-3):min(H//2,(y+h)//2+3),
+                             max(0,x//2-3):min(W//2,(x+w)//2+3)].any()
+    def occupy(name,f,points,rotated,x,y,w,h):
+        occupancy[y//2:(y+h)//2,x//2:(x+w)//2]=1
+        placed.append((name,f,points,rotated,x,y,w,h))
+    anchors={'Maize':(1200,665),'Rice':(1190,485),'Wheat':(1195,845)}
+    # Anchor the three leading items only when they are present; otherwise all
+    # terms are packed near the centre according to observed article frequency.
+    done=set()
+    for name,f in ordered:
+        if name not in anchors:continue
+        pts=int(round(17+111*(f/max(counts.values()))**0.60))
+        pts=min(pts,128)
+        w,h=size(name,pts,False)
+        cx,cy=anchors[name];x=int(cx-w/2);y=int(cy-h/2)
+        if available(x,y,w,h):
+            occupy(name,f,pts,False,x,y,w,h);done.add(name)
+    for index,(name,f) in enumerate(ordered):
+        if name in done:continue
+        points=int(round(16+111*(f/max(counts.values()))**0.64))
+        rotations=[False,True] if (index%4==0 or (index>=26 and index%3==0)) else [False]
+        found=None
+        for shrink in (0,2,4,6):
+            pts=max(14,points-shrink)
+            for rotated in rotations:
+                w,h=size(name,pts,rotated)
+                offset=(index*2.39996323)%(2*math.pi)
+                for step in range(1,8500):
+                    radius=11*math.sqrt(step)
+                    theta=offset+step*2.39996323
+                    x=round(W/2+math.cos(theta)*radius*1.55-w/2)
+                    y=round(H/2+math.sin(theta)*radius*.91-h/2)
+                    if available(x,y,w,h):
+                        found=(pts,rotated,x,y,w,h);break
+                if found:break
+            if found:break
+        if not found:
+            raise ValueError(f'Unable to place all {len(counts)} word-cloud terms; unplaced: {name}')
+        occupy(name,f,*found)
+    svg=['<svg role="img" aria-label="Frequency-proportional product word cloud" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 1350" width="2400" height="1350" preserveAspectRatio="xMidYMid meet">',
+         '<rect width="2400" height="1350" fill="#ffffff"/>']
+    for name,f,points,rotated,x,y,w,h in placed:
+        label=escape(name)
+        tooltip=escape(f'{name}: {f} articles')
+        if rotated:
+            svg.append(f'<text transform="translate({x+w-6},{y+2}) rotate(90)" font-family="DejaVu Sans, Arial, sans-serif" font-size="{points}" dominant-baseline="text-before-edge" fill="{colour(f)}"><title>{tooltip}</title>{label}</text>')
+        else:
+            svg.append(f'<text x="{x+3}" y="{y+1}" font-family="DejaVu Sans, Arial, sans-serif" font-size="{points}" dominant-baseline="text-before-edge" fill="{colour(f)}"><title>{tooltip}</title>{label}</text>')
+    svg.append('</svg>')
+    return '\\n'.join(svg)
+
+
 def make_wordcloud(rows):
     try:
         from wordcloud import WordCloud
@@ -260,36 +340,13 @@ def make_wordcloud(rows):
         if word in dominant:return palette[dominant[word]]
         checksum=sum((i+1)*ord(ch) for i,ch in enumerate(word.casefold()))
         return palette[(['green']*8+['purple','red','yellow'])[checksum%11]]
-    # Font files are intentionally not bundled; resolve an installed font at build time.
-    from os import environ
-    font_override=environ.get('CGIAR_WORDCLOUD_FONT','').strip()
-    # Font path is an installation-specific rendering dependency, not research data.
-    kwargs=dict(width=1800,height=1020,max_words=len(counts),background_color='white',
-                prefer_horizontal=.90,random_state=13,margin=1,min_font_size=6,
-                max_font_size=135,relative_scaling=.25,collocations=False,
-                normalize_plurals=False,scale=1,color_func=cloud_color_func)
-    if font_override:
-        if not Path(font_override).is_file():
-            raise ValueError('CGIAR_WORDCLOUD_FONT points to a missing font file')
-        kwargs['font_path']=font_override
-    else:
-        installed=Path('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf')
-        if installed.is_file():kwargs['font_path']=str(installed)
-    # Resolve equal-frequency ties by name: stable layout across Python hash seeds.
-    cloud_input=dict(sorted(counts.items(),key=lambda pair:(-pair[1],pair[0].casefold())))
-    cloud=WordCloud(**kwargs).generate_from_frequencies(cloud_input)
-    placed={item[0][0] for item in cloud.layout_}
-    if placed != set(counts):
-        raise ValueError(f'Word cloud cannot fit all terms: {len(placed)}/{len(counts)}; adjust dimensions deliberately')
-    svg=cloud.to_svg(embed_font=False)
-    svg=svg.replace('<svg ', '<svg role="img" aria-label="Word cloud of all distinct products mentioned in the cleaned source field" ',1)
-    svg=svg.replace('width="1800" height="1020"', 'viewBox="-30 -30 1860 1080" width="1800" height="1020" preserveAspectRatio="xMidYMid meet"',1)
+    svg=build_frequency_centered_svg(counts)
     ordered=sorted(counts.items(),key=lambda pair:(-pair[1],pair[0].casefold()))
     trs='\n'.join(f'<tr><td>{i}</td><td>{escape(name)}</td><td>{count}</td></tr>' for i,(name,count) in enumerate(ordered,1))
     section=f'''<section class="panel product-wordcloud-panel" id="productWordcloud" aria-label="Product word cloud">
 <h2 class="atlas-chart-heading">Products represented in the articles</h2>
 <div class="product-wordcloud-figure">{svg}</div>
-<p class="product-wordcloud-caption">Word size represents the number of articles mentioning each named product; larger values are concentrated toward the centre. Colours follow the five-colour reference palette (grey, yellow, purple, red and green). Product names are standardised to sentence case before counting and plotting, so case-only variants are combined; original source values are unchanged. Based on {articles:,} articles with named products in the cleaned product-name field. All {len(counts):,} distinct names are included, including {sum(n==1 for n in counts.values()):,} mentioned in only one article. When multiple products are named in one article, each is counted once for that article. The full ranked frequency table is below.</p>
+<p class="product-wordcloud-caption">Word size represents the number of articles mentioning each named product. Frequency determines both font size and colour: grey (140+), yellow (100–139), purple (40–99), red-orange (15–39) and green (1–14). The highest-frequency terms are centred. Product names are standardised to sentence case before counting and plotting, so case-only variants are combined; original source values are unchanged. Based on {articles:,} articles with named products in the cleaned product-name field. All {len(counts):,} distinct names are included, including {sum(n==1 for n in counts.values()):,} mentioned in only one article. When multiple products are named in one article, each is counted once for that article. The full ranked frequency table is below.</p>
 <details class="product-frequency-details" id="productFrequency"><summary>View all {len(counts):,} product names and article frequencies</summary>
 <div class="product-frequency-controls"><label for="productFrequencySearch">Find a product</label><input id="productFrequencySearch" type="search" placeholder="Filter names in the frequency table" autocomplete="off"/><button id="productFrequencyClear" type="button">Clear search</button><span id="productFrequencyShown" aria-live="polite">{len(counts):,} products</span></div>
 <div class="product-frequency-scroll"><table id="productFrequencyTable"><thead><tr><th scope="col">Rank</th><th scope="col">Product</th><th scope="col">Number of articles</th></tr></thead><tbody>{trs}</tbody></table></div>
