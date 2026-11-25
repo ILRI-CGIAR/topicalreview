@@ -247,14 +247,27 @@ def make_wordcloud(rows):
             articles+=1;counts.update(names)
     if not counts:
         raise ValueError('No usable names in cleaned product-name column')
+    # Reference-inspired five-colour word cloud. Main high-frequency words are
+    # deliberately assigned the reference colours; remaining colours are stable
+    # by name. The source frequencies and article counts are not modified.
+    palette={'grey':'#666666','yellow':'#e2b100','purple':'#756daf',
+             'red':'#cb5f0b','green':'#189673'}
+    dominant={'Maize':'grey','Rice':'grey','Wheat':'yellow','Sorghum':'purple',
+              'Potato':'red','Soybean':'purple','Cassava':'red','Millet':'red',
+              'Beans':'purple','Crops':'purple','Coffee':'red','Barley':'red',
+              'Banana':'red','Pearl millet':'red','Nut':'red'}
+    def cloud_color_func(word,font_size,position,orientation,random_state=None,**kwargs):
+        if word in dominant:return palette[dominant[word]]
+        checksum=sum((i+1)*ord(ch) for i,ch in enumerate(word.casefold()))
+        return palette[(['green']*8+['purple','red','yellow'])[checksum%11]]
     # Font files are intentionally not bundled; resolve an installed font at build time.
     from os import environ
     font_override=environ.get('CGIAR_WORDCLOUD_FONT','').strip()
     # Font path is an installation-specific rendering dependency, not research data.
     kwargs=dict(width=1800,height=1020,max_words=len(counts),background_color='white',
-                prefer_horizontal=.92,random_state=17,margin=1,min_font_size=6,
-                max_font_size=130,relative_scaling=.24,collocations=False,
-                normalize_plurals=False,scale=1,colormap='viridis')
+                prefer_horizontal=.90,random_state=13,margin=1,min_font_size=6,
+                max_font_size=135,relative_scaling=.25,collocations=False,
+                normalize_plurals=False,scale=1,color_func=cloud_color_func)
     if font_override:
         if not Path(font_override).is_file():
             raise ValueError('CGIAR_WORDCLOUD_FONT points to a missing font file')
@@ -276,7 +289,7 @@ def make_wordcloud(rows):
     section=f'''<section class="panel product-wordcloud-panel" id="productWordcloud" aria-label="Product word cloud">
 <h2 class="atlas-chart-heading">Products represented in the articles</h2>
 <div class="product-wordcloud-figure">{svg}</div>
-<p class="product-wordcloud-caption">Word size represents the number of articles mentioning each named product. Product names are standardised to sentence case before counting and plotting, so case-only variants are combined; original source values are unchanged. Based on {articles:,} articles with named products in the cleaned product-name field. All {len(counts):,} distinct names are included, including {sum(n==1 for n in counts.values()):,} mentioned in only one article. When multiple products are named in one article, each is counted once for that article. The full ranked frequency table is below.</p>
+<p class="product-wordcloud-caption">Word size represents the number of articles mentioning each named product; larger values are concentrated toward the centre. Colours follow the five-colour reference palette (grey, yellow, purple, red and green). Product names are standardised to sentence case before counting and plotting, so case-only variants are combined; original source values are unchanged. Based on {articles:,} articles with named products in the cleaned product-name field. All {len(counts):,} distinct names are included, including {sum(n==1 for n in counts.values()):,} mentioned in only one article. When multiple products are named in one article, each is counted once for that article. The full ranked frequency table is below.</p>
 <details class="product-frequency-details" id="productFrequency"><summary>View all {len(counts):,} product names and article frequencies</summary>
 <div class="product-frequency-controls"><label for="productFrequencySearch">Find a product</label><input id="productFrequencySearch" type="search" placeholder="Filter names in the frequency table" autocomplete="off"/><button id="productFrequencyClear" type="button">Clear search</button><span id="productFrequencyShown" aria-live="polite">{len(counts):,} products</span></div>
 <div class="product-frequency-scroll"><table id="productFrequencyTable"><thead><tr><th scope="col">Rank</th><th scope="col">Product</th><th scope="col">Number of articles</th></tr></thead><tbody>{trs}</tbody></table></div>
