@@ -63,6 +63,12 @@ def carry_forward_bibliography(rows, old_rows, contract):
     return carried
 
 
+def sentence_case_product(value):
+    """Display-only normalisation; source CSV values are left untouched."""
+    name=str(value or '').strip()
+    return name[:1].upper()+name[1:].lower() if name else ''
+
+
 def parse_names(text, exclude_missing=True, preserve_parentheses=False):
     found=[]
     for piece in (split_outside_parentheses(text) if preserve_parentheses else re.split(r'\s*[;,]\s*', text or '')):
@@ -191,7 +197,7 @@ def make_records(rows, contract):
         rec={
           'id':file_id, 'title':row['Title'].strip(), 'year':year,
           'doi':row['DOI'].strip(), 'citation':(contract.get('manual_citation_overrides',{}).get(row['DOI'].strip()) if row.get('openalex_match_status','').strip()=='MANUAL_PUBLISHER_RECOVERY' else None) or row['Citation'].strip(),
-          'countries':countries, 'crops':parse_names(row['Crop/livestock/tree/fish name (CLEAN)'],exclude_missing=False,preserve_parentheses=True),
+          'countries':countries, 'crops':list(dict.fromkeys(sentence_case_product(name) for name in parse_names(row['Crop/livestock/tree/fish name (CLEAN)'],exclude_missing=False,preserve_parentheses=True))),
           'authors':pick_bibliography(row,'authors'),'source':pick_bibliography(row,'source_journal'),
           'journal':row['Journal'].strip(),
           'volume':pick_bibliography(row,'volume'),'issue':pick_bibliography(row,'issue'),
@@ -228,7 +234,7 @@ def make_wordcloud(rows):
         raise RuntimeError('Install pinned dependencies with pip install -r dashboard/requirements.txt') from error
     counts=Counter(); articles=0
     for row in rows:
-        names=set(parse_names(row['Crop/livestock/tree/fish name (CLEAN)']))
+        names={sentence_case_product(name) for name in parse_names(row['Crop/livestock/tree/fish name (CLEAN)'])}
         if names:
             articles+=1;counts.update(names)
     if not counts:
@@ -262,7 +268,7 @@ def make_wordcloud(rows):
     section=f'''<section class="panel product-wordcloud-panel" id="productWordcloud" aria-label="Product word cloud">
 <h2 class="atlas-chart-heading">Products represented in the articles</h2>
 <div class="product-wordcloud-figure">{svg}</div>
-<p class="product-wordcloud-caption">Word size represents the number of articles mentioning each named product. Based on {articles:,} articles with named products in the cleaned product-name field. All {len(counts):,} distinct names are included, including {sum(n==1 for n in counts.values()):,} mentioned in only one article. When multiple products are named in one article, each is counted once for that article. The full ranked frequency table is below.</p>
+<p class="product-wordcloud-caption">Word size represents the number of articles mentioning each named product. Product names are standardised to sentence case before counting and plotting, so case-only variants are combined; original source values are unchanged. Based on {articles:,} articles with named products in the cleaned product-name field. All {len(counts):,} distinct names are included, including {sum(n==1 for n in counts.values()):,} mentioned in only one article. When multiple products are named in one article, each is counted once for that article. The full ranked frequency table is below.</p>
 <details class="product-frequency-details" id="productFrequency"><summary>View all {len(counts):,} product names and article frequencies</summary>
 <div class="product-frequency-controls"><label for="productFrequencySearch">Find a product</label><input id="productFrequencySearch" type="search" placeholder="Filter names in the frequency table" autocomplete="off"/><button id="productFrequencyClear" type="button">Clear search</button><span id="productFrequencyShown" aria-live="polite">{len(counts):,} products</span></div>
 <div class="product-frequency-scroll"><table id="productFrequencyTable"><thead><tr><th scope="col">Rank</th><th scope="col">Product</th><th scope="col">Number of articles</th></tr></thead><tbody>{trs}</tbody></table></div>
