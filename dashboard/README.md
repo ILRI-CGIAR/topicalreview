@@ -73,3 +73,12 @@ For a ChatGPT-assisted update, upload the new CSV in the chat and ask for a dash
 - For future updates, export the Excel `data` worksheet as UTF-8 CSV retaining the `Filenames` and `Journal` column names. Use `--bibliography` to carry forward Lens/OpenAlex metadata if absent. No manual journal mapping is necessary.
 - The revised `A_FileFor_BerenguerJose1(8).xlsx` contains 2,652 unique filenames, 2,652 populated Journal entries and 652 distinct journal names. These are observations, not fixed constraints.
 - CSVs predating this change must gain the `Journal` field before rebuilding. Do not silently substitute bibliographic source data.
+
+## Dashboard display conventions (November 2026)
+
+The visible dashboard title is **“Climate-related journal articles published by CGIAR scientists and partners in low- and middle-income countries”**. All main-theme filters are labelled **“Level 1 classification”**, and their choices use the approved display names **Theme 1–5**, ending in **“Theme 5: Novel methods”**. The theme hierarchy heading is **“Thematic classification of articles”**, with a short Level 1/2/3 navigation instruction. The journal chart heading is **“Articles by journal”**; Product menus use **“All categories”** for the unfiltered choice. The previous introductory “Novel methods classification” note is omitted.
+
+**Important:** These five theme names are *display aliases only*. Do not rewrite the source-coded theme values, internal hierarchy IDs, or the approved contract merely because visible wording has changed. The tree's Level 1 titles and the database's displayed Level 1 theme-path prefixes use those aliases; child level codes and labels retain their source values.
+
+In **Regional or non-geographically specific articles**, source Region values `Central America` and `South America` are both displayed as **Central and South America**. The combination occurs at the **per-article category** level, using a set: an article coded to both source regions contributes **once**, not twice, to the combined bar. The original `Region` data remain unchanged, and multi-region articles may contribute to other distinct bars. This logic applies dynamically after filters and is separate from country-level choropleth classification.
+
