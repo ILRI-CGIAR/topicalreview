@@ -23,6 +23,12 @@ class DashboardTests(unittest.TestCase):
                          ['Rice','Tree (Oak, pine)','Millet'])
         self.assertEqual(app.parse_names('Rice, Not reported, Millet'),['Rice','Millet'])
 
+    def test_crop_sentence_case_normalisation(self):
+        self.assertEqual(app.sentence_case_product('rice'), 'Rice')
+        self.assertEqual(app.sentence_case_product('RICE'), 'Rice')
+        names=app.parse_names('Rice, rice; RICE')
+        self.assertEqual({app.sentence_case_product(n) for n in names}, {'Rice'})
+
     def test_adaptation_merge_is_frozen(self):
         merged='2. Autonomous/unplanned adaptation (Spontaneous responses by individuals. communities. or systems without formal planning)'
         self.assertEqual(app.extract_code_values(merged,{'1','2','4','5'},'Adaptation nature'),['2'])
