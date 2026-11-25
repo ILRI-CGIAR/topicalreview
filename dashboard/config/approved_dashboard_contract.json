@@ -2786,493 +2786,199 @@
         ]
       }
     },
-    "5.1 Novel Methods types": {
+    "5.1 To measure impact of climate change on agri-food systems": {
       "parent": "theme5-5.1",
       "values": {
+        "1. Experimental and measurement- based methods": [
+          "theme5-5.1-1"
+        ],
         "2. Statistical Approaches & Trend Analysis": [
-          "theme5-5.1-2-statistical-approaches-trend-analysis"
-        ],
-        "5. Geo-spatial and mapping based analysis": [
-          "theme5-5.1-5-geo-spatial-and-mapping-based-analysis"
-        ],
-        "4. Integrated Systems & Scenario Analysis": [
-          "theme5-5.1-4-integrated-systems-scenario-analysis"
+          "theme5-5.1-2"
         ],
         "3. Process based physical modelling": [
-          "theme5-5.1-3-process-based-physical-modelling"
+          "theme5-5.1-3"
         ],
-        "1. Experimental and measurement- based methods": [
-          "theme5-5.1-1-experimental-and-measurement-based-methods"
+        "4. Integrated Systems & Scenario Analysis": [
+          "theme5-5.1-4"
+        ],
+        "5. Geo-spatial and mapping based analysis": [
+          "theme5-5.1-5"
         ],
         "6. Frameworks, metrics, evaluation designs": [
-          "theme5-5.1-6-frameworks-metrics-evaluation-designs"
-        ],
-        "1. Experimental and measurement- based methods|||2. Statistical Approaches & Trend Analysis": [
-          "theme5-5.1-1-experimental-and-measurement-based-methods",
-          "theme5-5.1-2-statistical-approaches-trend-analysis"
+          "theme5-5.1-6"
         ],
         "7. Qualitative, Institutional and Policy Analysis?": [
-          "theme5-5.1-7-qualitative-institutional-and-policy-analysis"
-        ],
-        "5. Geo-spatial and mapping based analysis|||7. Qualitative, Institutional and Policy Analysis?": [
-          "theme5-5.1-5-geo-spatial-and-mapping-based-analysis",
-          "theme5-5.1-7-qualitative-institutional-and-policy-analysis"
-        ],
-        "2. Statistical Approaches & Trend Analysis|||5. Geo-spatial and mapping based analysis": [
-          "theme5-5.1-2-statistical-approaches-trend-analysis",
-          "theme5-5.1-5-geo-spatial-and-mapping-based-analysis"
-        ],
-        "3. Process based physical modelling|||4. Integrated Systems & Scenario Analysis": [
-          "theme5-5.1-3-process-based-physical-modelling",
-          "theme5-5.1-4-integrated-systems-scenario-analysis"
-        ],
-        "2. Statistical Approaches & Trend Analysis|||4. Integrated Systems & Scenario Analysis": [
-          "theme5-5.1-2-statistical-approaches-trend-analysis",
-          "theme5-5.1-4-integrated-systems-scenario-analysis"
-        ],
-        "4. Integrated Systems & Scenario Analysis|||6. Frameworks, metrics, evaluation designs": [
-          "theme5-5.1-4-integrated-systems-scenario-analysis",
-          "theme5-5.1-6-frameworks-metrics-evaluation-designs"
-        ],
-        "2. Statistical Approaches & Trend Analysis|||3. Process based physical modelling": [
-          "theme5-5.1-2-statistical-approaches-trend-analysis",
-          "theme5-5.1-3-process-based-physical-modelling"
-        ],
-        "3. Process based physical modelling|||5. Geo-spatial and mapping based analysis": [
-          "theme5-5.1-3-process-based-physical-modelling",
-          "theme5-5.1-5-geo-spatial-and-mapping-based-analysis"
-        ],
-        "1. Experimental and measurement- based methods|||5. Geo-spatial and mapping based analysis": [
-          "theme5-5.1-1-experimental-and-measurement-based-methods",
-          "theme5-5.1-5-geo-spatial-and-mapping-based-analysis"
-        ],
-        "3. Process based physical modelling|||6. Frameworks, metrics, evaluation designs": [
-          "theme5-5.1-3-process-based-physical-modelling",
-          "theme5-5.1-6-frameworks-metrics-evaluation-designs"
+          "theme5-5.1-7"
         ]
       },
       "paths": {
+        "1. Experimental and measurement- based methods": [
+          "Novel methods > To measure climate change impacts on agri-food systems > Experimental and measurement-based methods"
+        ],
         "2. Statistical Approaches & Trend Analysis": [
-          "Methods and metrics > Novel Methods types > Statistical Approaches & Trend Analysis"
-        ],
-        "5. Geo-spatial and mapping based analysis": [
-          "Methods and metrics > Novel Methods types > Geo-spatial and mapping based analysis"
-        ],
-        "4. Integrated Systems & Scenario Analysis": [
-          "Methods and metrics > Novel Methods types > Integrated Systems & Scenario Analysis"
+          "Novel methods > To measure climate change impacts on agri-food systems > Statistical approaches and trend analysis"
         ],
         "3. Process based physical modelling": [
-          "Methods and metrics > Novel Methods types > Process based physical modelling"
+          "Novel methods > To measure climate change impacts on agri-food systems > Process-based physical modelling"
         ],
-        "1. Experimental and measurement- based methods": [
-          "Methods and metrics > Novel Methods types > Experimental and measurement- based methods"
+        "4. Integrated Systems & Scenario Analysis": [
+          "Novel methods > To measure climate change impacts on agri-food systems > Integrated systems and scenario analysis"
+        ],
+        "5. Geo-spatial and mapping based analysis": [
+          "Novel methods > To measure climate change impacts on agri-food systems > Geospatial and mapping-based analysis"
         ],
         "6. Frameworks, metrics, evaluation designs": [
-          "Methods and metrics > Novel Methods types > Frameworks, metrics, evaluation designs"
-        ],
-        "1. Experimental and measurement- based methods|||2. Statistical Approaches & Trend Analysis": [
-          "Methods and metrics > Novel Methods types > Experimental and measurement- based methods",
-          "Methods and metrics > Novel Methods types > Statistical Approaches & Trend Analysis"
+          "Novel methods > To measure climate change impacts on agri-food systems > Frameworks, metrics and evaluation designs"
         ],
         "7. Qualitative, Institutional and Policy Analysis?": [
-          "Methods and metrics > Novel Methods types > Qualitative, Institutional and Policy Analysis?"
-        ],
-        "5. Geo-spatial and mapping based analysis|||7. Qualitative, Institutional and Policy Analysis?": [
-          "Methods and metrics > Novel Methods types > Geo-spatial and mapping based analysis",
-          "Methods and metrics > Novel Methods types > Qualitative, Institutional and Policy Analysis?"
-        ],
-        "2. Statistical Approaches & Trend Analysis|||5. Geo-spatial and mapping based analysis": [
-          "Methods and metrics > Novel Methods types > Statistical Approaches & Trend Analysis",
-          "Methods and metrics > Novel Methods types > Geo-spatial and mapping based analysis"
-        ],
-        "3. Process based physical modelling|||4. Integrated Systems & Scenario Analysis": [
-          "Methods and metrics > Novel Methods types > Process based physical modelling",
-          "Methods and metrics > Novel Methods types > Integrated Systems & Scenario Analysis"
-        ],
-        "2. Statistical Approaches & Trend Analysis|||4. Integrated Systems & Scenario Analysis": [
-          "Methods and metrics > Novel Methods types > Statistical Approaches & Trend Analysis",
-          "Methods and metrics > Novel Methods types > Integrated Systems & Scenario Analysis"
-        ],
-        "4. Integrated Systems & Scenario Analysis|||6. Frameworks, metrics, evaluation designs": [
-          "Methods and metrics > Novel Methods types > Integrated Systems & Scenario Analysis",
-          "Methods and metrics > Novel Methods types > Frameworks, metrics, evaluation designs"
-        ],
-        "2. Statistical Approaches & Trend Analysis|||3. Process based physical modelling": [
-          "Methods and metrics > Novel Methods types > Statistical Approaches & Trend Analysis",
-          "Methods and metrics > Novel Methods types > Process based physical modelling"
-        ],
-        "3. Process based physical modelling|||5. Geo-spatial and mapping based analysis": [
-          "Methods and metrics > Novel Methods types > Process based physical modelling",
-          "Methods and metrics > Novel Methods types > Geo-spatial and mapping based analysis"
-        ],
-        "1. Experimental and measurement- based methods|||5. Geo-spatial and mapping based analysis": [
-          "Methods and metrics > Novel Methods types > Experimental and measurement- based methods",
-          "Methods and metrics > Novel Methods types > Geo-spatial and mapping based analysis"
-        ],
-        "3. Process based physical modelling|||6. Frameworks, metrics, evaluation designs": [
-          "Methods and metrics > Novel Methods types > Process based physical modelling",
-          "Methods and metrics > Novel Methods types > Frameworks, metrics, evaluation designs"
+          "Novel methods > To measure climate change impacts on agri-food systems > Qualitative, institutional and policy analysis"
         ]
       }
     },
-    "5.2 Method time scale": {
+    "5.2 To measure impact of agri-food systems on climate change|||4. To measure or investigate mitigation options": {
       "parent": "theme5-5.2",
       "values": {
-        "5. Long-term scenarios (>10 years in future)": [
-          "theme5-5.2-5-long-term-scenarios-10-years-in-future"
+        "1. Experimental and measurement- based methods": [
+          "theme5-5.2-1"
         ],
-        "2. Historical time series": [
-          "theme5-5.2-2-historical-time-series"
+        "2. Statistical Approaches & Trend Analysis": [
+          "theme5-5.2-2"
         ],
-        "1. Single season / cross-sectional": [
-          "theme5-5.2-1-single-season-cross-sectional"
+        "3. Process based physical modelling": [
+          "theme5-5.2-3"
         ],
-        "6. Not specified / Not clear": [
-          "theme5-5.2-6-not-specified-not-clear"
+        "4. Integrated Systems & Scenario Analysis": [
+          "theme5-5.2-4"
         ],
-        "3. Panel data": [
-          "theme5-5.2-3-panel-data"
+        "5. Geo-spatial and mapping based analysis": [
+          "theme5-5.2-5"
         ],
-        "4. Near-term /Mid-term forecasting (<=10year)": [
-          "theme5-5.2-4-near-term-mid-term-forecasting-10year"
+        "6. Frameworks, metrics, evaluation designs": [
+          "theme5-5.2-6"
         ],
-        "0. Not relevant": [],
-        "7. Others": [
-          "theme5-5.2-7-others"
-        ],
-        "2. Historical time series|||5. Long-term scenarios (>10 years in future)": [
-          "theme5-5.2-2-historical-time-series",
-          "theme5-5.2-5-long-term-scenarios-10-years-in-future"
-        ],
-        "1. Single season / cross-sectional|||4. Near-term /Mid-term forecasting (<=10year)": [
-          "theme5-5.2-1-single-season-cross-sectional",
-          "theme5-5.2-4-near-term-mid-term-forecasting-10year"
-        ],
-        "1. Single season / cross-sectional|||2. Historical time series": [
-          "theme5-5.2-1-single-season-cross-sectional",
-          "theme5-5.2-2-historical-time-series"
-        ],
-        "2. Historical time series|||3. Panel data": [
-          "theme5-5.2-2-historical-time-series",
-          "theme5-5.2-3-panel-data"
-        ],
-        "4. Near-term /Mid-term forecasting (<=10year)|||5. Long-term scenarios (>10 years in future)": [
-          "theme5-5.2-4-near-term-mid-term-forecasting-10year",
-          "theme5-5.2-5-long-term-scenarios-10-years-in-future"
-        ],
-        "1. Single season / cross-sectional|||5. Long-term scenarios (>10 years in future)": [
-          "theme5-5.2-1-single-season-cross-sectional",
-          "theme5-5.2-5-long-term-scenarios-10-years-in-future"
-        ],
-        "1. Single season / cross-sectional|||2. Historical time series|||5. Long-term scenarios (>10 years in future)": [
-          "theme5-5.2-1-single-season-cross-sectional",
-          "theme5-5.2-2-historical-time-series",
-          "theme5-5.2-5-long-term-scenarios-10-years-in-future"
-        ],
-        "3. Panel data|||4. Near-term /Mid-term forecasting (<=10year)": [
-          "theme5-5.2-3-panel-data",
-          "theme5-5.2-4-near-term-mid-term-forecasting-10year"
+        "7. Qualitative, Institutional and Policy Analysis?": [
+          "theme5-5.2-7"
         ]
       },
       "paths": {
-        "5. Long-term scenarios (>10 years in future)": [
-          "Methods and metrics > Method time scale > Long-term scenarios (>10 years in future)"
+        "1. Experimental and measurement- based methods": [
+          "Novel methods > To measure agri-food system impacts on climate change > Experimental and measurement-based methods"
         ],
-        "2. Historical time series": [
-          "Methods and metrics > Method time scale > Historical time series"
+        "2. Statistical Approaches & Trend Analysis": [
+          "Novel methods > To measure agri-food system impacts on climate change > Statistical approaches and trend analysis"
         ],
-        "1. Single season / cross-sectional": [
-          "Methods and metrics > Method time scale > Single season / cross-sectional"
+        "3. Process based physical modelling": [
+          "Novel methods > To measure agri-food system impacts on climate change > Process-based physical modelling"
         ],
-        "6. Not specified / Not clear": [
-          "Methods and metrics > Method time scale > Not specified / Not clear"
+        "4. Integrated Systems & Scenario Analysis": [
+          "Novel methods > To measure agri-food system impacts on climate change > Integrated systems and scenario analysis"
         ],
-        "3. Panel data": [
-          "Methods and metrics > Method time scale > Panel data"
+        "5. Geo-spatial and mapping based analysis": [
+          "Novel methods > To measure agri-food system impacts on climate change > Geospatial and mapping-based analysis"
         ],
-        "4. Near-term /Mid-term forecasting (<=10year)": [
-          "Methods and metrics > Method time scale > Near-term /Mid-term forecasting (<=10year)"
+        "6. Frameworks, metrics, evaluation designs": [
+          "Novel methods > To measure agri-food system impacts on climate change > Frameworks, metrics and evaluation designs"
         ],
-        "0. Not relevant": [],
-        "7. Others": [
-          "Methods and metrics > Method time scale > Others"
-        ],
-        "2. Historical time series|||5. Long-term scenarios (>10 years in future)": [
-          "Methods and metrics > Method time scale > Historical time series",
-          "Methods and metrics > Method time scale > Long-term scenarios (>10 years in future)"
-        ],
-        "1. Single season / cross-sectional|||4. Near-term /Mid-term forecasting (<=10year)": [
-          "Methods and metrics > Method time scale > Single season / cross-sectional",
-          "Methods and metrics > Method time scale > Near-term /Mid-term forecasting (<=10year)"
-        ],
-        "1. Single season / cross-sectional|||2. Historical time series": [
-          "Methods and metrics > Method time scale > Single season / cross-sectional",
-          "Methods and metrics > Method time scale > Historical time series"
-        ],
-        "2. Historical time series|||3. Panel data": [
-          "Methods and metrics > Method time scale > Historical time series",
-          "Methods and metrics > Method time scale > Panel data"
-        ],
-        "4. Near-term /Mid-term forecasting (<=10year)|||5. Long-term scenarios (>10 years in future)": [
-          "Methods and metrics > Method time scale > Near-term /Mid-term forecasting (<=10year)",
-          "Methods and metrics > Method time scale > Long-term scenarios (>10 years in future)"
-        ],
-        "1. Single season / cross-sectional|||5. Long-term scenarios (>10 years in future)": [
-          "Methods and metrics > Method time scale > Single season / cross-sectional",
-          "Methods and metrics > Method time scale > Long-term scenarios (>10 years in future)"
-        ],
-        "1. Single season / cross-sectional|||2. Historical time series|||5. Long-term scenarios (>10 years in future)": [
-          "Methods and metrics > Method time scale > Single season / cross-sectional",
-          "Methods and metrics > Method time scale > Historical time series",
-          "Methods and metrics > Method time scale > Long-term scenarios (>10 years in future)"
-        ],
-        "3. Panel data|||4. Near-term /Mid-term forecasting (<=10year)": [
-          "Methods and metrics > Method time scale > Panel data",
-          "Methods and metrics > Method time scale > Near-term /Mid-term forecasting (<=10year)"
+        "7. Qualitative, Institutional and Policy Analysis?": [
+          "Novel methods > To measure agri-food system impacts on climate change > Qualitative, institutional and policy analysis"
         ]
       }
     },
-    "5.3 Method spatial scale": {
+    "5.3 To measure or investigate adapatation options": {
       "parent": "theme5-5.3",
       "values": {
-        "5. Multiple country/Regional/Continent/Global": [
-          "theme5-5.3-5-multiple-country-regional-continent-global"
+        "1. Experimental and measurement- based methods": [
+          "theme5-5.3-1"
         ],
-        "4. National and/or subnational (within a country)": [
-          "theme5-5.3-4-national-and-or-subnational-within-a-country"
+        "2. Statistical Approaches & Trend Analysis": [
+          "theme5-5.3-2"
         ],
-        "1. Plot/organism": [
-          "theme5-5.3-1-plot-organism"
+        "3. Process based physical modelling": [
+          "theme5-5.3-3"
         ],
-        "3. Landscape/watershed/value chain": [
-          "theme5-5.3-3-landscape-watershed-value-chain"
+        "4. Integrated Systems & Scenario Analysis": [
+          "theme5-5.3-4"
         ],
-        "6. Not specified/not clear": [
-          "theme5-5.3-6-not-specified-not-clear"
+        "5. Geo-spatial and mapping based analysis": [
+          "theme5-5.3-5"
         ],
-        "2. Farm/household/community": [
-          "theme5-5.3-2-farm-household-community"
+        "6. Frameworks, metrics, evaluation designs": [
+          "theme5-5.3-6"
         ],
-        "3. Landscape/watershed/value chain|||4. National and/or subnational (within a country)": [
-          "theme5-5.3-3-landscape-watershed-value-chain",
-          "theme5-5.3-4-national-and-or-subnational-within-a-country"
-        ],
-        "1. Plot/organism|||3. Landscape/watershed/value chain|||4. National and/or subnational (within a country)": [
-          "theme5-5.3-1-plot-organism",
-          "theme5-5.3-3-landscape-watershed-value-chain",
-          "theme5-5.3-4-national-and-or-subnational-within-a-country"
-        ],
-        "2. Farm/household/community|||5. Multiple country/Regional/Continent/Global": [
-          "theme5-5.3-2-farm-household-community",
-          "theme5-5.3-5-multiple-country-regional-continent-global"
-        ],
-        "0. Not relevant": [],
-        "1. Plot/organism|||4. National and/or subnational (within a country)": [
-          "theme5-5.3-1-plot-organism",
-          "theme5-5.3-4-national-and-or-subnational-within-a-country"
-        ],
-        "2. Farm/household/community|||3. Landscape/watershed/value chain": [
-          "theme5-5.3-2-farm-household-community",
-          "theme5-5.3-3-landscape-watershed-value-chain"
-        ],
-        "1. Plot/organism|||5. Multiple country/Regional/Continent/Global": [
-          "theme5-5.3-1-plot-organism",
-          "theme5-5.3-5-multiple-country-regional-continent-global"
-        ],
-        "3. Landscape/watershed/value chain|||5. Multiple country/Regional/Continent/Global": [
-          "theme5-5.3-3-landscape-watershed-value-chain",
-          "theme5-5.3-5-multiple-country-regional-continent-global"
-        ],
-        "1. Plot/organism|||3. Landscape/watershed/value chain": [
-          "theme5-5.3-1-plot-organism",
-          "theme5-5.3-3-landscape-watershed-value-chain"
-        ],
-        "2. Farm/household/community|||4. National and/or subnational (within a country)": [
-          "theme5-5.3-2-farm-household-community",
-          "theme5-5.3-4-national-and-or-subnational-within-a-country"
+        "7. Qualitative, Institutional and Policy Analysis?": [
+          "theme5-5.3-7"
         ]
       },
       "paths": {
-        "5. Multiple country/Regional/Continent/Global": [
-          "Methods and metrics > Method spatial scale > Multiple country/Regional/Continent/Global"
+        "1. Experimental and measurement- based methods": [
+          "Novel methods > To investigate adaptation options in agri-food systems > Experimental and measurement-based methods"
         ],
-        "4. National and/or subnational (within a country)": [
-          "Methods and metrics > Method spatial scale > National and/or subnational (within a country)"
+        "2. Statistical Approaches & Trend Analysis": [
+          "Novel methods > To investigate adaptation options in agri-food systems > Statistical approaches and trend analysis"
         ],
-        "1. Plot/organism": [
-          "Methods and metrics > Method spatial scale > Plot/organism"
+        "3. Process based physical modelling": [
+          "Novel methods > To investigate adaptation options in agri-food systems > Process-based physical modelling"
         ],
-        "3. Landscape/watershed/value chain": [
-          "Methods and metrics > Method spatial scale > Landscape/watershed/value chain"
+        "4. Integrated Systems & Scenario Analysis": [
+          "Novel methods > To investigate adaptation options in agri-food systems > Integrated systems and scenario analysis"
         ],
-        "6. Not specified/not clear": [
-          "Methods and metrics > Method spatial scale > Not specified/not clear"
+        "5. Geo-spatial and mapping based analysis": [
+          "Novel methods > To investigate adaptation options in agri-food systems > Geospatial and mapping-based analysis"
         ],
-        "2. Farm/household/community": [
-          "Methods and metrics > Method spatial scale > Farm/household/community"
+        "6. Frameworks, metrics, evaluation designs": [
+          "Novel methods > To investigate adaptation options in agri-food systems > Frameworks, metrics and evaluation designs"
         ],
-        "3. Landscape/watershed/value chain|||4. National and/or subnational (within a country)": [
-          "Methods and metrics > Method spatial scale > Landscape/watershed/value chain",
-          "Methods and metrics > Method spatial scale > National and/or subnational (within a country)"
-        ],
-        "1. Plot/organism|||3. Landscape/watershed/value chain|||4. National and/or subnational (within a country)": [
-          "Methods and metrics > Method spatial scale > Plot/organism",
-          "Methods and metrics > Method spatial scale > Landscape/watershed/value chain",
-          "Methods and metrics > Method spatial scale > National and/or subnational (within a country)"
-        ],
-        "2. Farm/household/community|||5. Multiple country/Regional/Continent/Global": [
-          "Methods and metrics > Method spatial scale > Farm/household/community",
-          "Methods and metrics > Method spatial scale > Multiple country/Regional/Continent/Global"
-        ],
-        "0. Not relevant": [],
-        "1. Plot/organism|||4. National and/or subnational (within a country)": [
-          "Methods and metrics > Method spatial scale > Plot/organism",
-          "Methods and metrics > Method spatial scale > National and/or subnational (within a country)"
-        ],
-        "2. Farm/household/community|||3. Landscape/watershed/value chain": [
-          "Methods and metrics > Method spatial scale > Farm/household/community",
-          "Methods and metrics > Method spatial scale > Landscape/watershed/value chain"
-        ],
-        "1. Plot/organism|||5. Multiple country/Regional/Continent/Global": [
-          "Methods and metrics > Method spatial scale > Plot/organism",
-          "Methods and metrics > Method spatial scale > Multiple country/Regional/Continent/Global"
-        ],
-        "3. Landscape/watershed/value chain|||5. Multiple country/Regional/Continent/Global": [
-          "Methods and metrics > Method spatial scale > Landscape/watershed/value chain",
-          "Methods and metrics > Method spatial scale > Multiple country/Regional/Continent/Global"
-        ],
-        "1. Plot/organism|||3. Landscape/watershed/value chain": [
-          "Methods and metrics > Method spatial scale > Plot/organism",
-          "Methods and metrics > Method spatial scale > Landscape/watershed/value chain"
-        ],
-        "2. Farm/household/community|||4. National and/or subnational (within a country)": [
-          "Methods and metrics > Method spatial scale > Farm/household/community",
-          "Methods and metrics > Method spatial scale > National and/or subnational (within a country)"
+        "7. Qualitative, Institutional and Policy Analysis?": [
+          "Novel methods > To investigate adaptation options in agri-food systems > Qualitative, institutional and policy analysis"
         ]
       }
     },
-    "5.4 Method data source": {
+    "5.4. To measure or investigate mitigation options": {
       "parent": "theme5-5.4",
       "values": {
-        "3. Spatial/Remote sensing/gridded datasets": [
-          "theme5-5.4-3-spatial-remote-sensing-gridded-datasets"
+        "1. Experimental and measurement- based methods": [
+          "theme5-5.4-1"
         ],
-        "2. Secondary compiled datasets|||3. Spatial/Remote sensing/gridded datasets": [
-          "theme5-5.4-2-secondary-compiled-datasets",
-          "theme5-5.4-3-spatial-remote-sensing-gridded-datasets"
+        "2. Statistical Approaches & Trend Analysis": [
+          "theme5-5.4-2"
         ],
-        "2. Secondary compiled datasets": [
-          "theme5-5.4-2-secondary-compiled-datasets"
+        "3. Process based physical modelling": [
+          "theme5-5.4-3"
         ],
-        "1. Primary field/lab/experiment station": [
-          "theme5-5.4-1-primary-field-lab-experiment-station"
+        "4. Integrated Systems & Scenario Analysis": [
+          "theme5-5.4-4"
         ],
-        "4. Textual/documentary sources": [
-          "theme5-5.4-4-textual-documentary-sources"
+        "5. Geo-spatial and mapping based analysis": [
+          "theme5-5.4-5"
         ],
-        "1. Primary field/lab/experiment station|||3. Spatial/Remote sensing/gridded datasets": [
-          "theme5-5.4-1-primary-field-lab-experiment-station",
-          "theme5-5.4-3-spatial-remote-sensing-gridded-datasets"
+        "6. Frameworks, metrics, evaluation designs": [
+          "theme5-5.4-6"
         ],
-        "2. Secondary compiled datasets|||4. Textual/documentary sources": [
-          "theme5-5.4-2-secondary-compiled-datasets",
-          "theme5-5.4-4-textual-documentary-sources"
-        ],
-        "1. Primary field/lab/experiment station|||4. Textual/documentary sources": [
-          "theme5-5.4-1-primary-field-lab-experiment-station",
-          "theme5-5.4-4-textual-documentary-sources"
-        ],
-        "5. None": [
-          "theme5-5.4-5-none"
-        ],
-        "1. Primary field/lab/experiment station|||2. Secondary compiled datasets": [
-          "theme5-5.4-1-primary-field-lab-experiment-station",
-          "theme5-5.4-2-secondary-compiled-datasets"
-        ],
-        "3. Spatial/Remote sensing/gridded datasets|||4. Textual/documentary sources": [
-          "theme5-5.4-3-spatial-remote-sensing-gridded-datasets",
-          "theme5-5.4-4-textual-documentary-sources"
-        ],
-        "1. Primary field/lab/experiment station|||2. Secondary compiled datasets|||4. Textual/documentary sources": [
-          "theme5-5.4-1-primary-field-lab-experiment-station",
-          "theme5-5.4-2-secondary-compiled-datasets",
-          "theme5-5.4-4-textual-documentary-sources"
-        ],
-        "0. Not relevant": [],
-        "2. Secondary compiled datasets|||3. Spatial/Remote sensing/gridded datasets|||4. Textual/documentary sources": [
-          "theme5-5.4-2-secondary-compiled-datasets",
-          "theme5-5.4-3-spatial-remote-sensing-gridded-datasets",
-          "theme5-5.4-4-textual-documentary-sources"
-        ],
-        "1. Primary field/lab/experiment station|||2. Secondary compiled datasets|||3. Spatial/Remote sensing/gridded datasets": [
-          "theme5-5.4-1-primary-field-lab-experiment-station",
-          "theme5-5.4-2-secondary-compiled-datasets",
-          "theme5-5.4-3-spatial-remote-sensing-gridded-datasets"
-        ],
-        "1. Primary field/lab/experiment station|||5. None": [
-          "theme5-5.4-1-primary-field-lab-experiment-station",
-          "theme5-5.4-5-none"
+        "7. Qualitative, Institutional and Policy Analysis?": [
+          "theme5-5.4-7"
         ]
       },
       "paths": {
-        "3. Spatial/Remote sensing/gridded datasets": [
-          "Methods and metrics > Method data source > Spatial/Remote sensing/gridded datasets"
+        "1. Experimental and measurement- based methods": [
+          "Novel methods > To investigate mitigation options in agri-food systems > Experimental and measurement-based methods"
         ],
-        "2. Secondary compiled datasets|||3. Spatial/Remote sensing/gridded datasets": [
-          "Methods and metrics > Method data source > Secondary compiled datasets",
-          "Methods and metrics > Method data source > Spatial/Remote sensing/gridded datasets"
+        "2. Statistical Approaches & Trend Analysis": [
+          "Novel methods > To investigate mitigation options in agri-food systems > Statistical approaches and trend analysis"
         ],
-        "2. Secondary compiled datasets": [
-          "Methods and metrics > Method data source > Secondary compiled datasets"
+        "3. Process based physical modelling": [
+          "Novel methods > To investigate mitigation options in agri-food systems > Process-based physical modelling"
         ],
-        "1. Primary field/lab/experiment station": [
-          "Methods and metrics > Method data source > Primary field/lab/experiment station"
+        "4. Integrated Systems & Scenario Analysis": [
+          "Novel methods > To investigate mitigation options in agri-food systems > Integrated systems and scenario analysis"
         ],
-        "4. Textual/documentary sources": [
-          "Methods and metrics > Method data source > Textual/documentary sources"
+        "5. Geo-spatial and mapping based analysis": [
+          "Novel methods > To investigate mitigation options in agri-food systems > Geospatial and mapping-based analysis"
         ],
-        "1. Primary field/lab/experiment station|||3. Spatial/Remote sensing/gridded datasets": [
-          "Methods and metrics > Method data source > Primary field/lab/experiment station",
-          "Methods and metrics > Method data source > Spatial/Remote sensing/gridded datasets"
+        "6. Frameworks, metrics, evaluation designs": [
+          "Novel methods > To investigate mitigation options in agri-food systems > Frameworks, metrics and evaluation designs"
         ],
-        "2. Secondary compiled datasets|||4. Textual/documentary sources": [
-          "Methods and metrics > Method data source > Secondary compiled datasets",
-          "Methods and metrics > Method data source > Textual/documentary sources"
-        ],
-        "1. Primary field/lab/experiment station|||4. Textual/documentary sources": [
-          "Methods and metrics > Method data source > Primary field/lab/experiment station",
-          "Methods and metrics > Method data source > Textual/documentary sources"
-        ],
-        "5. None": [
-          "Methods and metrics > Method data source > None"
-        ],
-        "1. Primary field/lab/experiment station|||2. Secondary compiled datasets": [
-          "Methods and metrics > Method data source > Primary field/lab/experiment station",
-          "Methods and metrics > Method data source > Secondary compiled datasets"
-        ],
-        "3. Spatial/Remote sensing/gridded datasets|||4. Textual/documentary sources": [
-          "Methods and metrics > Method data source > Spatial/Remote sensing/gridded datasets",
-          "Methods and metrics > Method data source > Textual/documentary sources"
-        ],
-        "1. Primary field/lab/experiment station|||2. Secondary compiled datasets|||4. Textual/documentary sources": [
-          "Methods and metrics > Method data source > Primary field/lab/experiment station",
-          "Methods and metrics > Method data source > Secondary compiled datasets",
-          "Methods and metrics > Method data source > Textual/documentary sources"
-        ],
-        "0. Not relevant": [],
-        "2. Secondary compiled datasets|||3. Spatial/Remote sensing/gridded datasets|||4. Textual/documentary sources": [
-          "Methods and metrics > Method data source > Secondary compiled datasets",
-          "Methods and metrics > Method data source > Spatial/Remote sensing/gridded datasets",
-          "Methods and metrics > Method data source > Textual/documentary sources"
-        ],
-        "1. Primary field/lab/experiment station|||2. Secondary compiled datasets|||3. Spatial/Remote sensing/gridded datasets": [
-          "Methods and metrics > Method data source > Primary field/lab/experiment station",
-          "Methods and metrics > Method data source > Secondary compiled datasets",
-          "Methods and metrics > Method data source > Spatial/Remote sensing/gridded datasets"
-        ],
-        "1. Primary field/lab/experiment station|||5. None": [
-          "Methods and metrics > Method data source > Primary field/lab/experiment station",
-          "Methods and metrics > Method data source > None"
+        "7. Qualitative, Institutional and Policy Analysis?": [
+          "Novel methods > To investigate mitigation options in agri-food systems > Qualitative, institutional and policy analysis"
         ]
       }
     }
@@ -3983,189 +3689,207 @@
       {
         "id": "theme5",
         "code": "5",
-        "label": "Methods and metrics",
+        "label": "Novel methods",
         "count": 667,
         "color": "#D6EEFF",
         "children": [
           {
             "id": "theme5-5.1",
             "code": "5.1",
-            "label": "Novel Methods types",
-            "count": 667,
+            "label": "To measure climate change impacts on agri-food systems",
+            "count": 0,
             "children": [
               {
-                "id": "theme5-5.1-6-frameworks-metrics-evaluation-designs",
-                "code": "6.",
-                "label": "6. Frameworks, metrics, evaluation designs",
-                "count": 148
+                "id": "theme5-5.1-1",
+                "code": "1",
+                "label": "Experimental and measurement-based methods",
+                "count": 0
               },
               {
-                "id": "theme5-5.1-4-integrated-systems-scenario-analysis",
-                "code": "4.",
-                "label": "4. Integrated Systems & Scenario Analysis",
-                "count": 115
+                "id": "theme5-5.1-2",
+                "code": "2",
+                "label": "Statistical approaches and trend analysis",
+                "count": 0
               },
               {
-                "id": "theme5-5.1-5-geo-spatial-and-mapping-based-analysis",
-                "code": "5.",
-                "label": "5. Geo-spatial and mapping based analysis",
-                "count": 102
+                "id": "theme5-5.1-3",
+                "code": "3",
+                "label": "Process-based physical modelling",
+                "count": 0
               },
               {
-                "id": "theme5-5.1-3-process-based-physical-modelling",
-                "code": "3.",
-                "label": "3. Process based physical modelling",
-                "count": 86
+                "id": "theme5-5.1-4",
+                "code": "4",
+                "label": "Integrated systems and scenario analysis",
+                "count": 0
               },
               {
-                "id": "theme5-5.1-2-statistical-approaches-trend-analysis",
-                "code": "2.",
-                "label": "2. Statistical Approaches & Trend Analysis",
-                "count": 83
+                "id": "theme5-5.1-5",
+                "code": "5",
+                "label": "Geospatial and mapping-based analysis",
+                "count": 0
               },
               {
-                "id": "theme5-5.1-1-experimental-and-measurement-based-methods",
-                "code": "1.",
-                "label": "1. Experimental and measurement- based methods",
-                "count": 73
+                "id": "theme5-5.1-6",
+                "code": "6",
+                "label": "Frameworks, metrics and evaluation designs",
+                "count": 0
               },
               {
-                "id": "theme5-5.1-7-qualitative-institutional-and-policy-analysis",
-                "code": "7.",
-                "label": "7. Qualitative, Institutional and Policy Analysis?",
-                "count": 70
+                "id": "theme5-5.1-7",
+                "code": "7",
+                "label": "Qualitative, institutional and policy analysis",
+                "count": 0
               }
             ]
           },
           {
             "id": "theme5-5.2",
             "code": "5.2",
-            "label": "Method time scale",
-            "count": 643,
+            "label": "To measure agri-food system impacts on climate change",
+            "count": 0,
             "children": [
               {
-                "id": "theme5-5.2-1-single-season-cross-sectional",
-                "code": "1.",
-                "label": "1. Single season / cross-sectional",
-                "count": 206
+                "id": "theme5-5.2-1",
+                "code": "1",
+                "label": "Experimental and measurement-based methods",
+                "count": 0
               },
               {
-                "id": "theme5-5.2-2-historical-time-series",
-                "code": "2.",
-                "label": "2. Historical time series",
-                "count": 195
+                "id": "theme5-5.2-2",
+                "code": "2",
+                "label": "Statistical approaches and trend analysis",
+                "count": 0
               },
               {
-                "id": "theme5-5.2-5-long-term-scenarios-10-years-in-future",
-                "code": "5.",
-                "label": "5. Long-term scenarios (>10 years in future)",
-                "count": 119
+                "id": "theme5-5.2-3",
+                "code": "3",
+                "label": "Process-based physical modelling",
+                "count": 0
               },
               {
-                "id": "theme5-5.2-6-not-specified-not-clear",
-                "code": "6.",
-                "label": "6. Not specified / Not clear",
-                "count": 89
+                "id": "theme5-5.2-4",
+                "code": "4",
+                "label": "Integrated systems and scenario analysis",
+                "count": 0
               },
               {
-                "id": "theme5-5.2-3-panel-data",
-                "code": "3.",
-                "label": "3. Panel data",
-                "count": 34
+                "id": "theme5-5.2-5",
+                "code": "5",
+                "label": "Geospatial and mapping-based analysis",
+                "count": 0
               },
               {
-                "id": "theme5-5.2-4-near-term-mid-term-forecasting-10year",
-                "code": "4.",
-                "label": "4. Near-term /Mid-term forecasting (<=10year)",
-                "count": 23
+                "id": "theme5-5.2-6",
+                "code": "6",
+                "label": "Frameworks, metrics and evaluation designs",
+                "count": 0
               },
               {
-                "id": "theme5-5.2-7-others",
-                "code": "7.",
-                "label": "7. Others",
-                "count": 1
+                "id": "theme5-5.2-7",
+                "code": "7",
+                "label": "Qualitative, institutional and policy analysis",
+                "count": 0
               }
             ]
           },
           {
             "id": "theme5-5.3",
             "code": "5.3",
-            "label": "Method spatial scale",
-            "count": 662,
+            "label": "To investigate adaptation options in agri-food systems",
+            "count": 0,
             "children": [
               {
-                "id": "theme5-5.3-4-national-and-or-subnational-within-a-country",
-                "code": "4.",
-                "label": "4. National and/or subnational (within a country)",
-                "count": 252
+                "id": "theme5-5.3-1",
+                "code": "1",
+                "label": "Experimental and measurement-based methods",
+                "count": 0
               },
               {
-                "id": "theme5-5.3-5-multiple-country-regional-continent-global",
-                "code": "5.",
-                "label": "5. Multiple country/Regional/Continent/Global",
-                "count": 225
+                "id": "theme5-5.3-2",
+                "code": "2",
+                "label": "Statistical approaches and trend analysis",
+                "count": 0
               },
               {
-                "id": "theme5-5.3-1-plot-organism",
-                "code": "1.",
-                "label": "1. Plot/organism",
-                "count": 76
+                "id": "theme5-5.3-3",
+                "code": "3",
+                "label": "Process-based physical modelling",
+                "count": 0
               },
               {
-                "id": "theme5-5.3-3-landscape-watershed-value-chain",
-                "code": "3.",
-                "label": "3. Landscape/watershed/value chain",
-                "count": 67
+                "id": "theme5-5.3-4",
+                "code": "4",
+                "label": "Integrated systems and scenario analysis",
+                "count": 0
               },
               {
-                "id": "theme5-5.3-2-farm-household-community",
-                "code": "2.",
-                "label": "2. Farm/household/community",
-                "count": 55
+                "id": "theme5-5.3-5",
+                "code": "5",
+                "label": "Geospatial and mapping-based analysis",
+                "count": 0
               },
               {
-                "id": "theme5-5.3-6-not-specified-not-clear",
-                "code": "6.",
-                "label": "6. Not specified/not clear",
-                "count": 11
+                "id": "theme5-5.3-6",
+                "code": "6",
+                "label": "Frameworks, metrics and evaluation designs",
+                "count": 0
+              },
+              {
+                "id": "theme5-5.3-7",
+                "code": "7",
+                "label": "Qualitative, institutional and policy analysis",
+                "count": 0
               }
             ]
           },
           {
             "id": "theme5-5.4",
             "code": "5.4",
-            "label": "Method data source",
-            "count": 665,
+            "label": "To investigate mitigation options in agri-food systems",
+            "count": 0,
             "children": [
               {
-                "id": "theme5-5.4-1-primary-field-lab-experiment-station",
-                "code": "1.",
-                "label": "1. Primary field/lab/experiment station",
-                "count": 296
+                "id": "theme5-5.4-1",
+                "code": "1",
+                "label": "Experimental and measurement-based methods",
+                "count": 0
               },
               {
-                "id": "theme5-5.4-3-spatial-remote-sensing-gridded-datasets",
-                "code": "3.",
-                "label": "3. Spatial/Remote sensing/gridded datasets",
-                "count": 221
+                "id": "theme5-5.4-2",
+                "code": "2",
+                "label": "Statistical approaches and trend analysis",
+                "count": 0
               },
               {
-                "id": "theme5-5.4-2-secondary-compiled-datasets",
-                "code": "2.",
-                "label": "2. Secondary compiled datasets",
-                "count": 177
+                "id": "theme5-5.4-3",
+                "code": "3",
+                "label": "Process-based physical modelling",
+                "count": 0
               },
               {
-                "id": "theme5-5.4-4-textual-documentary-sources",
-                "code": "4.",
-                "label": "4. Textual/documentary sources",
-                "count": 95
+                "id": "theme5-5.4-4",
+                "code": "4",
+                "label": "Integrated systems and scenario analysis",
+                "count": 0
               },
               {
-                "id": "theme5-5.4-5-none",
-                "code": "5.",
-                "label": "5. None",
-                "count": 14
+                "id": "theme5-5.4-5",
+                "code": "5",
+                "label": "Geospatial and mapping-based analysis",
+                "count": 0
+              },
+              {
+                "id": "theme5-5.4-6",
+                "code": "6",
+                "label": "Frameworks, metrics and evaluation designs",
+                "count": 0
+              },
+              {
+                "id": "theme5-5.4-7",
+                "code": "7",
+                "label": "Qualitative, institutional and policy analysis",
+                "count": 0
               }
             ]
           }
@@ -4362,10 +4086,6 @@
     "Quantitative estimate of GHG mitigated",
     "Mitigation with adaptation benefits",
     "5 Which theme purpose the method is used",
-    "5.1 Novel Methods types",
-    "5.2 Method time scale",
-    "5.3 Method spatial scale",
-    "5.4 Method data source",
     "lens_title",
     "lens_authors",
     "lens_publication_year",
@@ -4386,7 +4106,11 @@
     "openalex_abstract",
     "openalex_id",
     "openalex_match_status",
-    "Journal"
+    "Journal",
+    "5.1 To measure impact of climate change on agri-food systems",
+    "5.2 To measure impact of agri-food systems on climate change|||4. To measure or investigate mitigation options",
+    "5.3 To measure or investigate adapatation options",
+    "5.4. To measure or investigate mitigation options"
   ],
   "reference": {
     "records": 2652,
