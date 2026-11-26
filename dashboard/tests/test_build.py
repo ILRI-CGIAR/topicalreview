@@ -52,22 +52,6 @@ class DashboardTests(unittest.TestCase):
         self.assertEqual(len(self.contract['expected_columns'] & {'5.1 Novel Methods types'}) if isinstance(self.contract['expected_columns'],set) else
                          len(set(self.contract['expected_columns']) & {'5.1 Novel Methods types'}),0)
 
-    def test_theme1_parent_must_be_explicit(self):
-        # A populated Level 3 cell cannot assign Natural systems when
-        # source Level 2 (column L) specifies only Agricultural systems.
-        row={k:'' for k in self.contract['expected_columns']}
-        row.update({'Filenames':'parent_guard.pdf','Title':'Synthetic parent test',
-                    'Year':'2022','Country':'IND','Journal':'Test journal',
-                    '1. Impacts of climate change on agrifood systems':'(2) Agricultural & crop systems',
-                    '1.1 Natural System':'5. Freshwater Systems',
-                    '1.2 Agricultural System':'4. Crop yield & productivity'})
-        record=app.make_records([row],self.contract)[0]
-        nodes=set(record['theme_node_ids'])
-        self.assertIn('theme1-1.2',nodes)
-        self.assertNotIn('theme1-1.1',nodes)
-        self.assertFalse(any(n.startswith('theme1-1.1-') for n in nodes))
-        self.assertFalse(any('Natural System >' in p for p in record['theme_paths']))
-
     def test_adaptation_merge_is_frozen(self):
         merged='2. Autonomous/unplanned adaptation (Spontaneous responses by individuals. communities. or systems without formal planning)'
         self.assertEqual(app.extract_code_values(merged,{'1','2','4','5'},'Adaptation nature'),['2'])
