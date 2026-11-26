@@ -164,7 +164,20 @@ def make_records(rows, contract):
                         if definition['parent'].startswith(root+'-')]
             master_value=next((row[col].strip() for col,node in master.items() if node==root),'')
             child_groups=[]
+            # The Theme 1 Level 2 assignments are explicitly coded in the
+            # master/source column (e.g. '(1) Natural systems'). A populated
+            # Level 3 column must NEVER manufacture a Level 2 assignment.
+            # This also prevents exporting orphan Level 3 codes as if they
+            # belonged to a parent category that was not coded.
+            explicit_theme1_parents = (
+                {m.group(1) for m in re.finditer(r'\(([123])\)', master_value)}
+                if root == 'theme1' else None
+            )
             for col,definition in subcolumns:
+                if root == 'theme1':
+                    parent_code = definition['parent'].split('.')[-1]
+                    if parent_code not in explicit_theme1_parents:
+                        continue
                 raw=(row.get(col) or '').strip()
                 if not raw:continue
                 mapping=definition['values']
