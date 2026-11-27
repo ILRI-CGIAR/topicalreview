@@ -1124,14 +1124,14 @@ function renderRegionChart(){
  const data=filteredBase().filter(r=>!(r.countries||[]).length);
  const counts=new Map();
  for(const r of data){
-   const regions=[...new Set(String(r.region||'').split(';').map(v=>v.trim()).filter(Boolean).map(region=>region==='South America'||region==='Central America'?'Central and South America':region))];
+   const regions=[...new Set(String(r.region||'').split(';').map(v=>v.trim()).filter(Boolean).map(region=>region==='South America'||region==='Central America'||region==='America'?'Central and South America':region))];
    if(!regions.length)regions.push('Not applicable');
    for(const region of regions)counts.set(region,(counts.get(region)||0)+1);
  }
  const entries=[...counts.entries()].sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0]));
  const names=entries.map(e=>e[0]), values=entries.map(e=>e[1]);
  const note=el('regionChartNote');
- note.textContent=data.length.toLocaleString('en-GB')+' articles without country data match the current year, product, theme and Boolean filters. Regions follow the source Region field; Central America and South America are displayed together as Central and South America (each article counted once within that combined category). Articles coded to multiple distinct regions contribute to each region, so bar totals may exceed the number of articles. “Not applicable” indicates a blank region; “Global” retains the original source coding.';
+ note.textContent=data.length.toLocaleString('en-GB')+' articles without country data match the current year, product, theme and Boolean filters. Regions follow the source Region field; Central America, South America and America are displayed together as Central and South America (each article counted once within that combined category). Articles coded to multiple distinct regions contribute to each region, so bar totals may exceed the number of articles. “Not applicable” indicates a blank region; “Global” retains the original source coding.';
  if(typeof Plotly==='undefined'){el('regionChart').innerHTML='<p style="padding:24px">The interactive chart needs an internet connection to load Plotly.</p>';return;}
  const height=Math.max(330,entries.length*29+110);
  el('regionChart').style.height=height+'px';
